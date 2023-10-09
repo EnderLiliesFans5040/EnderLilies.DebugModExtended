@@ -1,0 +1,8 @@
+{
+	"BuildId": "14830424",
+	"Modules": 
+	{
+		"OnlineSubsystemSteam": "UE4Editor-OnlineSubsystemSteam.dll",
+		"Zenith": "UE4Editor-Zenith.dll"
+	}
+}

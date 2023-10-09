@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 5,
+	"VersionName": "1.4",
+	"FriendlyName": "Event Plugin",
+	"Description": "A node-based event editor.",
+	"Category": "Misc",
+	"CreatedBy": "CodeSpartan+Livewire",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "EventPlugin",
+			"Type": "Runtime",
+			"LoadingPhase": "PreDefault"
+		}
+	]
+}

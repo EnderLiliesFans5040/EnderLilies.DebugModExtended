@@ -1,0 +1,18 @@
+{
+	"FileVersion": 3,
+	"Version": 2,
+	"VersionName": "2.0",
+	"FriendlyName": "Zenith PS4 Media Player",
+	"Description": "Implements a media playback using the PS4 media API.",
+	"Category": "Media Players",
+	"CreatedBy": "Epic Games, Inc.",
+	"CreatedByURL": "http://epicgames.com",
+	"DocsURL": "https://forums.unrealengine.com/showthread.php?46879-Media-Framework-Documentation-for-4-5-Preview",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EnabledByDefault": true,
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": true
+}

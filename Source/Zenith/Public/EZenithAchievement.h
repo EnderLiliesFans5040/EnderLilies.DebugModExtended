@@ -1,0 +1,47 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "EZenithAchievement.generated.h"
+
+UENUM(BlueprintType)
+enum class EZenithAchievement : uint8 {
+    Invalid,
+    SpiritGet_S5010,
+    SpiritGet_S5020,
+    SpiritGet_S5030,
+    SpiritGet_S5040,
+    SpiritGet_S5050,
+    SpiritGet_S5060,
+    SpiritGet_S5070,
+    SpiritGet_S5080,
+    SpiritGet_AllBosses,
+    SpiritGet_Count_5,
+    SpiritGet_Count_10,
+    SpiritGet_Count_15,
+    SpiritGet_Count_ALL,
+    SpiritLevel_Max_Count_1,
+    SpiritLevel_Max_Count_5,
+    SpiritLevel_Max_S5000,
+    PassiveGet_Count_1,
+    PassiveGet_Count_10,
+    PassiveGet_Count_ALL,
+    ItemGet_HpMax_ALL,
+    ItemGet_HealPower_ALL,
+    ItemGet_PassiveSlot_ALL,
+    TipsGet_024To028,
+    TipsGet_045,
+    TipsGet_ALL,
+    PlayerLevel_10,
+    PlayerLevel_50,
+    PlayerLevel_100,
+    RestPoint_Count_10,
+    RestPoint_Count_ALL,
+    Maps_Open_ALL,
+    Strengthen_First_Use,
+    Ending_A,
+    Ending_B,
+    Ending_C,
+    Action_Dash_Lv3,
+    Action_Pile_Lv3,
+    Passive_Get_Final,
+};
+
