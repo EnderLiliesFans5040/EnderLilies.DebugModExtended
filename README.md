@@ -1,8 +1,8 @@
+**English** | [简体中文](README_CN.md)
 # EnderLilies.DebugMod
 Debug mod for ENDER LILIES: Quietus of the night
-[Upstream](https://github.com/Trexounay/EnderLilies.DebugMod)
-Fixes and More features(and bugs).
-Not stable.
+
+[Upstream](https://github.com/Trexounay/EnderLilies.DebugMod)Fixes and More features(and bugs).
 ## Instalation
  - Download the latest [release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases)
  - Extract the zip file in the "Paks" directory of Ender Lilies' installation folder:
@@ -42,7 +42,7 @@ Not stable.
  - **[shift]+[F5]** Switch all enemies' faction to player/enemy
  - **[ctrl]+[F5]** Change last enemy's faction to player
  - **[shift]+[F6]** Switch enemies' faction(random)
- - **[shift]+[F7]** Swap enemies' faction(random)
+ - **[shift]+[F7]** Swap enemies' faction
  
 - **[Page Up]** Increase game speed
 - **[Page Down]** Decrease game speed
