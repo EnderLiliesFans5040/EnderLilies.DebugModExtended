@@ -2,7 +2,7 @@
 # EnderLilies.DebugMod
 终焉的莉莉丝 Debug Mod
 
-[上游](https://github.com/Trexounay/EnderLilies.DebugMod)一些修正和更多的功能(也可能有更多bug).
+[上游](https://github.com/Trexounay/EnderLilies.DebugMod) 一些修正和更多的功能(也可能有更多bug).
 ## 安装
  - 下载最新 [release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases)
  - 解压缩到 Ender Lilies 的安装目录下的 Paks 目录
