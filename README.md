@@ -4,11 +4,11 @@ Debug mod for ENDER LILIES: Quietus of the night
 
 [Upstream](https://github.com/Trexounay/EnderLilies.DebugMod) Fixes and More features(and bugs).
 ## Instalation
- - Download the latest [release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases) zip
+ - Download the latest [release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases/latest) zip
  - Extract the zip file in the "Paks" directory of Ender Lilies' installation folder:
  `steamapps\common\ENDER LILIES\EnderLilies\Content\Paks\`
  - The zip works from version 1.0.3 to version 1.1.6 of the game
- - Early Access requires DebugMod_0_P.pak, function of DebugMod's EA version is now same as [Upstream](https://github.com/Trexounay/EnderLilies.DebugMod), need to download DebugMod_0_P.pak from [release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases) and put into "Paks" directory
+ - Early Access requires DebugMod_0_P.pak, function of DebugMod's EA version is now same as [Upstream](https://github.com/Trexounay/EnderLilies.DebugMod), need to download DebugMod_0_P.pak from [release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases/latest) and put into "Paks" directory
  - Press **[F1]** during game to show the available hotkeys
  - :warning:  Make sure to remove any mods before submitting a speedrun of the game
 

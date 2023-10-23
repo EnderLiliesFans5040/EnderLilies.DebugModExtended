@@ -4,11 +4,11 @@
 
 [上游](https://github.com/Trexounay/EnderLilies.DebugMod) 一些修正和更多的功能(也可能有更多bug).
 ## 安装
- - 下载最新 [release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases) zip压缩包
+ - 下载最新 [release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases/latest) zip压缩包
  - 解压缩到 Ender Lilies 的安装目录下的 Paks 目录
  `steamapps\common\ENDER LILIES\EnderLilies\Content\Paks\`
  - 适配游戏版本1.0.3到1.1.6
- - EA版本需要DebugMod_0_P.pak, EA版本的mod功能目前与[上游](https://github.com/Trexounay/EnderLilies.DebugMod)相同, 需要下载[release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases)中的DebugMod_0_P.pak到 Paks 目录
+ - EA版本需要DebugMod_0_P.pak, EA版本的mod功能目前与[上游](https://github.com/Trexounay/EnderLilies.DebugMod)相同, 需要下载[release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases/latest)中的DebugMod_0_P.pak到 Paks 目录
  - 进入存档后按下 **[F1]** 以显示帮助
  - :warning:  不要在提交的速通中使用任何mod
 
