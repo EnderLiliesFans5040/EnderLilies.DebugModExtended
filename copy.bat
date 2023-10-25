@@ -14,4 +14,3 @@ if exist "%GAMEPATH2%\Content\Paks\%MODNAME%\" RD /S /Q "%GAMEPATH2%\Content\Pak
 
 XCOPY /Y /C /I /E "%PROJPATH%\%MODNAME%" "%GAMEPATH%\Content\Paks\%MODNAME%"
 XCOPY /Y /C /I /E "%PROJPATH%\%MODNAME%" "%GAMEPATH2%\Content\Paks\%MODNAME%"
-pause
