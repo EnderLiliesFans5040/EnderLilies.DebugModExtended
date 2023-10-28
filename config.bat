@@ -1,5 +1,5 @@
 set UE4PATH=D:\prog\Epic Games\UE4\UE_4.26
-set GAMEPATH=D:\prog\steam\steamapps\common\ENDER LILIES\EnderLilies
+set GAMEPATH=D:\work\EnderLiliesMod\ENDER LILIES\EnderLilies
 set GAMEPATH2=D:\work\executor\ENDER LILIES\EnderLilies
 set MODNAME=DebugMod
 

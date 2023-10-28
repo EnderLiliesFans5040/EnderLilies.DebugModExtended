@@ -55,4 +55,11 @@ Debug mod for ENDER LILIES: Quietus of the night
 
 Additional relic and spirit in test.
 
+## Build Instruction
+Prerequisites:UE4.26,vs2019/2022(desktop and game with c++)
+- clone repo, checkout latest release tag if you need(main is not stable as latest release).
+- download [FMOD Plugin](https://www.fmod.com/download#fmodforunreal) and SpinePlugin(download spine-runtime, follow instruction in spine-runtimes-x.x.xx/spine-ue4/README.md), put "FMODStudio" and "SpinePlugin" into "Plugins".
+- open uproject let setup finish
+- edit path in config.bat, StagingDirectory in Config/DefaultGame.ini and hit package.bat, DebugMod will be installed.
+
 Enjoy!
