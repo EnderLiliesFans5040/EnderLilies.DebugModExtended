@@ -32,8 +32,8 @@
  - **[shift]+[F12]** 生成boss数组中的boss
 
  - **Hitboxes** 展示Hitbox(攻击或者抛射物)
- - **Colliders** 展示Hurtbox和碰撞胶囊
- - **Triggers** 展示为几何形式
+ - **Colliders** 展示为几何形式
+ - **Triggers** 展示触发器, Hurtbox和碰撞胶囊
  - **Animations** 展示动画名
  - **Locations** 展示位置和速度
  - **[shift]+[F1]** 召唤随机boss

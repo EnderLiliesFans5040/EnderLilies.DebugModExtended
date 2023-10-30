@@ -32,8 +32,8 @@ Debug mod for ENDER LILIES: Quietus of the night
  - **[shift]+[F12]** Paste boss in boss array
 
  - **Hitboxes** Show hitboxes of attacks and projectiles
- - **Colliders** Show hurtboxes and collision capsules of characters
- - **Triggers** Show colliders/geometry
+ - **Colliders** Show colliders/geometry
+ - **Triggers** Show triggers, hurtboxes and collision capsules of characters
  - **Animations** Show animations
  - **Locations** Show locations and velocity.
  - **[shift]+[F1]** Spawn random boss
