@@ -2,7 +2,7 @@
 # EnderLilies.DebugMod
 Debug mod for ENDER LILIES: Quietus of the night
 
-[Upstream](https://github.com/Trexounay/EnderLilies.DebugMod) Fixes and More features(and bugs).
+[Upstream](https://github.com/Trexounay/EnderLilies.DebugMod) More features and bugs.
 ## Instalation
  - Download the latest [release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases/latest) zip
  - Extract the zip file in the "Paks" directory of Ender Lilies' installation folder:
@@ -36,9 +36,6 @@ Debug mod for ENDER LILIES: Quietus of the night
  - **Triggers** Show triggers, hurtboxes and collision capsules of characters
  - **Animations** Show animations
  - **Locations** Show locations and velocity.
- - **[shift]+[F1]** Spawn random boss
- - **[shift]+[F2]** Spawn random boss periodically.
- - **[shift]+[F3]** Spawn all bosses available.
  - **[shift]+[F4]** Clear enemies spawned.
  - **[shift]+[F5]** Switch all enemies' faction to player/enemy
  - **[ctrl]+[F5]** Change last enemy's faction to player

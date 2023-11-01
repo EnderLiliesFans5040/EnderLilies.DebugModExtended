@@ -2,7 +2,7 @@
 # EnderLilies.DebugMod
 终焉的莉莉丝 Debug Mod
 
-[上游](https://github.com/Trexounay/EnderLilies.DebugMod) 一些修正和更多的功能(也可能有更多bug).
+[上游](https://github.com/Trexounay/EnderLilies.DebugMod) 更多的功能和bug.
 ## 安装
  - 下载最新 [release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases/latest) zip压缩包
  - 解压缩到 Ender Lilies 的安装目录下的 Paks 目录
@@ -36,9 +36,6 @@
  - **Triggers** 展示触发器, Hurtbox和碰撞胶囊
  - **Animations** 展示动画名
  - **Locations** 展示位置和速度
- - **[shift]+[F1]** 召唤随机boss
- - **[shift]+[F2]** 周期性召唤随机boss
- - **[shift]+[F3]** 召唤9个boss
  - **[shift]+[F4]** 删除已召唤的敌人
  - **[shift]+[F5]** 更改所有敌人的阵营到(玩家/敌方)
  - **[ctrl]+[F5]** 将最后一名boss的阵营改为玩家
