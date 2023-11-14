@@ -24,7 +24,6 @@ Debug mod for ENDER LILIES: Quietus of the night
  - **[F7]** One Hit KO
  - **[F8]** Refill HP/SP
  - **[F9]** Force Lily Walk
- - **[F10]** challenge mode, hide/unhide and teleport enemies periodically.
  - **Reformat HP UI** If there are multiple enemies(2~5) this would be useful
  - **Event Mode** Enemies no longer target at you, but you can not interact with events
  - **[shift]+[F8]** Copy boss in this scene
