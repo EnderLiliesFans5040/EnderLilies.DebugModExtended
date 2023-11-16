@@ -12,7 +12,7 @@ For /R "%PROJPATH%\%MODNAME%\" %%# in ("*.*") Do (
   ren "%%#" "%MODNAME%_0_P%%~x#"
 )
 For /R "%PROJPATH%\%MOD2NAME%\" %%# in ("*.*") Do (
-  ren "%%#" "%MOD2NAME%_1_P%%~x#"
+  ren "%%#" "%MOD2NAME%_0_P%%~x#"
 )
 
 if exist "%GAMEPATH%\Content\Paks\%MODNAME%\" RD /S /Q "%GAMEPATH%\Content\Paks\%MODNAME%%"
