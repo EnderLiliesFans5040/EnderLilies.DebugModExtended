@@ -4,7 +4,8 @@ Debug mod for ENDER LILIES: Quietus of the night
 
 [Upstream](https://github.com/Trexounay/EnderLilies.DebugMod) More features and bugs.
 ## Instalation
- - Download the latest [release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases/latest) zip
+ - Download the latest [release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases/latest) DebugMod zip
+ - [Optional] Download ExtraMod zip
  - Extract the zip file in the "Paks" directory of Ender Lilies' installation folder:
  `steamapps\common\ENDER LILIES\EnderLilies\Content\Paks\`
  - The zip works from version 1.0.3 to version 1.1.6 of the game
@@ -24,6 +25,7 @@ Debug mod for ENDER LILIES: Quietus of the night
  - **[F7]** One Hit KO
  - **[F8]** Refill HP/SP
  - **[F9]** Force Lily Walk
+ - **[shift]+[F9]** Lily can move during rest
  - **Reformat HP UI** If there are multiple enemies(2~5) this would be useful
  - **Event Mode** Enemies no longer target at you, but you can not interact with events
  - **[shift]+[F8]** Copy boss in this scene
@@ -34,22 +36,29 @@ Debug mod for ENDER LILIES: Quietus of the night
  - **Colliders** Show colliders/geometry
  - **Triggers** Show triggers, hurtboxes and collision capsules of characters
  - **Animations** Show animations
- - **Locations** Show locations and velocity.
+ - **Locations** Show locations and velocity
+ - **[shift]+[F1]** Spawn random boss
+ - **[shift]+[F2]** Toggle: Spawn random boss periodically
+ - **[shift]+[F3]** Spawn all bosses available
  - **[shift]+[F4]** Clear enemies spawned.
  - **[shift]+[F5]** Switch all enemies' faction to player/enemy
  - **[ctrl]+[F5]** Change last enemy's faction to player
  - **[shift]+[F6]** Switch enemies' faction(random)
  - **[shift]+[F7]** Swap enemies' faction
  
-- **[Page Up]** Increase game speed
-- **[Page Down]** Decrease game speed
-- **[Home]** Reset speed
-- **[End]** Pause game (set speed to 0)
+ - **[Page Up]** Increase game speed
+ - **[Page Down]** Decrease game speed
+ - **[Home]** Reset speed
+ - **[End]** Pause game (set speed to 0)
 
-- **[ctrl]+[F1]** Clone Lily
-- **[ctrl]+[F2]** Change Lilies' animation
+ - **[ctrl]+[F1]** Clone Lily
+ - **[ctrl]+[F2]** Control next Lily
+ - **[ctrl]+[F3]** Control previous Lily
+ - **[ctrl]+[F4]** Clear cloned Lilies
+ - **[ctrl]+[F6]** Change Lilies' animation
+ - **[ctrl]+[F12]** Toggle gravity
 
-Additional relic and spirit in test.
+Additional relic and spirit in test(in ExtraMod).
 
 ## First Time Build Instruction
 Prerequisites: UE4.26, vs2019/2022(desktop and game with c++)

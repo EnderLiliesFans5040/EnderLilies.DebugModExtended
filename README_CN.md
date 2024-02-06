@@ -4,7 +4,8 @@
 
 [上游](https://github.com/Trexounay/EnderLilies.DebugMod) 更多的功能和bug.
 ## 安装
- - 下载最新 [release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases/latest) zip压缩包
+ - 下载最新 [release](https://github.com/EnderLiliesFans5040/EnderLilies-Debug-Mod/releases/latest) DebugMod zip压缩包
+ - [可选]下载ExtraMod zip 压缩包
  - 解压缩到 Ender Lilies 的安装目录下的 Paks 目录
  `steamapps\common\ENDER LILIES\EnderLilies\Content\Paks\`
  - 适配游戏版本1.0.3到1.1.6
@@ -24,6 +25,7 @@
  - **[F7]** 一击必杀
  - **[F8]** 恢复所有HP/SP/技能使用次数
  - **[F9]** 使莉莉慢走而不是跑
+ - **[shift]+[F9]** 莉莉能够在休息时移动
  - **Reformat HP UI** 多个boss(2~5) 存在时, 使血条不重叠
  - **Event Mode** 无法再指定莉莉为敌人, 无法与环境交互
  - **[shift]+[F8]** 复制场景中的boss
@@ -35,20 +37,27 @@
  - **Triggers** 展示触发器, Hurtbox和碰撞胶囊
  - **Animations** 展示动画名
  - **Locations** 展示位置和速度
+ - **[shift]+[F1]** 生成某一随机boss(仅限某些副技能boss)
+ - **[shift]+[F2]** 切换启用状态:定期生成某一随机boss(仅限某些副技能boss)
+ - **[shift]+[F3]** 生成所有boss(仅限某些副技能boss)
  - **[shift]+[F4]** 删除已召唤的敌人
  - **[shift]+[F5]** 更改所有敌人的阵营到(玩家/敌方)
  - **[ctrl]+[F5]** 将最后一名boss的阵营改为玩家
  - **[shift]+[F6]** 随机化阵营
  - **[shift]+[F7]** 交换阵营
  
-- **[Page Up]** 加速
-- **[Page Down]** 减速
-- **[Home]** 重置速度
-- **[End]** 暂停
+ - **[Page Up]** 加速
+ - **[Page Down]** 减速
+ - **[Home]** 重置速度
+ - **[End]** 暂停
 
-- **[ctrl]+[F1]** 复制莉莉
-- **[ctrl]+[F2]** 更改复制的莉莉动画
+ - **[ctrl]+[F1]** 复制莉莉
+ - **[ctrl]+[F2]** 切换控制到下一个莉莉
+ - **[ctrl]+[F3]** 切换控制到上一个莉莉
+ - **[ctrl]+[F4]** 删除已复制的莉莉
+ - **[ctrl]+[F6]** 更改莉莉动画
+ - **[ctrl]+[F12]** 切换重力启用状态
 
-测试中的额外遗物和技能.
+测试中的额外遗物和技能包含在ExtraMod中, 安装方法与DebugMod一致, 同时ExtraMod将更改狼的行为
 
 尽情享受!
