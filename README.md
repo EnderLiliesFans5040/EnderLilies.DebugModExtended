@@ -37,8 +37,7 @@ Debug mod for ENDER LILIES: Quietus of the night
  - **Triggers** Show triggers, hurtboxes and collision capsules of characters
  - **Animations** Show animations
  - **Locations** Show locations and velocity
- - **[shift]+[F1]** Spawn random boss
- - **[shift]+[F2]** Toggle: Spawn random boss periodically
+ - **[shift]+[F2]** Spawn random boss
  - **[shift]+[F3]** Spawn all bosses available
  - **[shift]+[F4]** Clear enemies spawned.
  - **[shift]+[F5]** Switch all enemies' faction to player/enemy
@@ -60,13 +59,10 @@ Debug mod for ENDER LILIES: Quietus of the night
 
 Additional relic and spirit in test(in ExtraMod).
 
-## First Time Build Instruction
-Prerequisites: UE4.26, vs2019/2022(desktop and game with c++)
+## Build Instruction
+Prerequisites: UE4.26, vs2019/2022(desktop and game with c++, prefer vs 2019)
 - clone repo, checkout latest release tag if you need(main is not stable as latest release).
 - download [FMOD Plugin](https://www.fmod.com/download#fmodforunreal) and SpinePlugin(download spine-runtime, follow instruction in spine-runtimes-x.x.xx/spine-ue4/README.md), put "FMODStudio" and "SpinePlugin" into "Plugins".
-- edit path in config.bat, open uproject and setup, then goto File>>Package Project>>Windows(64-bit) select folder and let it finish, hit copy.bat, DebugMod will be installed.
-
-## Update Build Instruction
-- save your edit and hit package.bat, press 'n' if you don't want start the game automatically.
+- edit path in config.bat, open uproject and setup, hit package.bat, DebugMod will be installed, press 'n' if you don't want start the game automatically.
 
 Enjoy!

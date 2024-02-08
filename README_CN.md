@@ -37,8 +37,7 @@
  - **Triggers** 展示触发器, Hurtbox和碰撞胶囊
  - **Animations** 展示动画名
  - **Locations** 展示位置和速度
- - **[shift]+[F1]** 生成某一随机boss(仅限某些副技能boss)
- - **[shift]+[F2]** 切换启用状态:定期生成某一随机boss(仅限某些副技能boss)
+ - **[shift]+[F2]** 生成某一随机boss(仅限某些副技能boss)
  - **[shift]+[F3]** 生成所有boss(仅限某些副技能boss)
  - **[shift]+[F4]** 删除已召唤的敌人
  - **[shift]+[F5]** 更改所有敌人的阵营到(玩家/敌方)
