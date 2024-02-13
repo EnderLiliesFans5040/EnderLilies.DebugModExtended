@@ -3,6 +3,7 @@ set GAMEPATH=D:\EnderLiliesMod\Games\DebugMod\ENDER LILIES\EnderLilies
 set GAMEPATH2=D:\EnderLiliesMod\Games\ScriptMod\ENDER LILIES\EnderLilies
 set MODNAME=DebugMod
 set MOD2NAME=ExtraMod
+set MOD2Install=False
 
 
 set PROJPATH=%~dp0
