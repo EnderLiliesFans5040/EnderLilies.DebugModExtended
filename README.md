@@ -15,6 +15,11 @@ Debug mod for ENDER LILIES: Quietus of the night
 
 ![](https://i.imgur.com/cVu3sxn.jpg)
 
+## Recent Updates
+ - **LilySpeed** Control Lily Speed with a slider, can also edit the value 0.000~100.000
+ - **BossSpeed** Control Boss Speed with a slider, can also edit the value 0.000~100.000
+ - **GlobalSpeed** Control Game Speed with a slider, can also edit the value 0.000~100.000
+
 ## Features
  - **[F1]** Help
  - **[F2]** The debug menu left by the devs (you can: fast travel anywhere, save in any room, add/remove abilities, set level/chapter/blights/hp/wishes/slots, equip spirits anywhere)
@@ -51,8 +56,8 @@ Debug mod for ENDER LILIES: Quietus of the night
  - **[End]** Pause game (set speed to 0)
 
  - **[ctrl]+[F1]** Clone Lily
- - **[ctrl]+[F2]** Control next Lily
- - **[ctrl]+[F3]** Control previous Lily
+ - **[ctrl]+[F2]** Control previous Lily
+ - **[ctrl]+[F3]** Control next Lily
  - **[ctrl]+[F4]** Clear cloned Lilies
  - **[ctrl]+[F6]** Change Lilies' animation
  - **[ctrl]+[F12]** Toggle gravity
