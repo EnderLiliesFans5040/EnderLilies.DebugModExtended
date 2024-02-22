@@ -30,25 +30,21 @@ Debug mod for ENDER LILIES: Quietus of the night
  - **[F7]** One Hit KO
  - **[F8]** Refill HP/SP
  - **[F9]** Force Lily Walk
- - **[shift]+[F9]** Lily can move during rest
+ - **[F10]** Toggle gravity
  - **Reformat HP UI** If there are multiple enemies(2~5) this would be useful
  - **Event Mode** Enemies no longer target at you, but you can not interact with events
+
+ - **[shift]+[F1]** Show hitboxes of attacks and projectiles
+ - **[shift]+[F2]** Show colliders/geometry
+ - **[shift]+[F3]** Show triggers, hurtboxes and collision capsules of characters
+ - **[shift]+[F4]** Show animations
+ - **[shift]+[F5]** Show locations and velocity
+ - **[shift]+[F6]** Show DPS counter
+ - **[shift]+[F7]** Show Speed counter
+ - **[shift]+[F9]** Lily can move during rest (Toggle:free move)
  - **[shift]+[F8]** Copy boss in this scene
  - **[shift]+[F10]** Append boss in this scene to boss array 
  - **[shift]+[F12]** Paste boss in boss array
-
- - **Hitboxes** Show hitboxes of attacks and projectiles
- - **Colliders** Show colliders/geometry
- - **Triggers** Show triggers, hurtboxes and collision capsules of characters
- - **Animations** Show animations
- - **Locations** Show locations and velocity
- - **[shift]+[F2]** Spawn random boss
- - **[shift]+[F3]** Spawn all bosses available
- - **[shift]+[F4]** Clear enemies spawned.
- - **[shift]+[F5]** Switch all enemies' faction to player/enemy
- - **[ctrl]+[F5]** Change last enemy's faction to player
- - **[shift]+[F6]** Switch enemies' faction(random)
- - **[shift]+[F7]** Swap enemies' faction
  
  - **[Page Up]** Increase game speed
  - **[Page Down]** Decrease game speed
@@ -59,10 +55,15 @@ Debug mod for ENDER LILIES: Quietus of the night
  - **[ctrl]+[F2]** Control previous Lily
  - **[ctrl]+[F3]** Control next Lily
  - **[ctrl]+[F4]** Clear cloned Lilies
- - **[ctrl]+[F6]** Change Lilies' animation
- - **[ctrl]+[F12]** Toggle gravity
+ - **[ctrl]+[F5]** Change Lilies' animation
+ - **[ctrl]+[F6]** Spawn random boss
+ - **[ctrl]+[F7]** Clear enemies spawned.
+ - **[ctrl]+[F8]** Switch all enemies' faction to player/enemy
+ - **[ctrl]+[F9]** Change last enemy's faction to player
+ - **[ctrl]+[F10]** Switch enemies' faction(random)
+ - **[ctrl]+[F12]** Swap enemies' faction
 
-Additional relic and spirit in test(in ExtraMod).
+Additional relic and spirit in test (in ExtraMod).
 
 ## Build Instruction
 Prerequisites: UE4.26, vs2019/2022(desktop and game with c++, prefer vs 2019)
