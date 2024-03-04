@@ -1,6 +1,6 @@
 [English](README.md) | **简体中文**
-# EnderLilies.DebugMod
-终焉的莉莉丝 Debug Mod
+# EnderLilies.DebugModExtended
+终焉的莉莉丝 Debug Mod Extended
 
 [上游](https://github.com/Trexounay/EnderLilies.DebugMod) 更多的功能和bug.
 ## 安装

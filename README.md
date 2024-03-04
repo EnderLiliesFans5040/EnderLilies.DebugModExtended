@@ -1,6 +1,6 @@
 **English** | [简体中文](README_CN.md)
-# EnderLilies.DebugMod
-Debug mod for ENDER LILIES: Quietus of the night
+# EnderLilies.DebugModExtended
+Debug mod extended for ENDER LILIES: Quietus of the night
 
 [Upstream](https://github.com/Trexounay/EnderLilies.DebugMod) More features and bugs.
 ## Instalation
