@@ -23,14 +23,14 @@ UCLASS(BlueprintType, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UCommandQueueComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPROPERTY(Transient, VisibleAnywhere, BlueprintReadOnly)
-    TArray<UCommand*> AvailableCommands;
+    UPROPERTY(Transient, BlueprintReadOnly)
+    TMap<UClass*, UCommandAction*> CommandsForClasses;
 private:
     UPROPERTY(Transient)
     APawn* Pawn;
-    
-    UPROPERTY(Transient)
-    TMap<UClass*, UCommandAction*> CommandsForClasses;
+
+    UPROPERTY(Transient, VisibleAnywhere)
+    TArray<UCommand*> AvailableCommands;
     
     UPROPERTY(Transient, VisibleAnywhere)
     TArray<UCommand*> CommandQueue;
