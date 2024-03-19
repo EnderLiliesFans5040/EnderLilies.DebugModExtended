@@ -9,7 +9,7 @@ Debug mod extended for ENDER LILIES: Quietus of the night
  - Extract the zip file in the "Paks" directory of Ender Lilies' installation folder:
  `steamapps\common\ENDER LILIES\EnderLilies\Content\Paks\`
  - The zip works from version 1.0.3 to version 1.1.6 of the game
- - Early Access requires DebugMod_0_P.pak, function of DebugMod's EA version is now same as [Upstream](https://github.com/Trexounay/EnderLilies.DebugMod), need to download DebugMod_0_P.pak from [release](https://github.com/EnderLiliesFans5040/EnderLilies.DebugModExtended/releases/latest) and put into "Paks" directory
+ - Early Access requires DebugMod_0_P.pak, function of DebugMod's EA version is now same as Upstream, need to download DebugMod_0_P.pak from [release](https://github.com/EnderLiliesFans5040/EnderLilies.DebugModExtended/releases/latest) and put into "Paks" directory
  - Press **[F1]** during game to show the available hotkeys
  - :warning:  Make sure to remove any mods before submitting a speedrun of the game
 
@@ -33,7 +33,7 @@ Debug mod extended for ENDER LILIES: Quietus of the night
  - **[F10]** Toggle gravity
  - **Reformat HP UI** If there are multiple enemies(2~5) this would be useful
  - **Event Mode** Enemies no longer target at you, but you can not interact with events
-
+ - **Water Mode** Global environment act like water, Lily swim in the air
  - **[shift]+[F1]** Show hitboxes of attacks and projectiles
  - **[shift]+[F2]** Show colliders/geometry
  - **[shift]+[F3]** Show triggers, hurtboxes and collision capsules of characters
@@ -70,5 +70,8 @@ Prerequisites: UE4.26, vs2019/2022(desktop and game with c++, prefer vs 2019)
 - clone repo, checkout latest release tag if you need(main is not stable as latest release).
 - download [FMOD Plugin](https://www.fmod.com/download#fmodforunreal) and SpinePlugin(download spine-runtime, follow instruction in spine-runtimes-x.x.xx/spine-ue4/README.md), put "FMODStudio" and "SpinePlugin" into "Plugins".
 - edit path in config.bat, open uproject and setup, hit package.bat, DebugMod will be installed, press 'n' if you don't want start the game automatically.
+
+# Credits
+[Trex's DebugMod](https://github.com/Trexounay/EnderLilies.DebugMod)
 
 Enjoy!
