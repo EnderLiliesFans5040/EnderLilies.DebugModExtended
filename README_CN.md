@@ -9,7 +9,7 @@
  - 解压缩到 Ender Lilies 的安装目录下的 Paks 目录
  `steamapps\common\ENDER LILIES\EnderLilies\Content\Paks\`
  - 适配游戏版本1.0.3到1.1.6
- - EA版本需要DebugMod_0_P.pak, EA版本的mod功能目前与[上游](https://github.com/Trexounay/EnderLilies.DebugMod)相同, 需要下载[release](https://github.com/EnderLiliesFans5040/EnderLilies.DebugModExtended/releases/latest)中的DebugMod_0_P.pak到 Paks 目录
+ - EA版本需要DebugMod_0_P.pak, EA版本的mod功能目前与上游相同, 需要下载[release](https://github.com/EnderLiliesFans5040/EnderLilies.DebugModExtended/releases/latest)中的DebugMod_0_P.pak到 Paks 目录
  - 进入存档后按下 **[F1]** 以显示帮助
  - :warning:  不要在提交的速通中使用任何mod
 
@@ -33,6 +33,7 @@
  - **[F10]** 切换重力启用状态
  - **Reformat HP UI** 多个boss(2~5) 存在时, 使血条不重叠
  - **Event Mode** 无法再指定莉莉为敌人, 无法与环境交互
+ - **Water Mode** 向环境注入水类流体, 莉莉可以在空中游泳
 
  - **[shift]+[F1]** 展示Hitbox(攻击或者抛射物)
  - **[shift]+[F2]** 展示为几何形式
