@@ -68,10 +68,9 @@ Additional relic and spirit in test (in ExtraMod).
 ## Build Instruction
 Prerequisites: UE4.26, vs2019/2022(desktop and game with c++, prefer vs 2019)
 - clone repo, checkout latest release tag if you need(main is not stable as latest release).
-- download [FMOD Plugin](https://www.fmod.com/download#fmodforunreal) and SpinePlugin(download spine-runtime, follow instruction in spine-runtimes-x.x.xx/spine-ue4/README.md), put "FMODStudio" and "SpinePlugin" into "Plugins".
 - edit path in config.bat, open uproject and setup, hit package.bat, DebugMod will be installed, press 'n' if you don't want start the game automatically.
 
-# Credits
+# Acknowledgments
 [Trex's DebugMod](https://github.com/Trexounay/EnderLilies.DebugMod)
 
 Enjoy!
