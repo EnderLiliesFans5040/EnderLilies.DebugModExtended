@@ -1,11 +1,14 @@
 #include "InventoryComponent.h"
 
-class UItemTipInventory;
-class UItemSpiritInventory;
-class UItemInventory;
-class UItemPassiveInventory;
-class UItemParameterInventory;
-class UItemAptitudeInventory;
+UInventoryComponent::UInventoryComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->PassiveSlotCount = 0;
+    this->ItemGenericInventory = NULL;
+    this->ItemParameterInventory = NULL;
+    this->ItemSpiritInventory = NULL;
+    this->ItemAptitudeInventory = NULL;
+    this->ItemPassiveInventory = NULL;
+    this->ItemTipInventory = NULL;
+}
 
 int32 UInventoryComponent::SpendCurrency(ECurrencyType CurrencyType, int32 CurrencyToSpend) {
     return 0;
@@ -72,13 +75,4 @@ int32 UInventoryComponent::AddCurrency(ECurrencyType CurrencyType, int32 Currenc
     return 0;
 }
 
-UInventoryComponent::UInventoryComponent() {
-    this->PassiveSlotCount = 0;
-    this->ItemGenericInventory = NULL;
-    this->ItemParameterInventory = NULL;
-    this->ItemSpiritInventory = NULL;
-    this->ItemAptitudeInventory = NULL;
-    this->ItemPassiveInventory = NULL;
-    this->ItemTipInventory = NULL;
-}
 

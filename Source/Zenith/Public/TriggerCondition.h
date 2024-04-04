@@ -10,12 +10,13 @@ class UTriggerCondition : public UObject {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UObject* WorldContext;
     
 public:
     UTriggerCondition();
-    UFUNCTION(BlueprintImplementableEvent, BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, BlueprintPure)
     bool CheckCondition(APlayerController* PlayerController) const;
     
 };

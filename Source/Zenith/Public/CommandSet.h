@@ -7,19 +7,20 @@
 
 class UCommandSettingsData;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API UCommandSet : public UDataAsset {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<UCommandSettingsData*> CommandDataList;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FCommandSettings> Commands;
     
 public:
     UCommandSet();
+
     UFUNCTION(BlueprintCallable)
     void RemoveCommand(int32 RuntimeID);
     

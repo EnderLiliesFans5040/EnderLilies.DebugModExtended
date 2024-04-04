@@ -7,7 +7,7 @@ USTRUCT(BlueprintType)
 struct FCharacterInfosData : public FTableRowBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText Name;
     
     ZENITH_API FCharacterInfosData();

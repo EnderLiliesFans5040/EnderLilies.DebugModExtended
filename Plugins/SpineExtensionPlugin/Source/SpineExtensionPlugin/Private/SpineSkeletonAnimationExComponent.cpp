@@ -1,9 +1,8 @@
 #include "SpineSkeletonAnimationExComponent.h"
 
-class USpineAtlasAsset;
-class USpineSkeletonDataAsset;
-class UTrackEntry;
-class USpineNotifyAsset;
+USpineSkeletonAnimationExComponent::USpineSkeletonAnimationExComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->NotifyData = NULL;
+}
 
 void USpineSkeletonAnimationExComponent::SetPlaybackTimeIgnoreTimescale(float InPlaybackTime, bool bCallDelegates) {
 }
@@ -14,7 +13,4 @@ void USpineSkeletonAnimationExComponent::ReplaceSpineData(USpineAtlasAsset* NewA
 void USpineSkeletonAnimationExComponent::OnAnimationStart(UTrackEntry* Entry) {
 }
 
-USpineSkeletonAnimationExComponent::USpineSkeletonAnimationExComponent() {
-    this->NotifyData = NULL;
-}
 

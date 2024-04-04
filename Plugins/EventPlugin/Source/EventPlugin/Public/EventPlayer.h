@@ -1,76 +1,77 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
 #include "UObject/Object.h"
-#include "EventPlayerEventDelegate.h"
-#include "EventNode.h"
-#include "ActorBindingInfos.h"
 #include "UObject/NoExportTypes.h"
+#include "ActorBindingInfos.h"
 #include "EEventActorType.h"
+#include "EventNode.h"
+#include "EventPlayerEventDelegate.h"
+#include "Templates/SubclassOf.h"
 #include "EventPlayer.generated.h"
 
-class UEventAsset;
-class AEventCamera;
 class AActor;
-class UEventBlackBoard;
 class AController;
+class AEventCamera;
+class APlayerController;
+class UEventAsset;
+class UEventBlackBoard;
+class UEventPlayer;
 class UEventUserWidget;
 class UExecuteEventActionAsync;
-class APlayerController;
-class UEventPlayer;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class EVENTPLUGIN_API UEventPlayer : public UObject {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FEventPlayerEvent OnStart;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FEventPlayerEvent OnEventStep;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FEventPlayerEvent OnFinish;
     
 private:
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     AActor* Owner;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UEventAsset* EventAsset;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UEventBlackBoard* EventBlackBoard;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TSubclassOf<AController> EventControllerClass;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TSubclassOf<UEventUserWidget> EventWidgetClass;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<AController*> UnusedEventControllers;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UEventUserWidget* EventWidgetInstance;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     AEventCamera* EventCamera;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FEventNode CurrentNode;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FEventNode> PlayerChoices;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UExecuteEventActionAsync* CurrentAction;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<UExecuteEventActionAsync*> RunningActions;
     
 public:
     UEventPlayer();
+
     UFUNCTION(BlueprintCallable)
     void SubmitReply(const FEventNode& Reply);
     
@@ -87,68 +88,68 @@ public:
     void Play(APlayerController* PlayerInstigator, AActor* EventInstigator, const TMap<FName, AActor*>& EventActorBindings);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnReceivedFinishActionFireAndForget(UExecuteEventActionAsync* EventActionAsync);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnReceivedFinishAction(UExecuteEventActionAsync* EventActionAsync);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsWaitingForPlayer() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPlaying() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEventSkippable() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEventPausable() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FEventNode> GetPlayerChoices() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     AActor* GetPlayerActor() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     AActor* GetOwner() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FTransform GetOriginTransform() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     APlayerController* GetInteractingPlayer() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     AActor* GetInstigator() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UEventUserWidget* GetEventWidget() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     AEventCamera* GetEventCamera() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UEventAsset* GetEventAsset() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FEventNode GetCurrentNode() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UEventBlackBoard* GetBlackBoard() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetBindingForActor(AActor* Actor) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     AActor* GetActorForBinding(FName Binding) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     AActor* GetActorForActorType(EEventActorType ActorType, const FName& Binding, bool bLogIfNotFound) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TMap<FName, AActor*> GetActorBindings() const;
     
     UFUNCTION(BlueprintCallable)

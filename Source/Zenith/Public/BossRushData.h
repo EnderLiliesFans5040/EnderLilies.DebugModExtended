@@ -7,7 +7,7 @@ USTRUCT(BlueprintType)
 struct ZENITH_API FBossRushData {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FBossRushRecordData> Records;
     
     FBossRushData();

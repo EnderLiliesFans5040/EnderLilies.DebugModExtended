@@ -4,19 +4,20 @@
 #include "RichTextFormatElement.h"
 #include "RefreshableRichTextBlock.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API URefreshableRichTextBlock : public URichTextBlock {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText Format;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FRichTextFormatElement> FormatElements;
     
 public:
     URefreshableRichTextBlock();
+
     UFUNCTION(BlueprintCallable)
     void SetupAndRefresh(const FText& NewFormat, const TArray<FRichTextFormatElement>& NewFormatElements);
     
@@ -29,7 +30,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void Refresh();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FRichTextFormatElement> GetFormatElements() const;
     
 };

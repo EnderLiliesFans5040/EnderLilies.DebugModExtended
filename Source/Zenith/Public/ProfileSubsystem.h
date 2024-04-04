@@ -1,22 +1,23 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ZenithBaseSubsystem.h"
-#include "ProfileMultiDelegateDelegate.h"
 #include "ProfileDelegateDelegate.h"
+#include "ProfileMultiDelegateDelegate.h"
+#include "ZenithBaseSubsystem.h"
 #include "ProfileSubsystem.generated.h"
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API UProfileSubsystem : public UZenithBaseSubsystem {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FProfileMultiDelegate OnCurrentProfileChanged;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FProfileMultiDelegate OnMainProfileChanged;
     
     UProfileSubsystem();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool UseProfileSystem() const;
     
     UFUNCTION(BlueprintCallable)
@@ -29,20 +30,20 @@ public:
     void OpenProfileUI(int32 ControllerIndex);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPlayerControllerIDChanged(int32 OldControllerID, int32 NewControllerID);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsUsingMainProfile() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsMainProfileValid() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetMainProfileUserIndex() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetMainProfileName() const;
     
     UFUNCTION(BlueprintCallable)

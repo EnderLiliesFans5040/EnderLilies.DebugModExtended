@@ -1,174 +1,175 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "SpineAnimationDefinition.h"
-#include "Components/ActorComponent.h"
-#include "SpineTransitionDefinition.h"
-#include "SpineAnimationEventDelegate.h"
-#include "SpineAnimDamageSetDefinition.h"
-#include "EDamageAdditiveType.h"
 #include "UObject/NoExportTypes.h"
+#include "Components/ActorComponent.h"
+#include "Engine/EngineTypes.h"
+#include "Engine/EngineTypes.h"
+#include "EDamageAdditiveType.h"
 #include "ESpineAnimationLayer.h"
+#include "SpineAnimDamageSetDefinition.h"
+#include "SpineAnimationDefinition.h"
 #include "SpineAnimationDelegateDelegate.h"
-#include "Engine/EngineTypes.h"
-#include "Engine/EngineTypes.h"
+#include "SpineAnimationEventDelegate.h"
+#include "SpineTransitionDefinition.h"
 #include "SpineAnimationComponent.generated.h"
 
-class USpineSkeletonAnimationComponent;
-class USpineSkeletonRendererComponent;
 class ACharacter;
 class AZenithCharacter;
-class UZenithCharacterMovementComponent;
 class ULocomotionComponent;
-class UZenithInputComponent;
-class UStateComponent;
 class USpineAnimationRuntimeData;
-class UTrackEntry;
+class USpineSkeletonAnimationComponent;
 class USpineSkeletonComponent;
+class USpineSkeletonRendererComponent;
+class UStateComponent;
+class UTrackEntry;
+class UZenithCharacterMovementComponent;
+class UZenithInputComponent;
 
-UCLASS(BlueprintType, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API USpineAnimationComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineAnimationDefinition TurnSlowDefinition;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineAnimationDefinition TurnFastDefinition;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineAnimationDefinition FlyTurnDefinition;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineAnimationDefinition SwimTurnDefinition;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineAnimationDefinition DiveTurnDefinition;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineTransitionDefinition> TransitionDefinitions;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimDamageSetDefinition> DamageGroundDefinitions;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimDamageSetDefinition> DamageAirDefinitions;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimDamageSetDefinition> DamageSwimDefinitions;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimationDefinition> LandKnockbackDefinitions;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimationDefinition> SwimLandKnockbackDefinitions;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimationDefinition> WakeUpDefinitions;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimationDefinition> SwimWakeUpDefinitions;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimationDefinition> DeathDefinitions;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimationDefinition> DeathBackSideDefinitions;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineAnimationEvent OnWakeUpEnd;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineAnimationEvent OnWakeUpComplete;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineAnimationEvent OnDeathEnd;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineAnimationEvent OnDeathComplete;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineAnimationEvent OnSprintStart;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineAnimationEvent OnSprintEnd;
     
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUpdateAnimationsInTick;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bForceUseGroundedLocomotion;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bCheckTurnTransitionsInTick;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bSetEmptyIfNoAnim;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAllowVerticalLocomotionAnimation;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bApplyRootMotionLocomotion;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bRootMotionLocomotionIdleOnly;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float RootMotionFactor;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bSyncLocomotionTimings;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAutoStopEventAnimations;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EDamageAdditiveType DamageAdditiveType;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USpineSkeletonAnimationComponent* AnimComponent;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USpineSkeletonRendererComponent* RendererComponent;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ACharacter* Character;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     AZenithCharacter* ZenithCharacter;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UZenithCharacterMovementComponent* MovementComponent;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     ULocomotionComponent* LocomotionComponent;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UStateComponent* StateComponent;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UZenithInputComponent* InputComponent;
     
-    UPROPERTY(Transient, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<USpineAnimationRuntimeData*> AnimationDataLayers;
     
-    UPROPERTY(Transient, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<USpineAnimationRuntimeData*> PastAnimationDataLayers;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<USpineAnimationRuntimeData*> AvailableAnimDataPool;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<USpineAnimationRuntimeData*> InUseAnimDataPool;
     
 public:
-    USpineAnimationComponent();
+    USpineAnimationComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void WakeUpEnd();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void WakeUpComplete();
     
 public:
@@ -224,63 +225,63 @@ public:
     void PlayActionAnimation(const FString& AnimName, bool bLoop, float StartTime, float BlendIn, bool bUseRootMotion);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTrackStarted(UTrackEntry* TrackEntry);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnMovementModeChanged(ACharacter* InCharacter, TEnumAsByte<EMovementMode> PrevMovementMode, uint8 PreviousCustomMode);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnLanded(FHitResult HitResult);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnGameMapSwitch();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnEventStop();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAnimationComplete(UTrackEntry* TrackEntry);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAfterBoneTransformUpdate(USpineSkeletonComponent* SpineSkeletonComponent);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAdditiveDamageTimerEnd();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void KnockbackLandingEnd();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsReactionLayerActive(bool bConsiderLoopAsActive) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPlayingSpecificAnimation(const FString& AnimName) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPlayingAnimationAtLayer(ESpineAnimationLayer Layer) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPlayingActionAnimation() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsKnockbackLocked() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector GetLastRootMotionMove() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESpineAnimationLayer GetHighestActiveLayer() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetCurrentAnimationName() const;
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void DeathEnd();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void DeathComplete();
     
 };

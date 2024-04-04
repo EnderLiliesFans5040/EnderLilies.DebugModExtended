@@ -8,3 +8,4 @@ UCommandActionSpirit::UCommandActionSpirit() {
     this->EnemyPawnCollisionResponse = ECR_Ignore;
 }
 
+

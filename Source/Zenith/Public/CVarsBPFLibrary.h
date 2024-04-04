@@ -3,21 +3,22 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "CVarsBPFLibrary.generated.h"
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class UCVarsBPFLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UCVarsBPFLibrary();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool GetUIHide();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool GetDebugIgnoreTouchDamage();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool GetDebugDrawJumpCurves();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool GetActionAllowInfiniteJumps();
     
 };

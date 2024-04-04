@@ -1,8 +1,15 @@
 #include "EnemySpawnPoint.h"
 #include "ClearableComponent.h"
 
-class AZenithCharacter;
-class AController;
+AEnemySpawnPoint::AEnemySpawnPoint(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->ClearableComponent = CreateDefaultSubobject<UClearableComponent>(TEXT("ClearableComponent"));
+    this->CharacterToSpawn = NULL;
+    this->ControllerOverride = NULL;
+    this->bShouldActivateByDefault = true;
+    this->MarkClearTiming = EEnemySpawnPointClearTiming::OnPostDeath;
+    this->bAddDifficultyLevelOnClear = false;
+    this->bHOOK_ConsiderAsBossSpawn = false;
+}
 
 void AEnemySpawnPoint::OverrideEnemySpawned(AZenithCharacter* NewEnemy) {
 }
@@ -47,13 +54,4 @@ AZenithCharacter* AEnemySpawnPoint::GetEnemy() const {
 void AEnemySpawnPoint::ActivateEnemy() {
 }
 
-AEnemySpawnPoint::AEnemySpawnPoint() {
-    this->ClearableComponent = CreateDefaultSubobject<UClearableComponent>(TEXT("ClearableComponent"));
-    this->CharacterToSpawn = NULL;
-    this->ControllerOverride = NULL;
-    this->bShouldActivateByDefault = true;
-    this->MarkClearTiming = EEnemySpawnPointClearTiming::OnPostDeath;
-    this->bAddDifficultyLevelOnClear = false;
-    this->bHOOK_ConsiderAsBossSpawn = false;
-}
 

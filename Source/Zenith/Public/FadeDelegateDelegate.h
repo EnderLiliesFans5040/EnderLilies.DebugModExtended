@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "FadeDelegateDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE(FFadeDelegate);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE(FFadeDelegate);
 

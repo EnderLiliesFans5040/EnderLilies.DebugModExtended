@@ -3,10 +3,11 @@
 #include "Engine/GameEngine.h"
 #include "GameEngineZenithBase.generated.h"
 
-UCLASS(NonTransient)
+UCLASS(Blueprintable, NonTransient)
 class UGameEngineZenithBase : public UGameEngine {
     GENERATED_BODY()
 public:
     UGameEngineZenithBase();
+
 };
 

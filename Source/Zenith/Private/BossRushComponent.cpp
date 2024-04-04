@@ -1,5 +1,8 @@
 #include "BossRushComponent.h"
 
+UBossRushComponent::UBossRushComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UBossRushComponent::UnbindEvents() {
 }
 
@@ -45,6 +48,4 @@ bool UBossRushComponent::CanUpdateTime_Implementation() const {
 void UBossRushComponent::BindEvents() {
 }
 
-UBossRushComponent::UBossRushComponent() {
-}
 

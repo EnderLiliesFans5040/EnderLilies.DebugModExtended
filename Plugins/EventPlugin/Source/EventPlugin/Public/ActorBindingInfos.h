@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "EActorBindingTransformType.h"
 #include "UObject/NoExportTypes.h"
+#include "EActorBindingTransformType.h"
 #include "ActorBindingInfos.generated.h"
 
 class AActor;
@@ -10,16 +10,16 @@ USTRUCT(BlueprintType)
 struct FActorBindingInfos {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<AActor> ActorClass;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bDestroyOnEventFinish;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EActorBindingTransformType TransformType;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTransform SpawnTransform;
     
     EVENTPLUGIN_API FActorBindingInfos();

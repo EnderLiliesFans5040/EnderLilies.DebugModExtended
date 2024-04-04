@@ -7,10 +7,10 @@ USTRUCT(BlueprintType)
 struct FSpineAnimDamageSetDefinition {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimationDefinition> DamageStartDefinitions;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimationDefinition> DamageStopDefinitions;
     
     ZENITH_API FSpineAnimDamageSetDefinition();

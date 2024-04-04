@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "EActorBindingTransformType.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EActorBindingTransformType : uint8 {
     Absolute,
     Local,

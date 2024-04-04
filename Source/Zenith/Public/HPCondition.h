@@ -3,13 +3,14 @@
 #include "ComparisonCondition.h"
 #include "HPCondition.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UHPCondition : public UComparisonCondition {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ComparingValue;
     
     UHPCondition();
+
 };
 

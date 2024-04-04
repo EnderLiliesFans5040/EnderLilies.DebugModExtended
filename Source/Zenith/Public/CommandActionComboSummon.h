@@ -1,30 +1,31 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
-#include "ECommandSummonLimitType.h"
-#include "CommandActionSummonSettingsCastLimitInterface.h"
 #include "CommandActionCombo.h"
-#include "SummonComponentBPEventDelegate.h"
-#include "CommandActionSummonInterface.h"
 #include "CommandActionSettingsSummonCastLimit.h"
+#include "CommandActionSummonInterface.h"
+#include "CommandActionSummonSettingsCastLimitInterface.h"
+#include "ECommandSummonLimitType.h"
+#include "SummonComponentBPEventDelegate.h"
+#include "Templates/SubclassOf.h"
 #include "CommandActionComboSummon.generated.h"
 
 class AZenithSpirit;
 
-UCLASS(Abstract)
+UCLASS(Abstract, Blueprintable)
 class ZENITH_API UCommandActionComboSummon : public UCommandActionCombo, public ICommandActionSummonInterface, public ICommandActionSummonSettingsCastLimitInterface {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<AZenithSpirit> SpiritClass;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCommandActionSettingsSummonCastLimit SettingsSummonCastLimit;
     
 public:
     UCommandActionComboSummon();
-    
+
+
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     bool ReachedCastLimit() const override PURE_VIRTUAL(ReachedCastLimit, return false;);

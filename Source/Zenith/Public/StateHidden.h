@@ -3,10 +3,11 @@
 #include "State.h"
 #include "StateHidden.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateHidden : public UState {
     GENERATED_BODY()
 public:
     UStateHidden();
+
 };
 

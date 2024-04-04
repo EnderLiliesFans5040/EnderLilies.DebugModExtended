@@ -1,6 +1,7 @@
 #include "GameBPFLibrary.h"
 
-class UObject;
+UGameBPFLibrary::UGameBPFLibrary() {
+}
 
 void UGameBPFLibrary::SetPreviewLanguage(const FString& CultureName) {
 }
@@ -83,6 +84,4 @@ bool UGameBPFLibrary::DoesGameVersionMatchesPakVersion() {
     return false;
 }
 
-UGameBPFLibrary::UGameBPFLibrary() {
-}
 

@@ -1,5 +1,10 @@
 #include "ReusableActor.h"
 
+AReusableActor::AReusableActor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bDeactivateOnBeginPlay = true;
+    this->bEnableCollisionOnActivate = true;
+}
+
 
 
 bool AReusableActor::IsActive() const {
@@ -12,8 +17,4 @@ void AReusableActor::Deactivate() {
 void AReusableActor::Activate() {
 }
 
-AReusableActor::AReusableActor() {
-    this->bDeactivateOnBeginPlay = true;
-    this->bEnableCollisionOnActivate = true;
-}
 

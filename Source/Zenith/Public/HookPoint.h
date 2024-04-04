@@ -1,40 +1,41 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "GameFramework/Actor.h"
-#include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
 #include "HookPoint.generated.h"
 
-class USphereComponent;
-class USceneComponent;
 class AZenithCharacter;
+class USceneComponent;
+class USphereComponent;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API AHookPoint : public AActor {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USceneComponent* RootSceneComponent;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USphereComponent* SphereComponent;
     
-    AHookPoint();
+    AHookPoint(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnHookPointUsed(AZenithCharacter* UsingCharacter);
     
 public:
     UFUNCTION(BlueprintCallable)
     void NotifyHookPointUsed(AZenithCharacter* UsingCharacter);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FTransform GetHookTransform() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector GetHookLocation() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USceneComponent* GetHookAttachComponent() const;
     
 };

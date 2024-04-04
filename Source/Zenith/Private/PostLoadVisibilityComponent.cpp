@@ -1,5 +1,6 @@
 #include "PostLoadVisibilityComponent.h"
 
-UPostLoadVisibilityComponent::UPostLoadVisibilityComponent() {
+UPostLoadVisibilityComponent::UPostLoadVisibilityComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

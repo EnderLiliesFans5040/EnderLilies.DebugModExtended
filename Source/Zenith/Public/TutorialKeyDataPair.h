@@ -7,10 +7,10 @@ USTRUCT(BlueprintType)
 struct FTutorialKeyDataPair {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName Key;
     
-    UPROPERTY(BlueprintReadOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTutorialData TutorialData;
     
     ZENITH_API FTutorialKeyDataPair();

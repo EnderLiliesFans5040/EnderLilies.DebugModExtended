@@ -8,7 +8,7 @@ struct ZENITH_API FFXTimeline {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FFXTimelineEntry> FXEntries;
     
 public:

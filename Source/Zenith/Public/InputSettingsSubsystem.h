@@ -1,42 +1,43 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
-#include "InputSettingsDelegateDelegate.h"
-#include "ActionBinding.h"
-#include "EInputStyle.h"
-#include "EBindingType.h"
-#include "AxisBinding.h"
 #include "GameFramework/PlayerInput.h"
 #include "GameFramework/PlayerInput.h"
-#include "Framework/Commands/InputChord.h"
 #include "InputCoreTypes.h"
+#include "Framework/Commands/InputChord.h"
+#include "ActionBinding.h"
+#include "AxisBinding.h"
+#include "EBindingType.h"
 #include "EInputActionSet.h"
+#include "EInputStyle.h"
+#include "InputSettingsDelegateDelegate.h"
 #include "InputSettingsSubsystem.generated.h"
 
 class APlayerController;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API UInputSettingsSubsystem : public UGameInstanceSubsystem {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FInputSettingsDelegate OnInputStyleChanged;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FInputSettingsDelegate OnInputOverrideChanged;
     
 private:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, FActionBinding> OverrideKeyBindingsForActions;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, FAxisBinding> OverrideKeyBindingsForAxises;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EInputStyle InputStyle;
     
 public:
     UInputSettingsSubsystem();
+
     UFUNCTION(BlueprintCallable)
     void SetupOverride(const APlayerController* PlayerController);
     
@@ -61,28 +62,28 @@ public:
     UFUNCTION(BlueprintCallable)
     void OverrideActionMapping(const FName& ActionName, const FInputChord& InputChord, bool bGamepad);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsKeyMappedForAction(const FName& ActionName, FKey Key) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasAnyMouseBindings() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FInputAxisKeyMapping> GetKeyMappingForAxis(const FName& AxisName, float ScaleSign) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FInputActionKeyMapping> GetKeyMappingForAction(const FName& ActionName) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     EInputStyle GetInputStyle() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FInputChord> GetInputChordsForAxis(const FName& AxisName, float ScaleSign) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FInputChord> GetInputChordsForAction(const FName& ActionName) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     EInputStyle GetDefaultInputStyle() const;
     
     UFUNCTION(BlueprintCallable)

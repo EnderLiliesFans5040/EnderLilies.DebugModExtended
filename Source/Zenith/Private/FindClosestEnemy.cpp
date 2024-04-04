@@ -8,3 +8,4 @@ UFindClosestEnemy::UFindClosestEnemy() {
     this->VisibilityCollisionChannel = ECC_Visibility;
 }
 
+

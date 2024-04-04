@@ -1,7 +1,8 @@
 #include "FadeSubsystem.h"
 #include "Templates/SubclassOf.h"
 
-class UFadeUserWidget;
+UFadeSubsystem::UFadeSubsystem() {
+}
 
 void UFadeSubsystem::PrepareFadeInAtZOrder(TSubclassOf<UFadeUserWidget> FadeClass, int32 ZOrder) {
 }
@@ -32,6 +33,4 @@ EFadeTypes UFadeSubsystem::GetLastFadeType() const {
     return EFadeTypes::None;
 }
 
-UFadeSubsystem::UFadeSubsystem() {
-}
 

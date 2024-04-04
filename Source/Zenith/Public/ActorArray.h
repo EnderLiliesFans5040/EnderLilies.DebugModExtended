@@ -4,11 +4,11 @@
 
 class AActor;
 
-USTRUCT()
+USTRUCT(BlueprintType)
 struct FActorArray {
     GENERATED_BODY()
 public:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<AActor*> Entries;
     
     ZENITH_API FActorArray();

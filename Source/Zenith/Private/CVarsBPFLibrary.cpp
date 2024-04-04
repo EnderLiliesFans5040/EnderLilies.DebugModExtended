@@ -1,5 +1,8 @@
 #include "CVarsBPFLibrary.h"
 
+UCVarsBPFLibrary::UCVarsBPFLibrary() {
+}
+
 bool UCVarsBPFLibrary::GetUIHide() {
     return false;
 }
@@ -16,6 +19,4 @@ bool UCVarsBPFLibrary::GetActionAllowInfiniteJumps() {
     return false;
 }
 
-UCVarsBPFLibrary::UCVarsBPFLibrary() {
-}
 

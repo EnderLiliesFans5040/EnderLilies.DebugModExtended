@@ -1,24 +1,25 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Components/RichTextBlockDecorator.h"
-#include "ERichTextDecoratorMode.h"
 #include "EInputStyle.h"
+#include "ERichTextDecoratorMode.h"
 #include "InputRichTextBlockImageDecorator.generated.h"
 
 class UDataTable;
 
-UCLASS(Abstract)
+UCLASS(Abstract, Blueprintable)
 class ZENITH_API UInputRichTextBlockImageDecorator : public URichTextBlockDecorator {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ERichTextDecoratorMode DecoratorMode;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EInputStyle, UDataTable*> IconSets;
     
 public:
     UInputRichTextBlockImageDecorator();
+
 };
 

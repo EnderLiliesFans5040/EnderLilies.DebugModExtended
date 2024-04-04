@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "ELaunchGameIntent.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class ELaunchGameIntent : uint8 {
     Unknown,
     NewGame,

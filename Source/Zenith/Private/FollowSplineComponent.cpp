@@ -1,9 +1,6 @@
 #include "FollowSplineComponent.h"
 
-void UFollowSplineComponent::Launch(bool bForward) {
-}
-
-UFollowSplineComponent::UFollowSplineComponent() {
+UFollowSplineComponent::UFollowSplineComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->SplineComponent = NULL;
     this->bAutoStart = true;
     this->bStartForward = true;
@@ -11,4 +8,8 @@ UFollowSplineComponent::UFollowSplineComponent() {
     this->Speed = 100.00f;
     this->DelayBetweenMove = 0.00f;
 }
+
+void UFollowSplineComponent::Launch(bool bForward) {
+}
+
 

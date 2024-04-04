@@ -11,16 +11,17 @@ class UPassive : public UObject {
     GENERATED_BODY()
 public:
     UPassive();
-    UFUNCTION(BlueprintImplementableEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnUnequipPassive(AController* Controller);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRemoveFromPawn(APawn* Pawn, AController* Controller);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEquipPassive(AController* Controller);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnApplyToPawn(APawn* Pawn, AController* Controller);
     
 };

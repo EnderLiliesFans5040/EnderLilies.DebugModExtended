@@ -6,10 +6,10 @@ USTRUCT(BlueprintType)
 struct FPassiveEquipSaveData {
     GENERATED_BODY()
 public:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 SlotCount;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FName> ItemEquipIDs;
     
     ZENITH_API FPassiveEquipSaveData();

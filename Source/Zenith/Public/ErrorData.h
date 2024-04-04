@@ -4,17 +4,17 @@
 #include "EZenithError.h"
 #include "ErrorData.generated.h"
 
-USTRUCT()
+USTRUCT(BlueprintType)
 struct FErrorData : public FTableRowBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EZenithError Error;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText ErrorTitle;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText ErrorMessage;
     
     ZENITH_API FErrorData();

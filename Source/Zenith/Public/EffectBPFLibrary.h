@@ -4,21 +4,22 @@
 #include "Chaos/ChaosEngineInterface.h"
 #include "EffectBPFLibrary.generated.h"
 
-class UParticleSystem;
 class UObject;
+class UParticleSystem;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class UEffectBPFLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UEffectBPFLibrary();
+
     UFUNCTION(BlueprintCallable)
     static void StopAllDeactivatingParticleSystems();
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObj"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObj"))
     static UParticleSystem* GetStepEffectForSurfaceType(const UObject* WorldContextObj, TEnumAsByte<EPhysicalSurface> SurfaceType);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObj"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObj"))
     static UParticleSystem* GetLandingEffectForSurfaceType(const UObject* WorldContextObj, TEnumAsByte<EPhysicalSurface> SurfaceType);
     
 };

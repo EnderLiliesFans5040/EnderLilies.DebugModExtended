@@ -1,11 +1,8 @@
 #include "GameLogicBPFLibrary.h"
 #include "Templates/SubclassOf.h"
 
-class AActor;
-class APlayerController;
-class UObject;
-class UForceFeedbackEffect;
-class UCameraShakeBase;
+UGameLogicBPFLibrary::UGameLogicBPFLibrary() {
+}
 
 void UGameLogicBPFLibrary::StopAllForceFeedbacks(APlayerController* PlayerController) {
 }
@@ -52,6 +49,4 @@ bool UGameLogicBPFLibrary::CanUseStrengthenOnAnySpirit(APlayerController* Player
     return false;
 }
 
-UGameLogicBPFLibrary::UGameLogicBPFLibrary() {
-}
 

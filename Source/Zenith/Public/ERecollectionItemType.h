@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "ERecollectionItemType.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class ERecollectionItemType : uint8 {
     Boss,
     Movie,

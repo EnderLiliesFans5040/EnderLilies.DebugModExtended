@@ -4,5 +4,5 @@
 
 class UCommandAction;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FStartCommand, UCommandAction*, CommandAction);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FStartCommand, UCommandAction*, CommandAction);
 

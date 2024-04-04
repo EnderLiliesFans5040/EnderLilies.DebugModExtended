@@ -1,5 +1,8 @@
 #include "ProceduralRenderMeshComponent.h"
 
+UProceduralRenderMeshComponent::UProceduralRenderMeshComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UProceduralRenderMeshComponent::SetMeshSectionVisible(int32 SectionIndex, bool bNewVisibility) {
 }
 
@@ -17,6 +20,4 @@ void UProceduralRenderMeshComponent::ClearMeshSection(int32 SectionIndex, bool b
 void UProceduralRenderMeshComponent::ClearAllMeshSections() {
 }
 
-UProceduralRenderMeshComponent::UProceduralRenderMeshComponent() {
-}
 

@@ -7,7 +7,7 @@ USTRUCT(BlueprintType)
 struct FItemParameterData : public FItemData {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 BonusMaxHP;
     
     ZENITH_API FItemParameterData();

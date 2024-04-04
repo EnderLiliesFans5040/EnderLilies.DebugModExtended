@@ -5,15 +5,15 @@
 UENUM(BlueprintType)
 enum class ETranslucencyLayer : uint8 {
     Default,
-    Boss = 0x5,
-    Companion = 0xA,
-    EnemyBack = 0x14,
-    SpiritDefault = 0x1E,
-    EnemyDefault = 0x28,
-    AboveEnemyBelowPlayer = 0x32,
-    Player = 0x3C,
-    AbovePlayerBelowSpiritFront = 0x46,
-    SpiritFront = 0x50,
-    AbovePlayer = 0x5A,
+    Boss = 5,
+    Companion = 10,
+    EnemyBack = 20,
+    SpiritDefault = 30,
+    EnemyDefault = 40,
+    AboveEnemyBelowPlayer = 50,
+    Player = 60,
+    AbovePlayerBelowSpiritFront = 70,
+    SpiritFront = 80,
+    AbovePlayer = 90,
 };
 

@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "ESaveExistsType.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class ESaveExistsType : uint8 {
     OK,
     DoesNotExist,

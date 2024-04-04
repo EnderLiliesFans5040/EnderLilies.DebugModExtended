@@ -3,10 +3,11 @@
 #include "StateBusy.h"
 #include "StateKnockback.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateKnockback : public UStateBusy {
     GENERATED_BODY()
 public:
     UStateKnockback();
+
 };
 

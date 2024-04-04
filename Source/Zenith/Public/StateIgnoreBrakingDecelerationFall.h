@@ -3,10 +3,11 @@
 #include "State.h"
 #include "StateIgnoreBrakingDecelerationFall.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateIgnoreBrakingDecelerationFall : public UState {
     GENERATED_BODY()
 public:
     UStateIgnoreBrakingDecelerationFall();
+
 };
 

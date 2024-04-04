@@ -3,15 +3,16 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "BitshiftBPFLibrary.generated.h"
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class UBitshiftBPFLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UBitshiftBPFLibrary();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 BitshiftRight(const int32 Value, const int32 bitshift);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 BitshiftLeft(const int32 Value, const int32 bitshift);
     
 };

@@ -1,36 +1,37 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Components/ActorComponent.h"
 #include "UObject/NoExportTypes.h"
+#include "Components/ActorComponent.h"
 #include "ColorComponent.generated.h"
 
-class UMeshComponent;
 class UMaterialInstanceDynamic;
+class UMeshComponent;
 class USpineSkeletonRendererComponent;
 
-UCLASS(BlueprintType, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UColorComponent : public UActorComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(Instanced)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     TArray<UMeshComponent*> MeshComponents;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<UMaterialInstanceDynamic*> DynamicMaterials;
     
-    UPROPERTY(Instanced)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USpineSkeletonRendererComponent* SpineRenderer;
     
 public:
-    UColorComponent();
+    UColorComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetDefaultColor(FLinearColor Color);
     
     UFUNCTION(BlueprintCallable)
     void SetColor(FLinearColor Color, float LerpTime);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FLinearColor GetCurrentColor() const;
     
     UFUNCTION(BlueprintCallable)

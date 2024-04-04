@@ -1,6 +1,5 @@
 #include "SpineAnimNotifyState_TimedParticleEffect.h"
 
-
 USpineAnimNotifyState_TimedParticleEffect::USpineAnimNotifyState_TimedParticleEffect() {
     this->PSTemplate = NULL;
     this->Bone = ESpineBone::Root;
@@ -10,4 +9,6 @@ USpineAnimNotifyState_TimedParticleEffect::USpineAnimNotifyState_TimedParticleEf
     this->bDestroyAtEnd = false;
     this->CurrentParticleComponent = NULL;
 }
+
+
 

@@ -1,6 +1,20 @@
 #include "Ability.h"
 
-class AActor;
+AAbility::AAbility(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->IgnoreIfTargetHasAnyState.AddDefaulted(4);
+    this->MaxExecutionTime = 0.00f;
+    this->bWarnLongExecutionTime = true;
+    this->bCanBeJustGuarded = true;
+    this->bCanBeJustDodged = true;
+    this->bCanBeParried = true;
+    this->ExecuteGotJustGuardedEvents = true;
+    this->bExecuteGotJustGuardedEvents = true;
+    this->bExecuteGotJustDodgedEvents = true;
+    this->bExecuteGotParriedEvents = true;
+    this->bTriggerParryAbility = true;
+    this->Invoker = NULL;
+    this->AbilityType = EAbilityType::DEFAULT;
+}
 
 void AAbility::Tick(float DeltaTime) {
 }
@@ -58,19 +72,4 @@ bool AAbility::CanLaunch_Implementation() {
     return false;
 }
 
-AAbility::AAbility() {
-    this->IgnoreIfTargetHasAnyState.AddDefaulted(4);
-    this->MaxExecutionTime = 0.00f;
-    this->bWarnLongExecutionTime = true;
-    this->bCanBeJustGuarded = true;
-    this->bCanBeJustDodged = true;
-    this->bCanBeParried = true;
-    this->ExecuteGotJustGuardedEvents = true;
-    this->bExecuteGotJustGuardedEvents = true;
-    this->bExecuteGotJustDodgedEvents = true;
-    this->bExecuteGotParriedEvents = true;
-    this->bTriggerParryAbility = true;
-    this->Invoker = NULL;
-    this->AbilityType = EAbilityType::DEFAULT;
-}
 

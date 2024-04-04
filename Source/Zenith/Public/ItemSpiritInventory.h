@@ -4,23 +4,24 @@
 #include "ItemSpiritLevelChangedEventDelegate.h"
 #include "ItemSpiritInventory.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class UItemSpiritInventory : public UBaseInventory {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FItemSpiritLevelChangedEvent OnSpiritLevelChanged;
     
 private:
-    UPROPERTY(Transient, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FName, int32> SpiritLevels;
     
-    UPROPERTY(Transient, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FName> SpiritCheckedList;
     
 public:
     UItemSpiritInventory();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool UnlockedAllSpirits() const;
     
     UFUNCTION(BlueprintCallable)
@@ -29,28 +30,28 @@ public:
     UFUNCTION(BlueprintCallable)
     void MarkSpiritAsChecked(const FName& SpiritID);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSpiritMaxLevel(const FName& SpiritID) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSpiritChecked(const FName& SpiritID) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsAllObtainedSpiritsChecked() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetSpiritMaxLevel() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetSpiritLevel(const FName& SpiritID, bool bIgnoreLevelOverride) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetSpiritCount(bool bCountBossSpirit) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetCommonSpiritCount() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetBossSpiritCount() const;
     
     UFUNCTION(BlueprintCallable)

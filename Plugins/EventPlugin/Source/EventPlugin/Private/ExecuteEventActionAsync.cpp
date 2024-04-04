@@ -1,9 +1,13 @@
 #include "ExecuteEventActionAsync.h"
 
-class UObject;
-class UEventPlayer;
-class UEventAction;
-class UExecuteEventActionAsync;
+UExecuteEventActionAsync::UExecuteEventActionAsync() {
+    this->EventAction = NULL;
+    this->EventPlayer = NULL;
+    this->InteractingPlayer = NULL;
+    this->Subject = NULL;
+    this->Target = NULL;
+    this->EventBlackBoard = NULL;
+}
 
 void UExecuteEventActionAsync::Update() {
 }
@@ -15,12 +19,4 @@ UExecuteEventActionAsync* UExecuteEventActionAsync::ExecuteEventActionAsync(UObj
     return NULL;
 }
 
-UExecuteEventActionAsync::UExecuteEventActionAsync() {
-    this->EventAction = NULL;
-    this->EventPlayer = NULL;
-    this->InteractingPlayer = NULL;
-    this->Subject = NULL;
-    this->Target = NULL;
-    this->EventBlackBoard = NULL;
-}
 

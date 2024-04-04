@@ -4,21 +4,22 @@
 #include "EStaminaDamageEffectType.h"
 #include "AE_StaminaDamageAbsolute.generated.h"
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UAE_StaminaDamageAbsolute : public UAbilityEffectComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     EStaminaDamageEffectType DamageEffectType;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 Damage;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float TargetPercentDamage;
     
 public:
-    UAE_StaminaDamageAbsolute();
+    UAE_StaminaDamageAbsolute(const FObjectInitializer& ObjectInitializer);
+
 };
 

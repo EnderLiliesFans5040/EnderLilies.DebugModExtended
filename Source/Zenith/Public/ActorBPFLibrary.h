@@ -1,43 +1,44 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
 #include "UObject/NoExportTypes.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "Templates/SubclassOf.h"
 #include "ActorBPFLibrary.generated.h"
 
-class APlayerController;
 class AActor;
+class APlayerController;
+class UActorComponent;
 class UBoxComponent;
 class USceneComponent;
-class UActorComponent;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class UActorBPFLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UActorBPFLibrary();
+
     UFUNCTION(BlueprintCallable)
     static bool SetActorLocationToGround(AActor* Actor, float OffsetFromGround);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsPlayer(AActor* Actor);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static USceneComponent* GetHomingTargetOfActor(const AActor* Actor);
     
     UFUNCTION(BlueprintCallable)
     static AActor* GetDefaultActorFromClass(UClass* Class);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FVector GetActorTopLocation(const AActor* Actor);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FVector GetActorLocationForFeetLocation(const AActor* Actor, FVector FeetLocation);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static float GetActorHalfHeight(const AActor* Actor);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FVector GetActorFeetLocation(const AActor* Actor);
     
     UFUNCTION(BlueprintCallable)

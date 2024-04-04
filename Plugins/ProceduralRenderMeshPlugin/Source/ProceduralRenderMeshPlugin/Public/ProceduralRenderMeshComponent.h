@@ -1,37 +1,38 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Components/MeshComponent.h"
-#include "ProcRenderUpdateSettings.h"
-#include "ProcRenderMeshSection.h"
 #include "UObject/NoExportTypes.h"
+#include "Components/MeshComponent.h"
+#include "ProcRenderMeshSection.h"
+#include "ProcRenderUpdateSettings.h"
 #include "ProceduralRenderMeshComponent.generated.h"
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class PROCEDURALRENDERMESHPLUGIN_API UProceduralRenderMeshComponent : public UMeshComponent {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FProcRenderUpdateSettings SectionCreateSettings;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FProcRenderUpdateSettings SectionUpdateSettings;
     
 private:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FProcRenderMeshSection> ProcMeshSections;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FBoxSphereBounds LocalBounds;
     
 public:
-    UProceduralRenderMeshComponent();
+    UProceduralRenderMeshComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetMeshSectionVisible(int32 SectionIndex, bool bNewVisibility);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsMeshSectionVisible(int32 SectionIndex) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetNumSections() const;
     
     UFUNCTION(BlueprintCallable)

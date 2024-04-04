@@ -5,12 +5,13 @@
 
 class AZenithCharacter;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class UAnimBPFLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UAnimBPFLibrary();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static void GetAnimData(const AZenithCharacter* Character, bool& out_bRunning, float& out_XYVelocityRatio);
     
 };

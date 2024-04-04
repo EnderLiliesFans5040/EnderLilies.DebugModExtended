@@ -7,7 +7,7 @@ USTRUCT(BlueprintType)
 struct ZENITH_API FAxisBinding {
     GENERATED_BODY()
 public:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FInputAxisKeyMapping> KeyBindings;
     
     FAxisBinding();

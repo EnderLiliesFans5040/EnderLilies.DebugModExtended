@@ -1,68 +1,69 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "ZenithSpiritEventDelegate.h"
 #include "Engine/EngineTypes.h"
 #include "ECommandRemoveTypes.h"
+#include "ZenithSpiritEventDelegate.h"
 #include "ZenithSpirit.generated.h"
 
-class UFactionComponent;
-class UCommandQueueComponent;
-class UStateComponent;
-class UZenithInputComponent;
-class UHitStopComponent;
+class APawn;
 class UAbilityComponent;
-class ULocomotionComponent;
 class UCharacterMovementComponent;
 class UCommandAction;
-class APawn;
+class UCommandQueueComponent;
+class UFactionComponent;
+class UHitStopComponent;
+class ULocomotionComponent;
+class UStateComponent;
+class UZenithInputComponent;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API AZenithSpirit : public ACharacter {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UCommandQueueComponent* CommandQueueComponent;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UStateComponent* StateComponent;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UFactionComponent* FactionComponent;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UAbilityComponent* AbilityComponent;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UHitStopComponent* HitStopComponent;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UZenithInputComponent* ZenithInputComponent;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     ULocomotionComponent* LocomotionComponent;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FZenithSpiritEvent OnSpiritAppearDelegate;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FZenithSpiritEvent OnSpiritDisappearDelegate;
     
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUnsummonOnMapSwitch;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUnsummonOnSpiritSwim;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUnsummonOnSummonerSwim;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UCharacterMovementComponent* MovementComponent;
     
 public:
-    AZenithSpirit();
+    AZenithSpirit(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void StopCurrentCommand();
     
@@ -70,47 +71,47 @@ public:
     void ResetLocation();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSummonerMovementModeChanged(ACharacter* Character, TEnumAsByte<EMovementMode> PrevMovementMode, uint8 PreviousCustomMode);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSummonerCommandsCleared();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnStartCommand(UCommandAction* CommandAction);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSourceCommandReachedCastLimit();
     
 protected:
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnSoftDisappear();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnResetLocation();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnEndCommand(UCommandAction* CommandAction, ECommandRemoveTypes RemoveType);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDisappear();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCommandAdded();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAppear();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsActive() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     APawn* GetSummoner() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetAttackFactor() const;
     
     UFUNCTION(BlueprintCallable)
@@ -121,7 +122,7 @@ protected:
     void Disappear(bool bForce);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanStartCommandAction(APawn* ActionSummoner) const;
     
 protected:

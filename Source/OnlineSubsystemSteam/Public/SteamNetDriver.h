@@ -3,11 +3,11 @@
 #include "IpNetDriver.h"
 #include "SteamNetDriver.generated.h"
 
-UCLASS(NonTransient)
+UCLASS(Blueprintable, NonTransient)
 class USteamNetDriver : public UIpNetDriver {
     GENERATED_BODY()
 public:
+    USteamNetDriver();
 
-    //USteamNetDriver() {};
 };
 

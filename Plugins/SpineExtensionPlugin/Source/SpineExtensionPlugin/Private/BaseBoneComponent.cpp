@@ -1,6 +1,7 @@
 #include "BaseBoneComponent.h"
 
-class USceneComponent;
+UBaseBoneComponent::UBaseBoneComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
 
 FTransform UBaseBoneComponent::GetBoneTransformByName_Implementation(const FString& BoneName, bool bFollowRotation) {
     return FTransform{};
@@ -18,6 +19,4 @@ USceneComponent* UBaseBoneComponent::GetAttachComponent_Implementation(ESpineBon
     return NULL;
 }
 
-UBaseBoneComponent::UBaseBoneComponent() {
-}
 

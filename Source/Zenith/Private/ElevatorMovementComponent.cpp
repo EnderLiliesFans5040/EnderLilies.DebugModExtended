@@ -1,5 +1,11 @@
 #include "ElevatorMovementComponent.h"
 
+UElevatorMovementComponent::UElevatorMovementComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Speed = 100.00f;
+    this->bSweep = true;
+    this->TeleportType = ETeleportType::None;
+}
+
 void UElevatorMovementComponent::TeleportToOrigin() {
 }
 
@@ -27,9 +33,4 @@ float UElevatorMovementComponent::GetSpeedFactor() const {
     return 0.0f;
 }
 
-UElevatorMovementComponent::UElevatorMovementComponent() {
-    this->Speed = 100.00f;
-    this->bSweep = true;
-    this->TeleportType = ETeleportType::None;
-}
 

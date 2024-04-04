@@ -1,48 +1,49 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
 #include "Components/ActorComponent.h"
-#include "ECommandRemoveTypes.h"
 #include "Engine/EngineTypes.h"
+#include "ECommandRemoveTypes.h"
+#include "Templates/SubclassOf.h"
 #include "InteractComponent.generated.h"
 
-class APawn;
-class UState;
 class AActor;
+class APawn;
 class UCommandAction;
-class USphereComponent;
 class UPrimitiveComponent;
+class USphereComponent;
+class UState;
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UInteractComponent : public UActorComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float Radius;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TSubclassOf<UState>> ForbiddenStates;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USphereComponent* SphereComponent;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APawn* PawnOwner;
     
 public:
-    UInteractComponent();
+    UInteractComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnStartCommand(UCommandAction* CommandAction);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnEndCommand(UCommandAction* CommandAction, ECommandRemoveTypes RemoveType);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnComponentOverlapEnd(UPrimitiveComponent* OverlapComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnComponentOverlapBegin(UPrimitiveComponent* OverlapComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
 };

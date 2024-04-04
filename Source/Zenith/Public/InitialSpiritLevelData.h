@@ -7,7 +7,7 @@ USTRUCT(BlueprintType)
 struct FInitialSpiritLevelData : public FTableRowBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 InitialLevel;
     
     ZENITH_API FInitialSpiritLevelData();

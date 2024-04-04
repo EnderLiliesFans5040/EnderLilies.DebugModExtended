@@ -1,6 +1,7 @@
 #include "ChallengeSettings.h"
 
-class UObject;
+UChallengeSettings::UChallengeSettings() {
+}
 
 bool UChallengeSettings::SetPlayerOneShot(bool bNewPlayerOneShot) {
     return false;
@@ -97,6 +98,4 @@ float UChallengeSettings::GetContactDamageFactor() const {
     return 0.0f;
 }
 
-UChallengeSettings::UChallengeSettings() {
-}
 

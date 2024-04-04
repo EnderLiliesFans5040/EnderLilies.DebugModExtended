@@ -1,5 +1,12 @@
 #include "HealComponent.h"
 
+UHealComponent::UHealComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->MaxHealCountLevel = 5;
+    this->MaxHealPowerLevel = 5;
+    this->HealCountBonus = 0;
+    this->HealPowerPercentageBonus = 0.00f;
+}
+
 void UHealComponent::UseHeal() {
 }
 
@@ -72,10 +79,4 @@ int32 UHealComponent::AddHealCountBonus(int32 HealCountBonusToAdd) {
     return 0;
 }
 
-UHealComponent::UHealComponent() {
-    this->MaxHealCountLevel = 5;
-    this->MaxHealPowerLevel = 5;
-    this->HealCountBonus = 0;
-    this->HealPowerPercentageBonus = 0.00f;
-}
 

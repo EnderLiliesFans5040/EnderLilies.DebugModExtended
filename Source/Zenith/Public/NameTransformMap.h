@@ -7,7 +7,7 @@ USTRUCT(BlueprintType)
 struct FNameTransformMap {
     GENERATED_BODY()
 public:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, FTransform> Entries;
     
     ZENITH_API FNameTransformMap();

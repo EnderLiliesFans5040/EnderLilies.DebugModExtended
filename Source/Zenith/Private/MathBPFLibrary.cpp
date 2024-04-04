@@ -1,5 +1,8 @@
 #include "MathBPFLibrary.h"
 
+UMathBPFLibrary::UMathBPFLibrary() {
+}
+
 int32 UMathBPFLibrary::RoundToPowerOfTwo(float A) {
     return 0;
 }
@@ -48,6 +51,4 @@ float UMathBPFLibrary::AngleBetweenAsDegree(FVector VectorA, FVector VectorB) {
     return 0.0f;
 }
 
-UMathBPFLibrary::UMathBPFLibrary() {
-}
 

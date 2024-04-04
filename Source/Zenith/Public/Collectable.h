@@ -5,37 +5,38 @@
 
 class APlayerController;
 
-UCLASS(Abstract)
+UCLASS(Abstract, Blueprintable)
 class ZENITH_API ACollectable : public AReusableActor {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAutoCollectOnActivate;
     
 public:
-    ACollectable();
-    UFUNCTION(BlueprintImplementableEvent)
+    ACollectable(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnGrantDrop();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnGameMapSwitch();
     
 public:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCollect(APlayerController* PlayerController);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsDropGranted() const;
     
     UFUNCTION(BlueprintCallable)
     void GrantDrop();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetExperienceValue() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     APlayerController* GetCollectingPlayerController() const;
     
     UFUNCTION(BlueprintCallable)

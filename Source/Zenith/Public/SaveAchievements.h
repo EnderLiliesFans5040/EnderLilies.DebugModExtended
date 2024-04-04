@@ -4,13 +4,14 @@
 #include "EZenithAchievement.h"
 #include "SaveAchievements.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API USaveAchievements : public USaveGame {
     GENERATED_BODY()
 public:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<EZenithAchievement> Achievements;
     
     USaveAchievements();
+
 };
 

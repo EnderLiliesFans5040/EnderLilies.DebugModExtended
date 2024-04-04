@@ -3,10 +3,11 @@
 #include "State.h"
 #include "StateHitStop.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateHitStop : public UState {
     GENERATED_BODY()
 public:
     UStateHitStop();
+
 };
 

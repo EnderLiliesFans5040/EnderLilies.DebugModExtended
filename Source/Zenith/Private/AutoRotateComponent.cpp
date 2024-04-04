@@ -1,5 +1,6 @@
 #include "AutoRotateComponent.h"
 
-UAutoRotateComponent::UAutoRotateComponent() {
+UAutoRotateComponent::UAutoRotateComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

@@ -1,106 +1,107 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
-#include "MoveTimeline.h"
-#include "CommandActionEventDelegate.h"
-#include "CommandActionEndEventDelegate.h"
-#include "AbilityTimeline.h"
-#include "StateTimeline.h"
-#include "FXTimeline.h"
-#include "SoundTimeline.h"
-#include "ECommandResult.h"
 #include "UObject/NoExportTypes.h"
-#include "EDirectionInputTypes.h"
+#include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "Engine/EngineTypes.h"
+#include "AbilityTimeline.h"
+#include "CommandActionEndEventDelegate.h"
+#include "CommandActionEventDelegate.h"
 #include "ECommandInputTypes.h"
-#include "InputSnapshot.h"
-#include "SpineAnimationDefinition.h"
 #include "ECommandRemoveTypes.h"
-#include "UObject/NoExportTypes.h"
+#include "ECommandResult.h"
+#include "EDirectionInputTypes.h"
+#include "FXTimeline.h"
+#include "InputSnapshot.h"
+#include "MoveTimeline.h"
+#include "SoundTimeline.h"
+#include "SpineAnimationDefinition.h"
+#include "StateTimeline.h"
+#include "Templates/SubclassOf.h"
 #include "CommandAction.generated.h"
 
-class UCommandAction;
+class ACharacter;
 class APawn;
+class UCharacterMovementComponent;
+class UCommandAction;
 class UHitStopComponent;
 class UMPComponent;
-class UStateComponent;
 class USpineAnimationComponent;
-class UCharacterMovementComponent;
-class ACharacter;
+class UStateComponent;
 
 UCLASS(Abstract, Blueprintable)
 class ZENITH_API UCommandAction : public UObject {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCommandActionEvent OnCommandActionStart;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCommandActionEndEvent OnCommandActionEnd;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCommandActionEvent OnCommandActionUseCountRestored;
     
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FStateTimeline StateTimeline;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FAbilityTimeline AbilityTimeline;
     
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FMoveTimeline MoveTimeline;
     
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FFXTimeline FXTimeline;
     
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSoundTimeline SoundTimeline;
     
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 AllowOverrideFromCommands;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bConsumeMP;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float RecastTime;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAllowRecastTimeCut;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MaxAirborneExecutionCount;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TSubclassOf<UCommandAction>> ResetAirborneExecutionCountActions;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APawn* Pawn;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UObject* CachedWorldObjectContext;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UHitStopComponent* CachedHitStopComponent;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UMPComponent* CachedMPComponent;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UStateComponent* CachedStateComponent;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USpineAnimationComponent* CachedAnimComponent;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UCharacterMovementComponent* CachedMovementComponent;
     
 public:
     UCommandAction();
+
     UFUNCTION(BlueprintCallable)
     void SubRecastTimeCutPercentage(float RecastTimeCutPercentageToSub);
     
@@ -167,149 +168,149 @@ public:
     void OverrideByCommandAction(UCommandAction* CommandAction);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnWallgrabStarted();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWallgrabStart();
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnStartCommandAction();
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     ECommandResult OnSampleCommandAction(float DeltaTime);
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnRemovedFromBuffer();
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnOverrideByCommandAction(UCommandAction* CommandAction);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnMovementModeUpdated(EMovementMode NewMovementMode, EMovementMode PrevMovementMode);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnMovementModeChanged(ACharacter* Character, TEnumAsByte<EMovementMode> PreMovementMode, uint8 PreviousCustomMode);
     
 protected:
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnLanded();
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnInitialize();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHookStarted();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnHookStart();
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnFall();
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnEndCommandAction(ECommandRemoveTypes RemoveType);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnCommandActionStarted(UCommandAction* CommandAction);
     
 protected:
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnChangePawn(APawn* OldPawnSubject, APawn* NewPawnSubject);
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnChangeInvokedByInputType();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSwimming() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPlayingActionAnimation() const;
     
 public:
-    UFUNCTION(BlueprintNativeEvent, BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     bool IsOverridenByActionType(ECommandInputTypes commandType) const;
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInputTypePressed(ECommandInputTypes InputType) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsGrounded() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsFalling() const;
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsAbilityTimelineCompleted(bool bCheckAbilities) const;
     
     UFUNCTION(BlueprintCallable)
     void Initialize(UObject* WorldObjectContext);
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UStateComponent* GetStateComponent() const;
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetRecastTime() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     APawn* GetPawn() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetMPCost() const;
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UMPComponent* GetMPComponent() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TEnumAsByte<EMovementMode> GetMovementMode() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector GetMoveInput() const;
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ECommandInputTypes GetInvokedByInputType() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     EDirectionInputTypes GetInvokedByDirectionInputType() const;
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector2D GetInputVector() const;
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FInputSnapshot GetInputSnapshot() const;
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UHitStopComponent* GetHitStopComponent() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetExecutionTime() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     EDirectionInputTypes GetDirectionInputType() const;
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetCooldownTime() const;
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UCharacterMovementComponent* GetCharacterMovementComponent() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USpineAnimationComponent* GetAnimationComponent() const;
     
 public:
@@ -319,11 +320,11 @@ public:
     UFUNCTION(BlueprintCallable)
     void EndCommandAction(ECommandRemoveTypes RemoveType);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool ContainsConsumeMPCommand() const;
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanUseCommandInput(ECommandInputTypes CommandInputType) const;
     
 public:
@@ -331,11 +332,11 @@ public:
     bool CanStartCommandAction();
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanMove() const;
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool AllowRecastTimeCut() const;
     
     UFUNCTION(BlueprintCallable)

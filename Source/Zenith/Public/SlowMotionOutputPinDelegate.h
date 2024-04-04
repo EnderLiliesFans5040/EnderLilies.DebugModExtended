@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SlowMotionOutputPinDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSlowMotionOutputPin);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSlowMotionOutputPin);
 

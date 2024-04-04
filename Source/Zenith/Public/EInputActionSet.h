@@ -2,9 +2,10 @@
 #include "CoreMinimal.h"
 #include "EInputActionSet.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EInputActionSet : uint8 {
-    Game = 0x1,
+    Dummy,
+    Game = 1,
     Menu,
     Event,
 };

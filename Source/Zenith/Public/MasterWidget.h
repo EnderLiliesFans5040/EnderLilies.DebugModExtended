@@ -5,15 +5,16 @@
 
 class UWidget;
 
-UCLASS(Abstract, EditInlineNew)
+UCLASS(Abstract, Blueprintable, EditInlineNew)
 class ZENITH_API UMasterWidget : public UUserWidget {
     GENERATED_BODY()
 public:
     UMasterWidget();
-    UFUNCTION(BlueprintNativeEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void SetVisible(bool bVisible);
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void AddChild(UWidget* Widget, int32 ZOrder);
     
 };

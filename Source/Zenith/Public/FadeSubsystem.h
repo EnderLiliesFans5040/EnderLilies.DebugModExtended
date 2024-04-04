@@ -1,29 +1,30 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "EFadeTypes.h"
 #include "FadeDelegateDelegate.h"
+#include "Templates/SubclassOf.h"
 #include "FadeSubsystem.generated.h"
 
 class UFadeUserWidget;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API UFadeSubsystem : public UGameInstanceSubsystem {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(Transient)
-    TWeakObjectPtr<UFadeUserWidget> FadeWidget = nullptr;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Export, Transient, meta=(AllowPrivateAccess=true))
+    TWeakObjectPtr<UFadeUserWidget> FadeWidget;
     
-    UPROPERTY(Instanced, Transient)
-    TMap<TSubclassOf<UFadeUserWidget>, UFadeUserWidget*> InstanceForFadeClasses;
+    UPROPERTY(EditAnywhere, Export, Transient, meta=(AllowPrivateAccess=true))
+    TMap<TSubclassOf<UFadeUserWidget>, TWeakObjectPtr<UFadeUserWidget>> InstanceForFadeClasses;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FFadeDelegate OnFadeFinishedDelegate;
     
 public:
     UFadeSubsystem();
+
     UFUNCTION(BlueprintCallable)
     void PrepareFadeInAtZOrder(TSubclassOf<UFadeUserWidget> FadeClass, int32 ZOrder);
     
@@ -31,7 +32,7 @@ public:
     void PrepareFadeIn(TSubclassOf<UFadeUserWidget> FadeClass);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnFadeFinished(bool bWasFadeIn);
     
 public:
@@ -47,10 +48,10 @@ public:
     UFUNCTION(BlueprintCallable)
     void LaunchFade(bool bFadeIn, TSubclassOf<UFadeUserWidget> FadeClass, const FFadeDelegate NewOnFadeFinished);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsFading() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     EFadeTypes GetLastFadeType() const;
     
 };

@@ -1,7 +1,11 @@
 #include "Interactable.h"
 #include "ClearableComponent.h"
 
-class APlayerController;
+AInteractable::AInteractable(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->ClearableComponent = CreateDefaultSubobject<UClearableComponent>(TEXT("ClearableComponent"));
+    this->InteractionInputType = EInteractableInputType::NONE;
+    this->FacingMode = EInteractableFacingMode::NONE;
+}
 
 bool AInteractable::TryMarkAsCleared() {
     return false;
@@ -69,9 +73,4 @@ bool AInteractable::CanBeMarkedAsCleared_Implementation() const {
 void AInteractable::ActivateInteractable(APlayerController* Controller) {
 }
 
-AInteractable::AInteractable() {
-    this->ClearableComponent = CreateDefaultSubobject<UClearableComponent>(TEXT("ClearableComponent"));
-    this->InteractionInputType = EInteractableInputType::NONE;
-    this->FacingMode = EInteractableFacingMode::NONE;
-}
 

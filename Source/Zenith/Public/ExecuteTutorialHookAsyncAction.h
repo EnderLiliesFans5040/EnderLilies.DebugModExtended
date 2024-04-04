@@ -1,24 +1,25 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
-#include "TutorialHookOutputPinDelegate.h"
 #include "ETutorialHook.h"
+#include "TutorialHookOutputPinDelegate.h"
 #include "ExecuteTutorialHookAsyncAction.generated.h"
 
+class AZenithPlayerController;
 class UExecuteTutorialHookAsyncAction;
 class UObject;
-class AZenithPlayerController;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UExecuteTutorialHookAsyncAction : public UBlueprintAsyncActionBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTutorialHookOutputPin OnFinish;
     
     UExecuteTutorialHookAsyncAction();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void Finish();
     
 public:

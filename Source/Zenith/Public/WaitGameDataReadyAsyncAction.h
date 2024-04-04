@@ -4,22 +4,23 @@
 #include "WaitGameDataOutputPinDelegate.h"
 #include "WaitGameDataReadyAsyncAction.generated.h"
 
-class UWaitGameDataReadyAsyncAction;
 class UObject;
+class UWaitGameDataReadyAsyncAction;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UWaitGameDataReadyAsyncAction : public UBlueprintAsyncActionBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FWaitGameDataOutputPin OnLoaded;
     
     UWaitGameDataReadyAsyncAction();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static UWaitGameDataReadyAsyncAction* WaitGameDataReady(const UObject* WorldContextObject);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void Tick();
     
 };

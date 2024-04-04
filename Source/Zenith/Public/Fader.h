@@ -7,36 +7,37 @@
 class ULevelSequence;
 class ULevelSequencePlayer;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API AFader : public AActor {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<ULevelSequence*, ULevelSequencePlayer*> LevelSequencePlayers;
     
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ULevelSequence* FadeInSequence;
     
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ULevelSequence* FadeOutSequence;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FFaderEvent OnFadeStart;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FFaderEvent OnFadeEnd;
     
-    AFader();
+    AFader(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void PrepareFadeIn();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnLevelSequencePlay();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnLevelSequenceFinished();
     
 public:

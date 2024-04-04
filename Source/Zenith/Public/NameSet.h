@@ -6,7 +6,7 @@ USTRUCT(BlueprintType)
 struct FNameSet {
     GENERATED_BODY()
 public:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSet<FName> Set;
     
     ZENITH_API FNameSet();

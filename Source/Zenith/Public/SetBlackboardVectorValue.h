@@ -1,16 +1,17 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "SetBlackboardValue.h"
 #include "UObject/NoExportTypes.h"
+#include "SetBlackboardValue.h"
 #include "SetBlackboardVectorValue.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API USetBlackboardVectorValue : public USetBlackboardValue {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector ValueToSet;
     
     USetBlackboardVectorValue();
+
 };
 

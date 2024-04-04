@@ -4,17 +4,18 @@
 #include "WaitGameUnpausedOutputPinDelegate.h"
 #include "WaitGameUnpausedAsyncAction.generated.h"
 
-class UWaitGameUnpausedAsyncAction;
 class UObject;
+class UWaitGameUnpausedAsyncAction;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UWaitGameUnpausedAsyncAction : public UBlueprintAsyncActionBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FWaitGameUnpausedOutputPin OnGameUnpaused;
     
     UWaitGameUnpausedAsyncAction();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static UWaitGameUnpausedAsyncAction* WaitGameUnpaused(const UObject* WorldContextObject);
     

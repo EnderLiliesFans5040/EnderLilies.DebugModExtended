@@ -2,7 +2,12 @@
 #include "Components/SceneComponent.h"
 #include "Components/SphereComponent.h"
 
-class AZenithCharacter;
+AHookPoint::AHookPoint(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
+    this->RootSceneComponent = (USceneComponent*)RootComponent;
+    this->SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
+    this->SphereComponent->SetupAttachment(RootComponent);
+}
 
 
 void AHookPoint::NotifyHookPointUsed(AZenithCharacter* UsingCharacter) {
@@ -20,8 +25,4 @@ USceneComponent* AHookPoint::GetHookAttachComponent() const {
     return NULL;
 }
 
-AHookPoint::AHookPoint() {
-    this->RootSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
-    this->SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
-}
 

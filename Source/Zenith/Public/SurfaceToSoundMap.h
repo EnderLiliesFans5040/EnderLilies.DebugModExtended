@@ -9,7 +9,7 @@ USTRUCT(BlueprintType)
 struct ZENITH_API FSurfaceToSoundMap {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<TEnumAsByte<EPhysicalSurface>, UFMODEvent*> Sounds;
     
     FSurfaceToSoundMap();

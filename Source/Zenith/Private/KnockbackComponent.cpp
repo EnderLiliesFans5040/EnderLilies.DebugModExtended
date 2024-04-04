@@ -1,5 +1,16 @@
 #include "KnockbackComponent.h"
 
+UKnockbackComponent::UKnockbackComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->MovementFactor = 1.00f;
+    this->bAirborneKnockbackTriggerLaunch = false;
+    this->bAutoManageRecovery = true;
+    this->OwnerCharacter = NULL;
+    this->AbilityComponent = NULL;
+    this->SpineAnimComponent = NULL;
+    this->StateComponent = NULL;
+    this->DeathComponent = NULL;
+}
+
 void UKnockbackComponent::StopKnockback() {
 }
 
@@ -32,14 +43,4 @@ bool UKnockbackComponent::CanLaunchKnockback() const {
 void UKnockbackComponent::CancelKnockback() {
 }
 
-UKnockbackComponent::UKnockbackComponent() {
-    this->MovementFactor = 1.00f;
-    this->bAirborneKnockbackTriggerLaunch = false;
-    this->bAutoManageRecovery = true;
-    this->OwnerCharacter = NULL;
-    this->AbilityComponent = NULL;
-    this->SpineAnimComponent = NULL;
-    this->StateComponent = NULL;
-    this->DeathComponent = NULL;
-}
 

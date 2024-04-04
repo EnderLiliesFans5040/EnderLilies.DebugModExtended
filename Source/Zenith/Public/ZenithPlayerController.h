@@ -1,145 +1,146 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
-#include "GameFramework/PlayerController.h"
-#include "GameMapSwitchDelegateOwnerInterface.h"
-#include "EventActorInterface.h"
 #include "UObject/NoExportTypes.h"
-#include "EventPlayerControllerInterface.h"
-#include "ZPCActionDelegate.h"
-#include "GameMapSwitchActionDelegate.h"
 #include "Engine/DataTable.h"
-#include "EAptitudeType.h"
+#include "GameFramework/PlayerController.h"
 #include "EventActorEventDelegate.h"
-#include "GameMapData.h"
+#include "EventActorInterface.h"
+#include "EventPlayerControllerInterface.h"
 #include "AreaData.h"
-#include "InventoryBaseItemData.h"
+#include "EAptitudeType.h"
 #include "EZenithAchievement.h"
+#include "GameMapData.h"
+#include "GameMapSwitchActionDelegate.h"
+#include "GameMapSwitchDelegateOwnerInterface.h"
+#include "InventoryBaseItemData.h"
 #include "RespawnPointData.h"
+#include "Templates/SubclassOf.h"
+#include "ZPCActionDelegate.h"
 #include "ZenithPlayerController.generated.h"
 
-class UParameterPlayerComponent;
-class USpiritCompanionComponent;
-class UObject;
-class USlowMotionAsyncAction;
-class USpiritEquipComponent;
-class UInventoryComponent;
-class UHealComponent;
-class UPassiveEquipComponent;
-class AZenithCharacter;
 class AActor;
-class APlayerStart;
-class UEventAsset;
-class AZenithPlayerController;
 class APawn;
+class APlayerStart;
+class AZenithCharacter;
+class AZenithPlayerController;
+class UEventAsset;
 class UFadeUserWidget;
+class UHealComponent;
+class UInventoryComponent;
+class UObject;
+class UParameterPlayerComponent;
+class UPassiveEquipComponent;
+class USlowMotionAsyncAction;
+class USpiritCompanionComponent;
+class USpiritEquipComponent;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API AZenithPlayerController : public APlayerController, public IGameMapSwitchDelegateOwnerInterface, public IEventActorInterface, public IEventPlayerControllerInterface {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UInventoryComponent* InventoryComponent;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UParameterPlayerComponent* ParameterPlayerComponent;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USpiritEquipComponent* SpiritEquipComponent;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USpiritCompanionComponent* SpiritCompanionComponent;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UHealComponent* HealComponent;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPassiveEquipComponent* PassiveEquipComponent;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FZPCAction OnDeath;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FZPCAction OnPawnChangedDelegate;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameMapSwitchAction OnGameMapSwitchDelegate;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FZPCAction OnOpenNewWorldDelegate;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FZPCAction OnOpenNewAreaDelegate;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FZPCAction OnSimulatedInputChanged;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FZPCAction OnAptitudeUnlockedDelegate;
     
 private:
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     AZenithCharacter* ZenithCharacter;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     AActor* DefaultViewTarget;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDataTableRowHandle DefaultGameMap;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName DefaultPlayerStartTag;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<EAptitudeType> UnlockedAptitudes;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FName> OpenedWorlds;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FName> OpenedAreas;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FEventActorEvent OnEventStartDelegate;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FEventActorEvent OnEventStopDelegate;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bInEvent;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FName> PlayedEvents;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FName> PreviousRunsPlayedEvents;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FName> SeenTutorials;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FName> RecollectionCheckedIDs;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MinimapUISizeIndex;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDataTableRowHandle FastTravel_GameMapHandle;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName FastTravel_PlayerStartTag;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 LockInputCount;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 LockPauseCount;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<USlowMotionAsyncAction*> RunningSlowMotionActions;
     
 public:
-    AZenithPlayerController();
+    AZenithPlayerController(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void UnlockAllAptitudes();
     
@@ -158,72 +159,72 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetDefaultViewTarget(AActor* NewDefaultViewTarget);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnUnlockAptitude(EAptitudeType AptitudeType);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSwitchGameMapStart();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPawnRespawn();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPawnDeathEvent();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPawnChanged();
     
 public:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnOpenNewWorld(const FGameMapData& GameMapData);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnOpenNewArea(const FAreaData& AreaData);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnNoClampVolumeWarning();
     
 public:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnGameMapSwitch();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnGameMapReadyPostFade();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnGameMapReady();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnGameDataLoaded();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEventStopped(UEventAsset* EventAsset);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEventStarted(UEventAsset* EventAsset);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnControllerDisconnected();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnControllerConnected();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAptitudeItemRemoved(const FInventoryBaseItemData& InventoryAptitudeItem);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAptitudeItemAdded(const FInventoryBaseItemData& InventoryAptitudeItem);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnApplicationWillDeactivate(bool bApplicationWillBeSuspended);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAchievementUnlocked(EZenithAchievement Achievement);
     
 public:
@@ -236,55 +237,55 @@ public:
     UFUNCTION(BlueprintCallable)
     void MarkGameMapAsOpen(const FName& GameMapID, const FGameMapData& GameMapData);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsTutorialAlreadySeen(const FName& TutorialID) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSoftEventAssetAlreadyPlayed(const TSoftObjectPtr<UEventAsset>& SoftEventAsset) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsRecollectionItemAlreadyChecked(const FName& RecollectionItemID) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsNextFastTravelDestinationSet() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInputLocked() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInEvent() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsGameMapOpen(const FName& GameMapID) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsFastTravelOpen() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEventAlreadyPlayed(const FName& EventName, bool bCheckPreviousGameGeneration) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsAptitudeUnlocked(EAptitudeType Aptitude) const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static AZenithPlayerController* GetZenithPlayerController(UObject* WorldContextObject, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector2D GetSimulatedInput() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FRespawnPointData GetRespawnPointData() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FName> GetOpenedGameMaps() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetMinimapUISizeIndex() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     APawn* GetLastPawn() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     AActor* GetDefaultViewTarget() const;
     
     UFUNCTION(BlueprintCallable)
@@ -299,10 +300,10 @@ public:
     UFUNCTION(BlueprintCallable)
     void ClearFastTravelDestination();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanPlayerUseBackToRestPoint() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

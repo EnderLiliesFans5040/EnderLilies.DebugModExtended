@@ -7,19 +7,20 @@
 class UObject;
 class UUndilatedDelayAsyncAction;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UUndilatedDelayAsyncAction : public UBlueprintAsyncActionBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUndilatedDelayOutputPin OnFinish;
     
     UUndilatedDelayAsyncAction();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static UUndilatedDelayAsyncAction* UndilatedDelay(const UObject* WorldContextObject, float DelayInSeconds);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void Tick();
     
 };

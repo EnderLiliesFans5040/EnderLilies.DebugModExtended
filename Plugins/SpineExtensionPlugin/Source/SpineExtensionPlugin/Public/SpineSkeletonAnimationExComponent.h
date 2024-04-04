@@ -4,27 +4,28 @@
 #include "SpineSkeletonAnimationExComponent.generated.h"
 
 class USpineAnimInstance;
-class UTrackEntry;
-class USpineNotifyAsset;
 class USpineAtlasAsset;
+class USpineNotifyAsset;
 class USpineSkeletonDataAsset;
+class UTrackEntry;
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class SPINEEXTENSIONPLUGIN_API USpineSkeletonAnimationExComponent : public USpineSkeletonAnimationComponent {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<USpineAnimInstance*> LastAnimInstances;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FString, USpineAnimInstance*> AnimInstanceForAnimations;
     
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USpineNotifyAsset* NotifyData;
     
-    USpineSkeletonAnimationExComponent();
+    USpineSkeletonAnimationExComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetPlaybackTimeIgnoreTimescale(float InPlaybackTime, bool bCallDelegates);
     
@@ -32,7 +33,7 @@ public:
     void ReplaceSpineData(USpineAtlasAsset* NewAtlas, USpineSkeletonDataAsset* NewSkeletonData, USpineNotifyAsset* NewNotifyAsset);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAnimationStart(UTrackEntry* Entry);
     
 };

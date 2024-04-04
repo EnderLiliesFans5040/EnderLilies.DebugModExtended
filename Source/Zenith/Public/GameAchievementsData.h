@@ -7,7 +7,7 @@ USTRUCT(BlueprintType)
 struct ZENITH_API FGameAchievementsData {
     GENERATED_BODY()
 public:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<EZenithAchievement> Achievements;
     
     FGameAchievementsData();

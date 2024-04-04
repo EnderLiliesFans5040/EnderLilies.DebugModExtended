@@ -3,21 +3,22 @@
 #include "GameFramework/Character.h"
 #include "ZenithCharacterEvent.generated.h"
 
-class UZenithInputComponent;
 class ULocomotionComponent;
+class UZenithInputComponent;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API AZenithCharacterEvent : public ACharacter {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UZenithInputComponent* ZenithInputComponent;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     ULocomotionComponent* LocomotionComponent;
     
 public:
-    AZenithCharacterEvent();
+    AZenithCharacterEvent(const FObjectInitializer& ObjectInitializer);
+
 };
 

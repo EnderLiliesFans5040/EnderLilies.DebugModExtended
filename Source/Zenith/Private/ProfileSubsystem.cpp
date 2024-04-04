@@ -1,5 +1,8 @@
 #include "ProfileSubsystem.h"
 
+UProfileSubsystem::UProfileSubsystem() {
+}
+
 bool UProfileSubsystem::UseProfileSystem() const {
     return false;
 }
@@ -35,6 +38,4 @@ FString UProfileSubsystem::GetMainProfileName() const {
 void UProfileSubsystem::ClearMainProfile() {
 }
 
-UProfileSubsystem::UProfileSubsystem() {
-}
 

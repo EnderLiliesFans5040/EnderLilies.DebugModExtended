@@ -1,0 +1,25 @@
+{
+	"FileVersion": 3,
+	"Version": 20108,
+	"VersionName": "2.01.08",
+	"FriendlyName": "FMOD Studio Integration",
+	"Description": "FMOD Studio Integration.",
+	"Category": "Audio",
+	"CreatedBy": "Firelight Technologies",
+	"CreatedByURL": "http://fmod.com",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EnabledByDefault": true,
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "FMODStudio",
+			"Type": "Runtime",
+			"LoadingPhase": "PreDefault"
+		}
+	]
+}

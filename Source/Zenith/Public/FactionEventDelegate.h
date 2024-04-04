@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "FactionEventDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FFactionEvent);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FFactionEvent);
 

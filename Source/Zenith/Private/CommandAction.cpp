@@ -1,14 +1,19 @@
 #include "CommandAction.h"
 
-class APawn;
-class UCharacterMovementComponent;
-class UCommandAction;
-class ACharacter;
-class UObject;
-class UStateComponent;
-class UMPComponent;
-class UHitStopComponent;
-class USpineAnimationComponent;
+UCommandAction::UCommandAction() {
+    this->AllowOverrideFromCommands = 0;
+    this->bConsumeMP = false;
+    this->RecastTime = 0.00f;
+    this->bAllowRecastTimeCut = false;
+    this->MaxAirborneExecutionCount = 0;
+    this->Pawn = NULL;
+    this->CachedWorldObjectContext = NULL;
+    this->CachedHitStopComponent = NULL;
+    this->CachedMPComponent = NULL;
+    this->CachedStateComponent = NULL;
+    this->CachedAnimComponent = NULL;
+    this->CachedMovementComponent = NULL;
+}
 
 void UCommandAction::SubRecastTimeCutPercentage(float RecastTimeCutPercentageToSub) {
 }
@@ -245,18 +250,4 @@ void UCommandAction::AddRecastTimeCutPercentage(float RecastTimeCutPercentageToA
 void UCommandAction::AddMaxExecutionPercentageBonus(float MaxExecutionPercentageBonusToAdd) {
 }
 
-UCommandAction::UCommandAction() {
-    this->AllowOverrideFromCommands = 0;
-    this->bConsumeMP = false;
-    this->RecastTime = 0.00f;
-    this->bAllowRecastTimeCut = false;
-    this->MaxAirborneExecutionCount = 0;
-    this->Pawn = NULL;
-    this->CachedWorldObjectContext = NULL;
-    this->CachedHitStopComponent = NULL;
-    this->CachedMPComponent = NULL;
-    this->CachedStateComponent = NULL;
-    this->CachedAnimComponent = NULL;
-    this->CachedMovementComponent = NULL;
-}
 

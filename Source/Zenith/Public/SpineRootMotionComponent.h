@@ -4,31 +4,32 @@
 #include "SpineRootMotionComponent.generated.h"
 
 class ACharacter;
-class USpineSkeletonRendererComponent;
 class USpineSkeletonAnimationComponent;
 class USpineSkeletonComponent;
+class USpineSkeletonRendererComponent;
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class USpineRootMotionComponent : public UActorComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float RootMotionFactor;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ACharacter* CharacterOwner;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USpineSkeletonRendererComponent* SpineRenderer;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USpineSkeletonAnimationComponent* SpineAnimation;
     
 public:
-    USpineRootMotionComponent();
+    USpineRootMotionComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAfterBoneTransformUpdate(USpineSkeletonComponent* SpineSkeletonComponent);
     
 };

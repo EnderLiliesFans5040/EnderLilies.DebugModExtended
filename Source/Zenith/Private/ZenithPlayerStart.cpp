@@ -1,6 +1,7 @@
 #include "ZenithPlayerStart.h"
 
-
-AZenithPlayerStart::AZenithPlayerStart() : APlayerStart(FObjectInitializer::Get()) {
+AZenithPlayerStart::AZenithPlayerStart(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
+
 

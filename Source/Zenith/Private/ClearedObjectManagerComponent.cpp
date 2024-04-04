@@ -1,5 +1,8 @@
 #include "ClearedObjectManagerComponent.h"
 
+UClearedObjectManagerComponent::UClearedObjectManagerComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void UClearedObjectManagerComponent::ResetClearedObjects() {
 }
 
@@ -15,6 +18,4 @@ float UClearedObjectManagerComponent::GetGameMapCompletionActorCount(const FName
     return 0.0f;
 }
 
-UClearedObjectManagerComponent::UClearedObjectManagerComponent() {
-}
 

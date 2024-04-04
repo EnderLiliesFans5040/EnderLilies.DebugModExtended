@@ -1,19 +1,6 @@
 #include "HomingComponent.h"
 
-class USceneComponent;
-
-void UHomingComponent::SetTarget(USceneComponent* SceneComponent) {
-}
-
-USceneComponent* UHomingComponent::GetTarget() const {
-    return NULL;
-}
-
-bool UHomingComponent::DidReachTarget() const {
-    return false;
-}
-
-UHomingComponent::UHomingComponent() {
+UHomingComponent::UHomingComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->InitialSpeed = 100.00f;
     this->Acceleration = 0.00f;
     this->MaxSpeed = 0.00f;
@@ -26,4 +13,16 @@ UHomingComponent::UHomingComponent() {
     this->AutoStopHomingDelay = 0.00f;
     this->RangeForTargetReach = 25.00f;
 }
+
+void UHomingComponent::SetTarget(USceneComponent* SceneComponent) {
+}
+
+USceneComponent* UHomingComponent::GetTarget() const {
+    return NULL;
+}
+
+bool UHomingComponent::DidReachTarget() const {
+    return false;
+}
+
 

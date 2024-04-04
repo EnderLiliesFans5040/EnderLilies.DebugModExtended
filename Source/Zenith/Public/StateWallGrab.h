@@ -3,10 +3,11 @@
 #include "State.h"
 #include "StateWallGrab.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateWallGrab : public UState {
     GENERATED_BODY()
 public:
     UStateWallGrab();
+
 };
 

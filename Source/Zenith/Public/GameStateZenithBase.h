@@ -3,10 +3,11 @@
 #include "GameFramework/GameStateBase.h"
 #include "GameStateZenithBase.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API AGameStateZenithBase : public AGameStateBase {
     GENERATED_BODY()
 public:
-    AGameStateZenithBase();
+    AGameStateZenithBase(const FObjectInitializer& ObjectInitializer);
+
 };
 

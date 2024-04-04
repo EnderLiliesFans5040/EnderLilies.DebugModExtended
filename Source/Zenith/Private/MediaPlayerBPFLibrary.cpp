@@ -1,7 +1,7 @@
 #include "MediaPlayerBPFLibrary.h"
 
-class UMediaPlayer;
-class UDataTable;
+UMediaPlayerBPFLibrary::UMediaPlayerBPFLibrary() {
+}
 
 bool UMediaPlayerBPFLibrary::RewindOrReopen(UMediaPlayer* MediaPlayer) {
     return false;
@@ -34,6 +34,4 @@ float UMediaPlayerBPFLibrary::GetLastAudioProcessedTimeInSecond(const UMediaPlay
 void UMediaPlayerBPFLibrary::DisplayMediaPlayerData(const UMediaPlayer* MediaPlayer) {
 }
 
-UMediaPlayerBPFLibrary::UMediaPlayerBPFLibrary() {
-}
 

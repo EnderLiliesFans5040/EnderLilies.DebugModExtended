@@ -1,6 +1,7 @@
 #include "AchievementsSubsystem.h"
 
-class UDataTable;
+UAchievementsSubsystem::UAchievementsSubsystem() {
+}
 
 void UAchievementsSubsystem::UnlockAchievement(EZenithAchievement Achievement) {
 }
@@ -41,6 +42,4 @@ bool UAchievementsSubsystem::GetAchievementData(EZenithAchievement Achievement, 
     return false;
 }
 
-UAchievementsSubsystem::UAchievementsSubsystem() {
-}
 

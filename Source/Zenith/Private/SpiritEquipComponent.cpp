@@ -1,5 +1,8 @@
 #include "SpiritEquipComponent.h"
 
+USpiritEquipComponent::USpiritEquipComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void USpiritEquipComponent::UnequipSpiritFromCurrentSet(ECommandInputTypes CommandInputType) {
 }
 
@@ -56,6 +59,4 @@ bool USpiritEquipComponent::CanChangeEquipment() const {
     return false;
 }
 
-USpiritEquipComponent::USpiritEquipComponent() {
-}
 

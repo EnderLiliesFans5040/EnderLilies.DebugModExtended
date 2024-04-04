@@ -1,7 +1,7 @@
 #include "SpineBPFLibrary.h"
 
-class USpineSkeletonAnimationComponent;
-class USpineBoneFollowerComponent;
+USpineBPFLibrary::USpineBPFLibrary() {
+}
 
 bool USpineBPFLibrary::IsPlayingAnyAnimation(USpineSkeletonAnimationComponent* AnimSkelComponent, int32 TrackIndex) {
     return false;
@@ -19,6 +19,4 @@ USpineBoneFollowerComponent* USpineBPFLibrary::AddBoneFollowerComponent(USpineSk
     return NULL;
 }
 
-USpineBPFLibrary::USpineBPFLibrary() {
-}
 

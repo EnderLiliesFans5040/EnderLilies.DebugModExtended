@@ -1,23 +1,24 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
 #include "UObject/NoExportTypes.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "EDirectionInputTypes.h"
 #include "Engine/EngineTypes.h"
+#include "EDirectionInputTypes.h"
+#include "Templates/SubclassOf.h"
 #include "GameLogicBPFLibrary.generated.h"
 
 class AActor;
 class APlayerController;
-class UObject;
-class UForceFeedbackEffect;
 class UCameraShakeBase;
+class UForceFeedbackEffect;
+class UObject;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class UGameLogicBPFLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UGameLogicBPFLibrary();
+
     UFUNCTION(BlueprintCallable)
     static void StopAllForceFeedbacks(APlayerController* PlayerController);
     
@@ -27,25 +28,25 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void LaunchCameraShake(const UObject* WorldContextObject, TSubclassOf<UCameraShakeBase> Shake, FVector Epicenter, float InnerRadius, float OuterRadius, float Falloff, bool bOrientShakeTowardsEpicenter);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsSameVerticalDirection(EDirectionInputTypes DirectionA, EDirectionInputTypes DirectionB, bool bConsiderNeutralAsSame);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsSameHorizontalDirection(EDirectionInputTypes DirectionA, EDirectionInputTypes DirectionB, bool bConsiderNeutralAsSame);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsPureVerticalDirection(EDirectionInputTypes Direction, bool bConsiderNeutralAsVertical);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsPureHorizontalDirection(EDirectionInputTypes Direction, bool bConsiderNeutralAsHorizontal);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetSpecialAttackMPCost();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName GetRestPlayerPointStartTag();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static AActor* GetClosestEnemyOfActor(AActor* Actor, float MinDistance, float Range, bool bNeedLineOfSight, TEnumAsByte<ECollisionChannel> VisibilityChannel, bool bFrontCheck);
     
     UFUNCTION(BlueprintCallable)

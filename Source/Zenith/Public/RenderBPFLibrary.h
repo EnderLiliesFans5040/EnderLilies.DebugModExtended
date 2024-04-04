@@ -1,19 +1,20 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "EUMGZOrderLayer.h"
 #include "ETranslucencyLayer.h"
+#include "EUMGZOrderLayer.h"
 #include "RenderBPFLibrary.generated.h"
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class URenderBPFLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     URenderBPFLibrary();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetUMGZOrder(EUMGZOrderLayer Layer);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetTranslucencySortPriority(ETranslucencyLayer Layer);
     
 };

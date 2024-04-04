@@ -7,14 +7,15 @@
 class UObject;
 class UWaitUMGNavigationAsyncAction;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UWaitUMGNavigationAsyncAction : public UBlueprintAsyncActionBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FWaitUMGNavigationOutputPin OnNavigationEnabled;
     
     UWaitUMGNavigationAsyncAction();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static UWaitUMGNavigationAsyncAction* WaitUMGNavigation(const UObject* WorldContextObject);
     

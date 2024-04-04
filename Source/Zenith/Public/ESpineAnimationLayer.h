@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "ESpineAnimationLayer.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class ESpineAnimationLayer : uint8 {
     NONE,
     LOCOMOTION,

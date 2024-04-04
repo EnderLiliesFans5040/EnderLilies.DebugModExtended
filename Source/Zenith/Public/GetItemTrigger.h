@@ -11,7 +11,8 @@ class UGetItemTrigger : public UObject {
     GENERATED_BODY()
 public:
     UGetItemTrigger();
-    UFUNCTION(BlueprintImplementableEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnGetItem(AController* Controller, const FDataTableRowHandle& Item);
     
 };

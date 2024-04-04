@@ -3,10 +3,11 @@
 #include "Components/ActorComponent.h"
 #include "PostLoadVisibilityComponent.generated.h"
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UPostLoadVisibilityComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPostLoadVisibilityComponent();
+    UPostLoadVisibilityComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

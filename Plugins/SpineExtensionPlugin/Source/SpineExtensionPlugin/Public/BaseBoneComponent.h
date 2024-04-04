@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Components/ActorComponent.h"
 #include "UObject/NoExportTypes.h"
+#include "Components/ActorComponent.h"
 #include "ESpineBone.h"
 #include "BaseBoneComponent.generated.h"
 
@@ -11,7 +11,8 @@ UCLASS(Abstract, Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableCompo
 class SPINEEXTENSIONPLUGIN_API UBaseBoneComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UBaseBoneComponent();
+    UBaseBoneComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     FTransform GetBoneTransformByName(const FString& BoneName, bool bFollowRotation);
     

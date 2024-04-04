@@ -4,5 +4,5 @@
 
 class ACustomPhysicsVolume;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPhysicsVolumeDetectorEvent, const ACustomPhysicsVolume*, PhysicsVolume);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPhysicsVolumeDetectorEvent, const ACustomPhysicsVolume*, PhysicsVolume);
 

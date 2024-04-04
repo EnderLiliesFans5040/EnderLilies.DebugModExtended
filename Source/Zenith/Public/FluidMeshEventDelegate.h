@@ -4,5 +4,5 @@
 
 class AActor;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FFluidMeshEvent, AActor*, Actor, float, VelocityZ);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FFluidMeshEvent, AActor*, Actor, float, VelocityZ);
 

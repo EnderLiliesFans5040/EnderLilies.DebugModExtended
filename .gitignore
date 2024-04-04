@@ -73,23 +73,11 @@ Intermediate/*
 # Cache files for the editor to use
 DerivedDataCache/*
 
-# FMOD Exception
-Plugins/FMODStudio/Intermediate/*
-
 Plugins/*/Intermediate/*
 Plugins/*/Intermediate
-
-# Third Party Plugins
-Plugins/FMODStudio/*
-Plugins/SpinePlugin/*
 
 *.ucas
 *.pak
 *.utoc
 *.old
 VSource/*
-Timestamp
-Intermediate
-/Plugins/EventPlugin/Intermediate
-/Plugins/ProceduralRenderMeshPlugin/Intermediate
-/Plugins/SpineExtensionPlugin/Intermediate

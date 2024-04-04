@@ -4,23 +4,24 @@
 #include "LoadGameDataFromSlotIndexDelegateDelegate.h"
 #include "LoadGameDataFromSlotIndexAsync.generated.h"
 
-class USaveGame;
 class ULoadGameDataFromSlotIndexAsync;
 class UObject;
+class USaveGame;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API ULoadGameDataFromSlotIndexAsync : public UBlueprintAsyncActionBase {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USaveGame* LoadedSaveData;
     
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FLoadGameDataFromSlotIndexDelegate OnFinish;
     
     ULoadGameDataFromSlotIndexAsync();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static ULoadGameDataFromSlotIndexAsync* LoadGameDataFromSlotIndexAsync(UObject* WorldContextObject, const int32 SlotIndex, bool bUseExclusiveMode);
     

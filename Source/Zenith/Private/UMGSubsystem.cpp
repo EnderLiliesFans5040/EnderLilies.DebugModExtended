@@ -1,8 +1,8 @@
 #include "UMGSubsystem.h"
 #include "Templates/SubclassOf.h"
 
-class UFooterUserWidget;
-class UUserWidget;
+UUMGSubsystem::UUMGSubsystem() {
+}
 
 void UUMGSubsystem::SetFocusedWidget(UUserWidget* NewFocusedWidget) {
 }
@@ -53,6 +53,4 @@ void UUMGSubsystem::EnableNavigation(bool bExecuteImmediately) {
 void UUMGSubsystem::DisableNavigation(TSubclassOf<UUserWidget> InputBlockerWidgetClass) {
 }
 
-UUMGSubsystem::UUMGSubsystem() {
-}
 

@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "EEnemySpawnPointClearTiming.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EEnemySpawnPointClearTiming : uint8 {
     None,
     OnDeath,

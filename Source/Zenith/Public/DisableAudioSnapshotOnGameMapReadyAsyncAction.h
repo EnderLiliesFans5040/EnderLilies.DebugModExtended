@@ -6,13 +6,14 @@
 class UDisableAudioSnapshotOnGameMapReadyAsyncAction;
 class UObject;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UDisableAudioSnapshotOnGameMapReadyAsyncAction : public UBlueprintAsyncActionBase {
     GENERATED_BODY()
 public:
     UDisableAudioSnapshotOnGameMapReadyAsyncAction();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnGameMapReady();
     
 public:
@@ -20,7 +21,7 @@ public:
     static UDisableAudioSnapshotOnGameMapReadyAsyncAction* DisableAudioSnapshotOnGameMapReady(const UObject* WorldContextObject, bool bConsiderFadeAsLoading, FName AudioSnapshotTag);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void CheckGameMapReady();
     
 };

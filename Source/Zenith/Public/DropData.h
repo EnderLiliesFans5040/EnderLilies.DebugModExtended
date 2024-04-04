@@ -8,7 +8,7 @@ USTRUCT(BlueprintType)
 struct FDropData : public FTableRowBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FDropGroup> Drops;
     
     ZENITH_API FDropData();

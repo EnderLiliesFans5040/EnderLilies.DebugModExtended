@@ -1,19 +1,28 @@
 #include "ZenithPlayerController.h"
-#include "Templates/SubclassOf.h"
+#include "HealComponent.h"
 #include "InventoryComponent.h"
 #include "ParameterPlayerComponent.h"
-#include "SpiritEquipComponent.h"
-#include "SpiritCompanionComponent.h"
-#include "HealComponent.h"
 #include "PassiveEquipComponent.h"
+#include "SpiritCompanionComponent.h"
+#include "SpiritEquipComponent.h"
+#include "Templates/SubclassOf.h"
 
-class UEventAsset;
-class UObject;
-class APlayerStart;
-class AActor;
-class AZenithPlayerController;
-class APawn;
-class UFadeUserWidget;
+AZenithPlayerController::AZenithPlayerController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bAutoManageActiveCameraTarget = false;
+    this->ClickEventKeys.AddDefaulted(1);
+    this->InventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("InventoryComponent"));
+    this->ParameterPlayerComponent = CreateDefaultSubobject<UParameterPlayerComponent>(TEXT("ParameterPlayerComponent"));
+    this->SpiritEquipComponent = CreateDefaultSubobject<USpiritEquipComponent>(TEXT("SpiritEquipComponent"));
+    this->SpiritCompanionComponent = CreateDefaultSubobject<USpiritCompanionComponent>(TEXT("SpiritCompanionComponent"));
+    this->HealComponent = CreateDefaultSubobject<UHealComponent>(TEXT("HealComponent"));
+    this->PassiveEquipComponent = CreateDefaultSubobject<UPassiveEquipComponent>(TEXT("PassiveEquipComponent"));
+    this->ZenithCharacter = NULL;
+    this->DefaultViewTarget = NULL;
+    this->bInEvent = false;
+    this->MinimapUISizeIndex = 0;
+    this->LockInputCount = 0;
+    this->LockPauseCount = 0;
+}
 
 void AZenithPlayerController::UnlockAllAptitudes() {
 }
@@ -154,18 +163,4 @@ bool AZenithPlayerController::CanPlayerUseBackToRestPoint() const {
     return false;
 }
 
-AZenithPlayerController::AZenithPlayerController() {
-    this->InventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("InventoryComponent"));
-    this->ParameterPlayerComponent = CreateDefaultSubobject<UParameterPlayerComponent>(TEXT("ParameterPlayerComponent"));
-    this->SpiritEquipComponent = CreateDefaultSubobject<USpiritEquipComponent>(TEXT("SpiritEquipComponent"));
-    this->SpiritCompanionComponent = CreateDefaultSubobject<USpiritCompanionComponent>(TEXT("SpiritCompanionComponent"));
-    this->HealComponent = CreateDefaultSubobject<UHealComponent>(TEXT("HealComponent"));
-    this->PassiveEquipComponent = CreateDefaultSubobject<UPassiveEquipComponent>(TEXT("PassiveEquipComponent"));
-    this->ZenithCharacter = NULL;
-    this->DefaultViewTarget = NULL;
-    this->bInEvent = false;
-    this->MinimapUISizeIndex = 0;
-    this->LockInputCount = 0;
-    this->LockPauseCount = 0;
-}
 

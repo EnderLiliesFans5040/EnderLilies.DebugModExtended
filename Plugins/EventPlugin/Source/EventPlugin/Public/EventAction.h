@@ -1,25 +1,26 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "EventObject.h"
-#include "EEventActionResult.h"
 #include "UObject/NoExportTypes.h"
+#include "EEventActionResult.h"
+#include "EventObject.h"
 #include "EventAction.generated.h"
 
-class UEventPlayer;
 class AActor;
 class APlayerController;
 class UEventBlackBoard;
+class UEventPlayer;
 
 UCLASS(Abstract, Blueprintable, CollapseCategories, EditInlineNew)
 class EVENTPLUGIN_API UEventAction : public UEventObject {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bFireAndForget;
     
 public:
     UEventAction();
+
     UFUNCTION(BlueprintCallable)
     void TickAction(float DeltaTime, APlayerController* ConsideringPlayer, AActor* Subject, AActor* Target, UEventBlackBoard* EventBlackBoard);
     
@@ -27,27 +28,27 @@ public:
     void StartAction(APlayerController* ConsideringPlayer, AActor* Subject, AActor* Target, UEventBlackBoard* EventBlackBoard);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTickAction(float DeltaTime, APlayerController* ConsideringPlayer, AActor* Subject, AActor* Target, UEventBlackBoard* EventBlackBoard);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnStartAction(APlayerController* ConsideringPlayer, AActor* Subject, AActor* Target, UEventBlackBoard* EventBlackBoard);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEndAction(APlayerController* ConsideringPlayer, AActor* Subject, AActor* Target, UEventBlackBoard* EventBlackBoard);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAbortAction(APlayerController* ConsideringPlayer, AActor* Subject, AActor* Target, UEventBlackBoard* EventBlackBoard);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     EEventActionResult GetResult() const;
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FTransform GetOriginTransform() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UEventPlayer* GetEventPlayer() const;
     
     UFUNCTION(BlueprintCallable)

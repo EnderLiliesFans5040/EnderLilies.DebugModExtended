@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SaveDelegateDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSaveDelegate);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSaveDelegate);
 

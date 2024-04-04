@@ -1,9 +1,8 @@
 #include "PawnBPFLibrary.h"
 #include "Templates/SubclassOf.h"
 
-class APawn;
-class AZenithPlayerController;
-class AAIController;
+UPawnBPFLibrary::UPawnBPFLibrary() {
+}
 
 void UPawnBPFLibrary::SpawnCustomController(APawn* Pawn, TSubclassOf<AAIController> AIControllerClass) {
 }
@@ -21,6 +20,4 @@ AZenithPlayerController* UPawnBPFLibrary::GetZenithPlayerController(APawn* Pawn)
 void UPawnBPFLibrary::AttributeFaction(APawn* Pawn, EFaction Faction) {
 }
 
-UPawnBPFLibrary::UPawnBPFLibrary() {
-}
 

@@ -1,59 +1,60 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "GameFramework/Character.h"
-#include "EventActorInterface.h"
 #include "UObject/NoExportTypes.h"
+#include "GameFramework/Character.h"
 #include "EventActorEventDelegate.h"
-#include "ECompanionState.h"
+#include "EventActorInterface.h"
 #include "ECommandInputTypes.h"
+#include "ECompanionState.h"
 #include "ItemSpiritData.h"
 #include "ZenithCompanionCharacter.generated.h"
 
-class USpineAnimationComponent;
-class USpineSkeletonRendererComponent;
-class USceneComponent;
-class USpineSkeletonAnimationComponent;
 class AActor;
 class APawn;
 class UCommandSettingsData;
+class USceneComponent;
+class USpineAnimationComponent;
+class USpineSkeletonAnimationComponent;
+class USpineSkeletonRendererComponent;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API AZenithCompanionCharacter : public ACharacter, public IEventActorInterface {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USceneComponent* FXHolder;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USpineSkeletonRendererComponent* SkeletonComponent;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USpineSkeletonAnimationComponent* SkeletonAnimComponent;
     
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USpineAnimationComponent* SpineAnimationComponent;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float DefaultMoveSpeed;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float RotationSpeed;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float RangeForSpeedBonus;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector IdleLocationOffset;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FEventActorEvent OnEventStartDelegate;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FEventActorEvent OnEventStopDelegate;
     
 public:
-    AZenithCompanionCharacter();
+    AZenithCompanionCharacter(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetMoveTargetWithTime(AActor* Target, FVector Offset, float TimeToReachTarget, bool bShowSpineOnArrival, bool bSpineFacingRight);
     
@@ -70,40 +71,40 @@ public:
     void ResetMoveSpeed();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnShowSpine();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSetTranslucencyPriority(int32 Priority);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSetMeshComponentsHiddenInGame(bool bHiddenInGame);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSetAssociatedSpiritData();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSetAlpha(float Alpha);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnLeaderPawnChanged(APawn* NewLeaderPawn);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnHideSpine();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEventStop();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEventStart();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDeactivate();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnArrivedAtTarget();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnActivate();
     
     UFUNCTION(BlueprintCallable)
@@ -113,21 +114,21 @@ protected:
     void NotifySpineHidden();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsActive() const;
     
     UFUNCTION(BlueprintCallable)
     void HideSpine();
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ECompanionState GetCurrentState() const;
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetAssociatedSpiritData(ECommandInputTypes& CommandInputType, UCommandSettingsData*& CommandSettingsData, FItemSpiritData& ItemSpiritData) const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

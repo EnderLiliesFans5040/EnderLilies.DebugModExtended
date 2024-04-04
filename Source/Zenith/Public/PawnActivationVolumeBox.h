@@ -3,10 +3,11 @@
 #include "PawnActivationVolume.h"
 #include "PawnActivationVolumeBox.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API APawnActivationVolumeBox : public APawnActivationVolume {
     GENERATED_BODY()
 public:
-    APawnActivationVolumeBox();
+    APawnActivationVolumeBox(const FObjectInitializer& ObjectInitializer);
+
 };
 

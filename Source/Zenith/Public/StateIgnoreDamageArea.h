@@ -3,10 +3,11 @@
 #include "State.h"
 #include "StateIgnoreDamageArea.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateIgnoreDamageArea : public UState {
     GENERATED_BODY()
 public:
     UStateIgnoreDamageArea();
+
 };
 

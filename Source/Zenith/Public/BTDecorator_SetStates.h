@@ -1,18 +1,19 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
 #include "BehaviorTree/BTDecorator.h"
+#include "Templates/SubclassOf.h"
 #include "BTDecorator_SetStates.generated.h"
 
 class UState;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API UBTDecorator_SetStates : public UBTDecorator {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TSubclassOf<UState>> States;
     
     UBTDecorator_SetStates();
+
 };
 

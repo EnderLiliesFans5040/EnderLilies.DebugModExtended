@@ -1,7 +1,7 @@
 #include "SpiritCompanionComponent.h"
 
-class AZenithCompanionCharacter;
-class AZenithSpirit;
+USpiritCompanionComponent::USpiritCompanionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
 
 void USpiritCompanionComponent::ResetCurrentSetStateAndLocation() {
 }
@@ -39,6 +39,4 @@ TArray<AZenithCompanionCharacter*> USpiritCompanionComponent::GetExtraCompanions
 void USpiritCompanionComponent::ClearAllExtraCompanions() {
 }
 
-USpiritCompanionComponent::USpiritCompanionComponent() {
-}
 

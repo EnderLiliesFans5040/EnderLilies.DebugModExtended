@@ -1,7 +1,8 @@
 #include "ZenithAICompanionController.h"
 
-class AController;
-class APawn;
+AZenithAICompanionController::AZenithAICompanionController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->ForbidIdleStates.AddDefaulted(2);
+}
 
 void AZenithAICompanionController::SetLeaderController(AController* NewLeaderController) {
 }
@@ -16,7 +17,4 @@ APawn* AZenithAICompanionController::GetLeaderPawn() const {
     return NULL;
 }
 
-AZenithAICompanionController::AZenithAICompanionController() {
-    this->ForbidIdleStates.AddDefaulted(2);
-}
 

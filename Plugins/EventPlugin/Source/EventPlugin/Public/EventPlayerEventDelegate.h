@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "EventPlayerEventDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FEventPlayerEvent);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FEventPlayerEvent);
 

@@ -2,23 +2,23 @@
 #include "CoreMinimal.h"
 #include "ECommandCondition.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class ECommandCondition : uint8 {
     NONE,
     IsGrounded,
     IsAirborne,
     IsSwimming,
-    IsAirborneOrSwimming = 0x1E,
-    IsPressingUp = 0x64,
+    IsAirborneOrSwimming = 30,
+    IsPressingUp = 100,
     IsPressingDown,
     IsPressingLeft,
     IsPressingRight,
     IsPressingUpStrict,
-    IsPressingHorizontal = 0x6E,
+    IsPressingHorizontal = 110,
     IsPressingVertical,
-    HasTarget = 0x8C,
+    HasTarget = 140,
     HasNoTarget,
-    IsTargetGrounded = 0x96,
+    IsTargetGrounded = 150,
     IsTargetAirborne,
 };
 

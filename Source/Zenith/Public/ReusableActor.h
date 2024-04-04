@@ -3,24 +3,25 @@
 #include "GameFramework/Actor.h"
 #include "ReusableActor.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API AReusableActor : public AActor {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bDeactivateOnBeginPlay;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bEnableCollisionOnActivate;
     
-    AReusableActor();
-    UFUNCTION(BlueprintImplementableEvent)
+    AReusableActor(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDeactivate();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnActivate();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsActive() const;
     
     UFUNCTION(BlueprintCallable)

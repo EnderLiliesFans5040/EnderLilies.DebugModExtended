@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "ERichTextDecoratorMode.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class ERichTextDecoratorMode : uint8 {
     Auto,
     ForceKeyboard,

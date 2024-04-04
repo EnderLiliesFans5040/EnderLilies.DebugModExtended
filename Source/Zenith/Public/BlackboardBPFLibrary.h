@@ -1,18 +1,19 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "BehaviorTree/BehaviorTreeTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "BehaviorTree/BehaviorTreeTypes.h"
 #include "BlackboardBPFLibrary.generated.h"
 
 class UBTNode;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class UBlackboardBPFLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UBlackboardBPFLibrary();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FVector GetLocationFromBlackboardKey(UBTNode* NodeOwner, const FBlackboardKeySelector& Key);
     
 };

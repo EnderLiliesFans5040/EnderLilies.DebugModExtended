@@ -7,7 +7,7 @@ USTRUCT(BlueprintType)
 struct ZENITH_API FConditionedCommandList {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FConditionedCommand> AvailableCommands;
     
     FConditionedCommandList();

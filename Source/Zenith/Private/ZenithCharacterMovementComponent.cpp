@@ -1,6 +1,22 @@
 #include "ZenithCharacterMovementComponent.h"
 
-class ACustomPhysicsVolume;
+UZenithCharacterMovementComponent::UZenithCharacterMovementComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bTickBeforeOwner = false;
+    this->bUseAccelerationForPaths = true;
+    this->bClampInWater = false;
+    this->ZenithCharacter = NULL;
+    this->StateComponent = NULL;
+    this->LocomotionComponent = NULL;
+    this->MaxRunSpeed = 100.00f;
+    this->MaxDashSpeed = 100.00f;
+    this->DashAcceleration = 2048.00f;
+    this->ImmersionDepthForOutOfWater = 0.25f;
+    this->MaxZVelocityForStickingToWaterSurface = 500.00f;
+    this->MinImmersionDepthForStickingToWaterSurface = 0.25f;
+    this->MaxImmersionDepthForStickingToWaterSurface = 0.75f;
+    this->HeightOffsetForStickingToWaterSurface = 0.00f;
+    this->bSlideAlongUnderwaterSurfaces = false;
+}
 
 void UZenithCharacterMovementComponent::TraceJump(const FVector Input, const FLinearColor Color, const float LifeTime) const {
 }
@@ -82,19 +98,4 @@ bool UZenithCharacterMovementComponent::CanReachTargetByJump(FVector TargetLocat
     return false;
 }
 
-UZenithCharacterMovementComponent::UZenithCharacterMovementComponent() {
-    this->bClampInWater = false;
-    this->ZenithCharacter = NULL;
-    this->StateComponent = NULL;
-    this->LocomotionComponent = NULL;
-    this->MaxRunSpeed = 100.00f;
-    this->MaxDashSpeed = 100.00f;
-    this->DashAcceleration = 2048.00f;
-    this->ImmersionDepthForOutOfWater = 0.25f;
-    this->MaxZVelocityForStickingToWaterSurface = 500.00f;
-    this->MinImmersionDepthForStickingToWaterSurface = 0.25f;
-    this->MaxImmersionDepthForStickingToWaterSurface = 0.75f;
-    this->HeightOffsetForStickingToWaterSurface = 0.00f;
-    this->bSlideAlongUnderwaterSurfaces = false;
-}
 

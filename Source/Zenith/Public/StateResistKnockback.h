@@ -3,10 +3,11 @@
 #include "State.h"
 #include "StateResistKnockback.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateResistKnockback : public UState {
     GENERATED_BODY()
 public:
     UStateResistKnockback();
+
 };
 

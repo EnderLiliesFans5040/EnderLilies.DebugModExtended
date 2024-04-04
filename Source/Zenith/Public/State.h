@@ -8,5 +8,6 @@ class ZENITH_API UState : public UObject {
     GENERATED_BODY()
 public:
     UState();
+
 };
 

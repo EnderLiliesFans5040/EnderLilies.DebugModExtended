@@ -1,8 +1,7 @@
 #include "ExecuteTutorialHookAsyncAction.h"
 
-class UObject;
-class AZenithPlayerController;
-class UExecuteTutorialHookAsyncAction;
+UExecuteTutorialHookAsyncAction::UExecuteTutorialHookAsyncAction() {
+}
 
 void UExecuteTutorialHookAsyncAction::Finish() {
 }
@@ -11,6 +10,4 @@ UExecuteTutorialHookAsyncAction* UExecuteTutorialHookAsyncAction::ExecuteTutoria
     return NULL;
 }
 
-UExecuteTutorialHookAsyncAction::UExecuteTutorialHookAsyncAction() {
-}
 

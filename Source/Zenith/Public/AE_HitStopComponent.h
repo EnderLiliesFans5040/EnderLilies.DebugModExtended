@@ -3,18 +3,19 @@
 #include "AbilityEffectTimedComponent.h"
 #include "AE_HitStopComponent.generated.h"
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UAE_HitStopComponent : public UAbilityEffectTimedComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool ExecuteOnInvoker;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool ExecuteOnTarget;
     
 public:
-    UAE_HitStopComponent();
+    UAE_HitStopComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

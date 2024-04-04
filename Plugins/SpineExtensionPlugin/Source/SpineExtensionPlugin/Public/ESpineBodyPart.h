@@ -2,13 +2,13 @@
 #include "CoreMinimal.h"
 #include "ESpineBodyPart.generated.h"
 
-UENUM()
-enum class ESpineBodyPart {
+UENUM(BlueprintType)
+enum class ESpineBodyPart : uint8 {
     Body,
-    Head = 0x32,
-    ArmRight = 0x64,
+    Head = 50,
+    ArmRight = 100,
     ArmLeft,
-    LegRight = 0xC8,
+    LegRight = 200,
     LegLeft,
 };
 

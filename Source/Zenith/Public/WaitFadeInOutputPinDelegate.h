@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "WaitFadeInOutputPinDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWaitFadeInOutputPin);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWaitFadeInOutputPin);
 

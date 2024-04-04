@@ -1,5 +1,10 @@
 #include "PassiveEquipComponent.h"
 
+UPassiveEquipComponent::UPassiveEquipComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->MaxSlotCount = 20;
+    this->MaxPassiveEquipCount = 14;
+}
+
 bool UPassiveEquipComponent::UnequipPassive(const FName& PassiveID) {
     return false;
 }
@@ -52,8 +57,4 @@ int32 UPassiveEquipComponent::AddSlot() {
     return 0;
 }
 
-UPassiveEquipComponent::UPassiveEquipComponent() {
-    this->MaxSlotCount = 20;
-    this->MaxPassiveEquipCount = 14;
-}
 

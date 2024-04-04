@@ -3,3 +3,4 @@
 UFooterUserWidget::UFooterUserWidget() : UUserWidget(FObjectInitializer::Get()) {
 }
 
+

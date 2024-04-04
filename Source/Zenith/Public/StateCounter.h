@@ -3,10 +3,11 @@
 #include "State.h"
 #include "StateCounter.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateCounter : public UState {
     GENERATED_BODY()
 public:
     UStateCounter();
+
 };
 

@@ -1,5 +1,9 @@
 #include "ItemPassiveInventory.h"
 
+UItemPassiveInventory::UItemPassiveInventory() {
+    this->bAllowDuplicates = false;
+}
+
 void UItemPassiveInventory::MarkPassiveAsChecked(const FName& PassiveID) {
 }
 
@@ -11,6 +15,4 @@ bool UItemPassiveInventory::IsAllObtainedPassivesChecked() const {
     return false;
 }
 
-UItemPassiveInventory::UItemPassiveInventory() {
-}
 

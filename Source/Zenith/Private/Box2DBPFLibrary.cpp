@@ -1,6 +1,7 @@
 #include "Box2DBPFLibrary.h"
 
-class UBoxComponent;
+UBox2DBPFLibrary::UBox2DBPFLibrary() {
+}
 
 bool UBox2DBPFLibrary::IsPointInside(const FBox2D Box, const FVector2D PointToCheck) {
     return false;
@@ -22,6 +23,4 @@ FVector2D UBox2DBPFLibrary::ClampPointInside(const FBox2D Box, const FVector2D P
     return FVector2D{};
 }
 
-UBox2DBPFLibrary::UBox2DBPFLibrary() {
-}
 

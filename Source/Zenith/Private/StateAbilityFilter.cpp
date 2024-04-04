@@ -4,3 +4,4 @@ UStateAbilityFilter::UStateAbilityFilter() {
     this->AbilityType = EAbilityType::DEFAULT;
 }
 
+

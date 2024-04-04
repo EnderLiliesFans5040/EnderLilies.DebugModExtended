@@ -1,7 +1,7 @@
 #include "InputBPFLibrary.h"
 
-class UObject;
-class UWidget;
+UInputBPFLibrary::UInputBPFLibrary() {
+}
 
 void UInputBPFLibrary::SetInputModeUIOnlyForAllPlayers(UObject* WorldContextObject, UWidget* FocusTarget, EMouseLockMode MouseLockMode) {
 }
@@ -95,6 +95,4 @@ FName UInputBPFLibrary::GetNameForCommandInputType(ECommandInputTypes CommandInp
     return NAME_None;
 }
 
-UInputBPFLibrary::UInputBPFLibrary() {
-}
 

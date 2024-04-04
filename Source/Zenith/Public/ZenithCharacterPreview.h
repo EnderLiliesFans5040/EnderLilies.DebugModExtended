@@ -3,11 +3,12 @@
 #include "GameFramework/Actor.h"
 #include "ZenithCharacterPreview.generated.h"
 
-UCLASS(Abstract)
+UCLASS(Abstract, Blueprintable)
 class ZENITH_API AZenithCharacterPreview : public AActor {
     GENERATED_BODY()
 public:
-    AZenithCharacterPreview();
+    AZenithCharacterPreview(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void Show();
     

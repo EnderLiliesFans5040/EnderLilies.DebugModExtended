@@ -1,7 +1,19 @@
 #include "CollisionComponent.h"
 
-class UPrimitiveComponent;
-class AActor;
+UCollisionComponent::UCollisionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bShouldProcessOverlapContacts = false;
+    this->ContactDamageSkipStates.AddDefaulted(3);
+    this->bIgnoreOneWayPlatform = false;
+    this->bIgnoreWorldDynamic = false;
+    this->bCanBeJustGuarded = true;
+    this->bExecuteGotJustGuardedEvents = true;
+    this->bCanBeParried = true;
+    this->bExecuteParriedEvents = true;
+    this->RootPrimitiveComponent = NULL;
+    this->CharacterMovementComponent = NULL;
+    this->FactionComponent = NULL;
+    this->StateComponent = NULL;
+}
 
 void UCollisionComponent::SetCollisionResponseToPawnChannels(TEnumAsByte<ECollisionResponse> CollisionResponse, bool bAsDefault) {
 }
@@ -27,18 +39,4 @@ void UCollisionComponent::OnComponentOverlapEnd(UPrimitiveComponent* OverlapComp
 void UCollisionComponent::OnComponentOverlapBegin(UPrimitiveComponent* OverlapComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
 }
 
-UCollisionComponent::UCollisionComponent() {
-    this->bShouldProcessOverlapContacts = false;
-    this->ContactDamageSkipStates.AddDefaulted(3);
-    this->bIgnoreOneWayPlatform = false;
-    this->bIgnoreWorldDynamic = false;
-    this->bCanBeJustGuarded = true;
-    this->bExecuteGotJustGuardedEvents = true;
-    this->bCanBeParried = true;
-    this->bExecuteParriedEvents = true;
-    this->RootPrimitiveComponent = NULL;
-    this->CharacterMovementComponent = NULL;
-    this->FactionComponent = NULL;
-    this->StateComponent = NULL;
-}
 

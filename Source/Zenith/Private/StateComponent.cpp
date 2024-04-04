@@ -1,7 +1,8 @@
 #include "StateComponent.h"
 #include "Templates/SubclassOf.h"
 
-class UState;
+UStateComponent::UStateComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
 
 void UStateComponent::RemoveStates(const TArray<TSubclassOf<UState>>& States) {
 }
@@ -37,6 +38,4 @@ void UStateComponent::AddStates(const TArray<TSubclassOf<UState>>& States) {
 void UStateComponent::AddState(const TSubclassOf<UState> State) {
 }
 
-UStateComponent::UStateComponent() {
-}
 

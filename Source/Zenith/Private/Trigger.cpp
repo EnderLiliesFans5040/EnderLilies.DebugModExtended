@@ -1,6 +1,12 @@
 #include "Trigger.h"
 #include "ClearableComponent.h"
 
+ATrigger::ATrigger(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->ClearableComponent = CreateDefaultSubobject<UClearableComponent>(TEXT("ClearableComponent"));
+    this->bIsRepeatable = true;
+    this->MinDelayBetweenRepeat = 0.00f;
+}
+
 
 void ATrigger::OnClearedStatusChecked(bool bCleared) {
 }
@@ -12,9 +18,4 @@ bool ATrigger::CanTrigger_Implementation() const {
     return false;
 }
 
-ATrigger::ATrigger() {
-    this->ClearableComponent = CreateDefaultSubobject<UClearableComponent>(TEXT("ClearableComponent"));
-    this->bIsRepeatable = true;
-    this->MinDelayBetweenRepeat = 0.00f;
-}
 

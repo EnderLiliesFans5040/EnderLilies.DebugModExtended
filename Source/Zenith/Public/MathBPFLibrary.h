@@ -5,45 +5,46 @@
 #include "Curves/CurveFloat.h"
 #include "MathBPFLibrary.generated.h"
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class UMathBPFLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UMathBPFLibrary();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 RoundToPowerOfTwo(float A);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 LoopAround_Int(int32 X, int32 Min, int32 Max);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static float LoopAround_Float(float X, float Min, float Max);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FVector LerpVectorComponents(FVector A, FVector B, FVector Alpha);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static float GetMinTime(const FRuntimeFloatCurve& Curve);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static float GetMaxTime(const FRuntimeFloatCurve& Curve);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 FloorToPowerOfTwo(float A);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static float Evaluate(const FRuntimeFloatCurve& Curve, float Time);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FVector Clamp(const FVector& Vector, const FVector Min, const FVector Max);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 CeilToPowerOfTwo(float A);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static float AngleBetweenAsRad(FVector VectorA, FVector VectorB);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static float AngleBetweenAsDegree(FVector VectorA, FVector VectorB);
     
 };

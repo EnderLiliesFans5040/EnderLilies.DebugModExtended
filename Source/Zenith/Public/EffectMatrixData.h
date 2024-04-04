@@ -6,16 +6,17 @@
 
 class UParticleSystem;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API UEffectMatrixData : public UDataAsset {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<TEnumAsByte<EPhysicalSurface>, UParticleSystem*> StepEffects;
     
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<TEnumAsByte<EPhysicalSurface>, UParticleSystem*> LandingEffects;
     
     UEffectMatrixData();
+
 };
 

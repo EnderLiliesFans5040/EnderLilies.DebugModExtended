@@ -3,10 +3,11 @@
 #include "State.h"
 #include "StateGuardFront.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateGuardFront : public UState {
     GENERATED_BODY()
 public:
     UStateGuardFront();
+
 };
 

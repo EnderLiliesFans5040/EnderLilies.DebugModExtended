@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "EResummonType.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EResummonType : uint8 {
     AlwaysSummon,
     UnsummonIfSummoned,

@@ -1,42 +1,43 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ESoundFamily.h"
 #include "GameFramework/SaveGame.h"
-#include "UIInputSettingsData.h"
-#include "EInputStyle.h"
 #include "ActionBinding.h"
 #include "AxisBinding.h"
+#include "EInputStyle.h"
+#include "ESoundFamily.h"
 #include "GameSettingsData.h"
+#include "UIInputSettingsData.h"
 #include "SaveSettings.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API USaveSettings : public USaveGame {
     GENERATED_BODY()
 public:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString Language;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, FActionBinding> BindingsForActions;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, FAxisBinding> BindingsForAxises;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EInputStyle InputStyle;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUIInputSettingsData UIInputSettingsData;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameSettingsData GameSettings;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<ESoundFamily, float> VolumeForSoundFamilies;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bInitializationCompleted;
     
     USaveSettings();
+
 };
 

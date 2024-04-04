@@ -1,84 +1,85 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
-#include "ELaunchGameIntent.h"
 #include "Engine/GameInstance.h"
+#include "ELaunchGameIntent.h"
 #include "ESoundFamily.h"
+#include "Templates/SubclassOf.h"
 #include "GameInstanceZenithBase.generated.h"
 
-class USoundMatrixData;
-class UUserWidget;
-class UFMODVCA;
-class UWorld;
 class UDataTable;
+class UFMODVCA;
 class UGameInstanceZenithBase;
 class UObject;
+class USoundMatrixData;
+class UUserWidget;
+class UWorld;
 
-UCLASS(NonTransient)
+UCLASS(Blueprintable, NonTransient)
 class ZENITH_API UGameInstanceZenithBase : public UGameInstance {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ELaunchGameIntent LaunchGameIntent;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bSimulateEarlyAccess;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USoundMatrixData* SoundEffectMatrixData;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UFMODVCA* VCA_BGM;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UFMODVCA* VCA_SE;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UFMODVCA* VCA_Ambience;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UWorld> PersistentGameWorld;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* AchievementTable;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* ErrorTable;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UUserWidget> ErrorWidgetClass;
     
 public:
     UGameInstanceZenithBase();
+
     UFUNCTION(BlueprintCallable)
     void SetLaunchGameIntent(ELaunchGameIntent Intent);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSimulatingEarlyAccess() const;
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     UFMODVCA* GetSoundVCA(ESoundFamily SoundFamily) const;
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     USoundMatrixData* GetSoundEffectMatrixData() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TSoftObjectPtr<UWorld> GetPersistentGameWorld() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ELaunchGameIntent GetLaunchGameIntent() const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UGameInstanceZenithBase* GetGameInstanceZenith(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TSubclassOf<UUserWidget> GetErrorUserWidget() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UDataTable* GetErrorDataTable() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UDataTable* GetAchievementDataTable() const;
     
 };

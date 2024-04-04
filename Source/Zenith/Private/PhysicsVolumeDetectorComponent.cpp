@@ -1,6 +1,9 @@
 #include "PhysicsVolumeDetectorComponent.h"
 
-class AActor;
+UPhysicsVolumeDetectorComponent::UPhysicsVolumeDetectorComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Owner = NULL;
+    this->MovementComponent = NULL;
+}
 
 void UPhysicsVolumeDetectorComponent::OnActorEndOverlap(AActor* OverlappedActor, AActor* OtherActor) {
 }
@@ -8,8 +11,4 @@ void UPhysicsVolumeDetectorComponent::OnActorEndOverlap(AActor* OverlappedActor,
 void UPhysicsVolumeDetectorComponent::OnActorBeginOverlap(AActor* OverlappedActor, AActor* OtherActor) {
 }
 
-UPhysicsVolumeDetectorComponent::UPhysicsVolumeDetectorComponent() {
-    this->Owner = NULL;
-    this->MovementComponent = NULL;
-}
 

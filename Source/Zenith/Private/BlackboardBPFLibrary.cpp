@@ -1,11 +1,10 @@
 #include "BlackboardBPFLibrary.h"
 
-class UBTNode;
+UBlackboardBPFLibrary::UBlackboardBPFLibrary() {
+}
 
 FVector UBlackboardBPFLibrary::GetLocationFromBlackboardKey(UBTNode* NodeOwner, const FBlackboardKeySelector& Key) {
     return FVector{};
 }
 
-UBlackboardBPFLibrary::UBlackboardBPFLibrary() {
-}
 

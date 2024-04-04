@@ -4,13 +4,14 @@
 #include "CommandSettings.h"
 #include "CommandSettingsData.generated.h"
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API UCommandSettingsData : public UDataAsset {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCommandSettings CommandSettings;
     
     UCommandSettingsData();
+
 };
 

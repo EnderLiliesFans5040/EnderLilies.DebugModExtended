@@ -4,18 +4,19 @@
 #include "AbilityTimeline.h"
 #include "AbilityContainer.generated.h"
 
-UCLASS(Abstract)
+UCLASS(Abstract, Blueprintable)
 class ZENITH_API AAbilityContainer : public AAbility {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FAbilityTimeline AbilityTimeline;
     
 protected:
-    UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAutoStop;
     
 public:
-    AAbilityContainer();
+    AAbilityContainer(const FObjectInitializer& ObjectInitializer);
+
 };
 

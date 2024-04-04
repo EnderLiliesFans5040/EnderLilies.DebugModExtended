@@ -1,8 +1,26 @@
 #include "SpineAnimationComponent.h"
 
-class UTrackEntry;
-class ACharacter;
-class USpineSkeletonComponent;
+USpineAnimationComponent::USpineAnimationComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bUpdateAnimationsInTick = true;
+    this->bForceUseGroundedLocomotion = false;
+    this->bCheckTurnTransitionsInTick = true;
+    this->bSetEmptyIfNoAnim = true;
+    this->bAllowVerticalLocomotionAnimation = true;
+    this->bApplyRootMotionLocomotion = false;
+    this->bRootMotionLocomotionIdleOnly = false;
+    this->RootMotionFactor = 1.00f;
+    this->bSyncLocomotionTimings = false;
+    this->bAutoStopEventAnimations = true;
+    this->DamageAdditiveType = EDamageAdditiveType::Never;
+    this->AnimComponent = NULL;
+    this->RendererComponent = NULL;
+    this->Character = NULL;
+    this->ZenithCharacter = NULL;
+    this->MovementComponent = NULL;
+    this->LocomotionComponent = NULL;
+    this->StateComponent = NULL;
+    this->InputComponent = NULL;
+}
 
 void USpineAnimationComponent::WakeUpEnd() {
 }
@@ -126,25 +144,4 @@ void USpineAnimationComponent::DeathEnd() {
 void USpineAnimationComponent::DeathComplete() {
 }
 
-USpineAnimationComponent::USpineAnimationComponent() {
-    this->bUpdateAnimationsInTick = true;
-    this->bForceUseGroundedLocomotion = false;
-    this->bCheckTurnTransitionsInTick = true;
-    this->bSetEmptyIfNoAnim = true;
-    this->bAllowVerticalLocomotionAnimation = true;
-    this->bApplyRootMotionLocomotion = false;
-    this->bRootMotionLocomotionIdleOnly = false;
-    this->RootMotionFactor = 1.00f;
-    this->bSyncLocomotionTimings = false;
-    this->bAutoStopEventAnimations = true;
-    this->DamageAdditiveType = EDamageAdditiveType::Never;
-    this->AnimComponent = NULL;
-    this->RendererComponent = NULL;
-    this->Character = NULL;
-    this->ZenithCharacter = NULL;
-    this->MovementComponent = NULL;
-    this->LocomotionComponent = NULL;
-    this->StateComponent = NULL;
-    this->InputComponent = NULL;
-}
 

@@ -1,8 +1,12 @@
 #include "CommandActionCombo.h"
 #include "Templates/SubclassOf.h"
 
-class UCommandActionComboEntry;
-class UCommandAction;
+UCommandActionCombo::UCommandActionCombo() {
+    this->ResetComboOnInputs = 0;
+    this->CurrDefinition = NULL;
+    this->NextDefinition = NULL;
+    this->OverrideNextDefinition = NULL;
+}
 
 void UCommandActionCombo::SetNextComboEntry(TSubclassOf<UCommandActionComboEntry> NextComboEntry, bool bExecuteAutomatically) {
 }
@@ -22,10 +26,4 @@ void UCommandActionCombo::OnPawnKnockback(FKnockbackRuntimeData KnockbackRuntime
 void UCommandActionCombo::OnPawnEndCommand(UCommandAction* Command, ECommandRemoveTypes RemoveType) {
 }
 
-UCommandActionCombo::UCommandActionCombo() {
-    this->ResetComboOnInputs = 0;
-    this->CurrDefinition = NULL;
-    this->NextDefinition = NULL;
-    this->OverrideNextDefinition = NULL;
-}
 

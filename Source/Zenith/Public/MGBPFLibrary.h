@@ -1,23 +1,24 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Kismet/BlueprintFunctionLibrary.h"
 #include "UObject/NoExportTypes.h"
+#include "Kismet/BlueprintFunctionLibrary.h"
 #include "Input/Events.h"
 #include "Input/Events.h"
 #include "MGBPFLibrary.generated.h"
 
-class UPanelWidget;
-class UObject;
-class UPaperSprite;
 class UImage;
+class UObject;
+class UPanelWidget;
+class UPaperSprite;
 class UScrollBox;
 class UUserWidget;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class UMGBPFLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UMGBPFLibrary();
+
     UFUNCTION(BlueprintCallable)
     static void SetupVerticalWrapNavigation(UPanelWidget* PanelWidget, int32 ColumnCount);
     
@@ -30,13 +31,13 @@ public:
     UFUNCTION(BlueprintCallable)
     static void InvalidateAllWidgets();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FLinearColor GetScrollboxStartShadowColor(UScrollBox* ScrollBox);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FLinearColor GetScrollboxEndShadowColor(UScrollBox* ScrollBox);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static EFocusCause GetFocusCause(FFocusEvent FocusEvent);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))

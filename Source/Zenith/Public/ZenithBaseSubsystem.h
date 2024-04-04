@@ -3,10 +3,11 @@
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "ZenithBaseSubsystem.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class UZenithBaseSubsystem : public UGameInstanceSubsystem {
     GENERATED_BODY()
 public:
     UZenithBaseSubsystem();
+
 };
 

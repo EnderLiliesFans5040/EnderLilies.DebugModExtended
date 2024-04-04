@@ -5,3 +5,4 @@ USaveSettings::USaveSettings() {
     this->bInitializationCompleted = false;
 }
 
+

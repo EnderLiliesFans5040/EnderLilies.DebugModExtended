@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "EInteractableInputType.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EInteractableInputType : uint8 {
     NONE,
     UP,

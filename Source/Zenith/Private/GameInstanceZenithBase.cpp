@@ -1,13 +1,17 @@
 #include "GameInstanceZenithBase.h"
 #include "Templates/SubclassOf.h"
 
-class USoundMatrixData;
-class UUserWidget;
-class UFMODVCA;
-class UObject;
-class UWorld;
-class UGameInstanceZenithBase;
-class UDataTable;
+UGameInstanceZenithBase::UGameInstanceZenithBase() {
+    this->LaunchGameIntent = ELaunchGameIntent::Unknown;
+    this->bSimulateEarlyAccess = false;
+    this->SoundEffectMatrixData = NULL;
+    this->VCA_BGM = NULL;
+    this->VCA_SE = NULL;
+    this->VCA_Ambience = NULL;
+    this->AchievementTable = NULL;
+    this->ErrorTable = NULL;
+    this->ErrorWidgetClass = NULL;
+}
 
 void UGameInstanceZenithBase::SetLaunchGameIntent(ELaunchGameIntent Intent) {
 }
@@ -48,15 +52,4 @@ UDataTable* UGameInstanceZenithBase::GetAchievementDataTable() const {
     return NULL;
 }
 
-UGameInstanceZenithBase::UGameInstanceZenithBase() {
-    this->LaunchGameIntent = ELaunchGameIntent::Unknown;
-    this->bSimulateEarlyAccess = false;
-    this->SoundEffectMatrixData = NULL;
-    this->VCA_BGM = NULL;
-    this->VCA_SE = NULL;
-    this->VCA_Ambience = NULL;
-    this->AchievementTable = NULL;
-    this->ErrorTable = NULL;
-    this->ErrorWidgetClass = NULL;
-}
 

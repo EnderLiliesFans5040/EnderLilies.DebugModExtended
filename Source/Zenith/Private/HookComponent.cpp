@@ -1,8 +1,15 @@
 #include "HookComponent.h"
 
-class UPrimitiveComponent;
-class AActor;
-class AHookPoint;
+UHookComponent::UHookComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->SphereComponent = NULL;
+    this->SphereRadius = 750.00f;
+    this->MinHookDistance = 0.00f;
+    this->bIgnoreHookPointBelowActor = false;
+    this->HookPointBelowActorDistanceWeightMultiplier = 1.00f;
+    this->NecessaryAptitude = EAptitudeType::Hook;
+    this->CharacterOwner = NULL;
+    this->InputComponent = NULL;
+}
 
 void UHookComponent::UnlockHook() {
 }
@@ -26,14 +33,4 @@ AHookPoint* UHookComponent::GetCurrentHookPoint() const {
     return NULL;
 }
 
-UHookComponent::UHookComponent() {
-    this->SphereComponent = NULL;
-    this->SphereRadius = 750.00f;
-    this->MinHookDistance = 0.00f;
-    this->bIgnoreHookPointBelowActor = false;
-    this->HookPointBelowActorDistanceWeightMultiplier = 1.00f;
-    this->NecessaryAptitude = EAptitudeType::Hook;
-    this->CharacterOwner = NULL;
-    this->InputComponent = NULL;
-}
 

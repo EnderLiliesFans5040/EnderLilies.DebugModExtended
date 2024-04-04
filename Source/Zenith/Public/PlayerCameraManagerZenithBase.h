@@ -1,53 +1,54 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
+#include "Engine/EngineTypes.h"
 #include "Camera/PlayerCameraManager.h"
 #include "PlayerCameraManagerZenithEventDelegate.h"
-#include "Engine/EngineTypes.h"
-#include "UObject/NoExportTypes.h"
 #include "PlayerCameraManagerZenithBase.generated.h"
 
 class AActor;
+class ACameraActor;
+class ACameraClampVolume;
 class AGameplayCamera;
 class APlayerCameraManagerZenithBase;
-class ACameraClampVolume;
-class UObject;
 class UCameraComponent;
-class ACameraActor;
+class UObject;
 
-UCLASS(NonTransient)
+UCLASS(Blueprintable, NonTransient)
 class ZENITH_API APlayerCameraManagerZenithBase : public APlayerCameraManager {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bWarnIfNoClampVolume;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float WarnIfNoClampVolumeAfterSeconds;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MinTimeBetweenNoClampVolumeWarnings;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPlayerCameraManagerZenithEvent OnViewTargetChangedDelegate;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPlayerCameraManagerZenithEvent OnNoClampVolumeWarningDelegate;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPlayerCameraManagerZenithEvent OnPostUpdateCameraDelegate;
     
 private:
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bExperimental_DisableAspectRatioConstraint;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<AGameplayCamera> RegisteredGameplayCamera;
     
-    UPROPERTY(Transient)
+    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<TWeakObjectPtr<ACameraClampVolume>> ClampVolumes;
     
 public:
-    APlayerCameraManagerZenithBase();
+    APlayerCameraManagerZenithBase(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void UnregisterGameplayCamera(AGameplayCamera* GameplayCamera);
     
@@ -58,47 +59,47 @@ public:
     void RegisterGameplayCamera(AGameplayCamera* GameplayCamera);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPostUpdateCamera();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnNoClampVolumeWarning();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsGameplayCameraRegistered() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsClamped() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     AActor* GetViewTargetActor() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ACameraClampVolume* GetRootClampVolume() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     AGameplayCamera* GetRegisteredGameplayCamera() const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static APlayerCameraManagerZenithBase* GetPlayerCameraManagerZenith(UObject* WorldContextObject, int32 PlayerControllerIndex);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     AGameplayCamera* GetGameplayCamera() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UCameraComponent* GetCameraComponent() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ACameraActor* GetCamera() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TEnumAsByte<EAspectRatioAxisConstraint> GetAspectRatioAxisConstraint() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ACameraClampVolume* GetActiveClampVolume() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector ClampLocationInCameraView(FVector Location, float Size) const;
     
     UFUNCTION(BlueprintCallable)

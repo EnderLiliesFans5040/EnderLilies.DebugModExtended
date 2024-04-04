@@ -1,5 +1,11 @@
 #include "MPComponent.h"
 
+UMPComponent::UMPComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->MaxMP = 100;
+    this->CurrMP = 0;
+    this->BonusMPAddPercentage = 0.00f;
+}
+
 void UMPComponent::Subtract(int32 MPToSub) {
 }
 
@@ -24,9 +30,4 @@ int32 UMPComponent::GetCurrMP() const {
 void UMPComponent::Add(int32 MPToAdd) {
 }
 
-UMPComponent::UMPComponent() {
-    this->MaxMP = 100;
-    this->CurrMP = 0;
-    this->BonusMPAddPercentage = 0.00f;
-}
 

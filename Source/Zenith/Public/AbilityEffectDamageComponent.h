@@ -4,15 +4,16 @@
 #include "EDamageAttribute.h"
 #include "AbilityEffectDamageComponent.generated.h"
 
-UCLASS(Abstract, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Abstract, Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UAbilityEffectDamageComponent : public UAbilityEffectComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EDamageAttribute DamageAttribute;
     
 public:
-    UAbilityEffectDamageComponent();
+    UAbilityEffectDamageComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

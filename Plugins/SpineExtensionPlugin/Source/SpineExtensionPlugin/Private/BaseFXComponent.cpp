@@ -1,7 +1,8 @@
 #include "BaseFXComponent.h"
 
-class UParticleSystem;
-class UParticleSystemComponent;
+UBaseFXComponent::UBaseFXComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->DefaultFXBone = ESpineBone::Hip;
+}
 
 void UBaseFXComponent::StopAllRunningFXs() {
 }
@@ -14,7 +15,4 @@ ESpineBone UBaseFXComponent::GetDefaultFXBone() const {
     return ESpineBone::None;
 }
 
-UBaseFXComponent::UBaseFXComponent() {
-    this->DefaultFXBone = ESpineBone::Hip;
-}
 

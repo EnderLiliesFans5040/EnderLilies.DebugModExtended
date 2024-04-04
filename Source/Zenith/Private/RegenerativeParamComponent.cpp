@@ -1,5 +1,18 @@
 #include "RegenerativeParamComponent.h"
 
+URegenerativeParamComponent::URegenerativeParamComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->RegenerationBlockingStates.AddDefaulted(1);
+    this->BreakRecoveryBlockingStates.AddDefaulted(3);
+    this->MaxValue = 100;
+    this->DelayBeforeRecovery = 0.00f;
+    this->RecoveryPerSecond = 0.00f;
+    this->BrokenDuration = 0.00f;
+    this->bInvincible = false;
+    this->AudioEventOnBreak = NULL;
+    this->CachedStateComponent = NULL;
+    this->CachedDeathComponent = NULL;
+}
+
 void URegenerativeParamComponent::Subtract(int32 ValueToSub) {
 }
 
@@ -35,16 +48,4 @@ void URegenerativeParamComponent::FullyRestore() {
 void URegenerativeParamComponent::Add(int32 ValueToSub) {
 }
 
-URegenerativeParamComponent::URegenerativeParamComponent() {
-    this->RegenerationBlockingStates.AddDefaulted(1);
-    this->BreakRecoveryBlockingStates.AddDefaulted(3);
-    this->MaxValue = 100;
-    this->DelayBeforeRecovery = 0.00f;
-    this->RecoveryPerSecond = 0.00f;
-    this->BrokenDuration = 0.00f;
-    this->bInvincible = false;
-    this->AudioEventOnBreak = NULL;
-    this->CachedStateComponent = NULL;
-    this->CachedDeathComponent = NULL;
-}
 

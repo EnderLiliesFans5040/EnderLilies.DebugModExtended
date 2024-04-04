@@ -1,5 +1,8 @@
 #include "ParameterComponent.h"
 
+UParameterComponent::UParameterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 float UParameterComponent::GetStunDamageFactor() const {
     return 0.0f;
 }
@@ -36,6 +39,4 @@ int32 UParameterComponent::GetAttack(bool bIgnoreOverride) const {
     return 0;
 }
 
-UParameterComponent::UParameterComponent() {
-}
 

@@ -4,14 +4,15 @@
 #include "FadeEventDelegate.h"
 #include "FadeUserWidget.generated.h"
 
-UCLASS(Abstract, EditInlineNew)
+UCLASS(Abstract, Blueprintable, EditInlineNew)
 class ZENITH_API UFadeUserWidget : public UUserWidget {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FFadeEvent OnFadeFinish;
     
     UFadeUserWidget();
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void PrepareFadeIn();
     

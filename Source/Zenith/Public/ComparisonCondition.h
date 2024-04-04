@@ -1,25 +1,26 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "EConditionType.h"
 #include "BehaviorTree/BTDecorator.h"
+#include "EConditionType.h"
 #include "ComparisonCondition.generated.h"
 
-class APawn;
 class AAIController;
+class APawn;
 
 UCLASS(Abstract, Blueprintable)
 class ZENITH_API UComparisonCondition : public UBTDecorator {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EConditionType ConditionType;
     
     UComparisonCondition();
+
 protected:
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     float GetValueToCompare(const AAIController* AIController, const APawn* Pawn) const;
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     float GetComparingValue() const;
     
 };

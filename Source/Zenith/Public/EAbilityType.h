@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "EAbilityType.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EAbilityType : uint8 {
     DEFAULT,
     PILE_ATTACK,

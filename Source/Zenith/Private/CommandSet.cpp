@@ -1,5 +1,8 @@
 #include "CommandSet.h"
 
+UCommandSet::UCommandSet() {
+}
+
 void UCommandSet::RemoveCommand(int32 RuntimeID) {
 }
 
@@ -11,6 +14,4 @@ int32 UCommandSet::AddCommand(FCommandSettings CommandSettings) {
     return 0;
 }
 
-UCommandSet::UCommandSet() {
-}
 

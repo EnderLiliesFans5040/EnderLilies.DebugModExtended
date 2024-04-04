@@ -2,12 +2,12 @@
 #include "CoreMinimal.h"
 #include "ESoundMaterial.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class ESoundMaterial : uint8 {
     NONE,
-    Iron = 0xA,
-    Meat = 0x14,
-    Wood = 0x1E,
-    Stone = 0x28,
+    Iron = 10,
+    Meat = 20,
+    Wood = 30,
+    Stone = 40,
 };
 

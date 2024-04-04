@@ -3,10 +3,11 @@
 #include "State.h"
 #include "StateBusy.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateBusy : public UState {
     GENERATED_BODY()
 public:
     UStateBusy();
+
 };
 

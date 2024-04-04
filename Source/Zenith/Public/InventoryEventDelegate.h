@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "InventoryEventDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FInventoryEvent);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FInventoryEvent);
 

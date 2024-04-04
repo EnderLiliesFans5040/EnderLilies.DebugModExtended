@@ -2,8 +2,8 @@
 #include "CoreMinimal.h"
 #include "EPawnVolumeState.generated.h"
 
-UENUM()
-enum class EPawnVolumeState {
+UENUM(BlueprintType)
+enum class EPawnVolumeState : uint8 {
     NONE,
     ACTIVATED,
     CLEARED,

@@ -3,10 +3,11 @@
 #include "State.h"
 #include "StateIgnoreAutoClimb.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateIgnoreAutoClimb : public UState {
     GENERATED_BODY()
 public:
     UStateIgnoreAutoClimb();
+
 };
 

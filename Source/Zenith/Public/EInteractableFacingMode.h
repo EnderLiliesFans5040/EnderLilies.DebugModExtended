@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "EInteractableFacingMode.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EInteractableFacingMode : uint8 {
     NONE,
     RIGHT,

@@ -4,13 +4,14 @@
 #include "ConditionedConversationData.h"
 #include "ConversationAsset.generated.h"
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class UConversationAsset : public UDataAsset {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FConditionedConversationData> Conversations;
     
     UConversationAsset();
+
 };
 

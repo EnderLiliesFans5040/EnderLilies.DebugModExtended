@@ -3,10 +3,11 @@
 #include "State.h"
 #include "StateAllowDash.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateAllowDash : public UState {
     GENERATED_BODY()
 public:
     UStateAllowDash();
+
 };
 

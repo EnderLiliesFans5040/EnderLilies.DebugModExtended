@@ -8,7 +8,7 @@ struct ZENITH_API FMoveTimeline {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FMoveTimelineEntry> MoveEntries;
     
 public:

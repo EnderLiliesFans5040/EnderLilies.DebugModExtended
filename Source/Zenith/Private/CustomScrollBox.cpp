@@ -1,10 +1,9 @@
 #include "CustomScrollBox.h"
 
-class UNativeWidgetHost;
+UCustomScrollBox::UCustomScrollBox() {
+}
 
 void UCustomScrollBox::ScrollWidgetHostIntoView(UNativeWidgetHost* NativeWidgetHost, bool InAnimateScroll, EDescendantScrollDestination InDestination, float InScrollPadding) {
 }
 
-UCustomScrollBox::UCustomScrollBox() {
-}
 

@@ -1,8 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "RecollectionItemData.h"
-#include "Engine/DataTable.h"
 #include "UObject/NoExportTypes.h"
+#include "Engine/DataTable.h"
+#include "RecollectionItemData.h"
 #include "RecollectionBossData.generated.h"
 
 class UPaperSprite;
@@ -11,19 +11,19 @@ USTRUCT(BlueprintType)
 struct FRecollectionBossData : public FRecollectionItemData {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText BossName;
     
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UPaperSprite> Sprite;
     
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDataTableRowHandle Map;
     
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName PlayerStartTag;
     
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector PlayerSpawnOffset;
     
     ZENITH_API FRecollectionBossData();

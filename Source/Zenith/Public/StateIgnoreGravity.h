@@ -3,10 +3,11 @@
 #include "State.h"
 #include "StateIgnoreGravity.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateIgnoreGravity : public UState {
     GENERATED_BODY()
 public:
     UStateIgnoreGravity();
+
 };
 

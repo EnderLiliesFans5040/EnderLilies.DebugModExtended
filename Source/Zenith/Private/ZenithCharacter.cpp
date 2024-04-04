@@ -1,21 +1,32 @@
 #include "ZenithCharacter.h"
-#include "MPComponent.h"
 #include "CommandQueueComponent.h"
-#include "HPComponent.h"
-#include "ZenithInputComponent.h"
-#include "StateComponent.h"
-#include "FactionComponent.h"
-#include "LocomotionComponent.h"
 #include "DeathComponent.h"
+#include "FactionComponent.h"
+#include "HPComponent.h"
+#include "LocomotionComponent.h"
+#include "MPComponent.h"
 #include "StaminaComponent.h"
+#include "StateComponent.h"
 #include "StunComponent.h"
+#include "ZenithCharacterMovementComponent.h"
+#include "ZenithInputComponent.h"
 
-class APhysicsVolume;
-class UZenithCharacterMovementComponent;
-class AEnemySpawnPoint;
-class UCommandSet;
-class USceneComponent;
-class UParameterComponent;
+AZenithCharacter::AZenithCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<UZenithCharacterMovementComponent>(TEXT("CharMoveComp"))) {
+    this->ZenithCharacterMovement = NULL;
+    this->SourceSpawnPoint = NULL;
+    this->CommandQueueComponent = CreateDefaultSubobject<UCommandQueueComponent>(TEXT("CommandQueueComponent"));
+    this->StateComponent = CreateDefaultSubobject<UStateComponent>(TEXT("StateComponent"));
+    this->FactionComponent = CreateDefaultSubobject<UFactionComponent>(TEXT("FactionComponent"));
+    this->ZenithInputComponent = CreateDefaultSubobject<UZenithInputComponent>(TEXT("ZenithInputComponent"));
+    this->DeathComponent = CreateDefaultSubobject<UDeathComponent>(TEXT("DeathComponent"));
+    this->HPComponent = CreateDefaultSubobject<UHPComponent>(TEXT("HPComponent"));
+    this->MPComponent = CreateDefaultSubobject<UMPComponent>(TEXT("MPComponent"));
+    this->StaminaComponent = CreateDefaultSubobject<UStaminaComponent>(TEXT("StaminaComponent"));
+    this->StunComponent = CreateDefaultSubobject<UStunComponent>(TEXT("StunComponent"));
+    this->LocomotionComponent = CreateDefaultSubobject<ULocomotionComponent>(TEXT("LocomotionComponent"));
+    this->CommandSet = NULL;
+    this->RuntimeCommandSet = NULL;
+}
 
 void AZenithCharacter::UnlockInput() {
 }
@@ -105,20 +116,4 @@ void AZenithCharacter::ClearPhysicsVolume() {
 void AZenithCharacter::Activate() {
 }
 
-AZenithCharacter::AZenithCharacter() {
-    this->ZenithCharacterMovement = NULL;
-    this->SourceSpawnPoint = NULL;
-    this->CommandQueueComponent = CreateDefaultSubobject<UCommandQueueComponent>(TEXT("CommandQueueComponent"));
-    this->StateComponent = CreateDefaultSubobject<UStateComponent>(TEXT("StateComponent"));
-    this->FactionComponent = CreateDefaultSubobject<UFactionComponent>(TEXT("FactionComponent"));
-    this->ZenithInputComponent = CreateDefaultSubobject<UZenithInputComponent>(TEXT("ZenithInputComponent"));
-    this->DeathComponent = CreateDefaultSubobject<UDeathComponent>(TEXT("DeathComponent"));
-    this->HPComponent = CreateDefaultSubobject<UHPComponent>(TEXT("HPComponent"));
-    this->MPComponent = CreateDefaultSubobject<UMPComponent>(TEXT("MPComponent"));
-    this->StaminaComponent = CreateDefaultSubobject<UStaminaComponent>(TEXT("StaminaComponent"));
-    this->StunComponent = CreateDefaultSubobject<UStunComponent>(TEXT("StunComponent"));
-    this->LocomotionComponent = CreateDefaultSubobject<ULocomotionComponent>(TEXT("LocomotionComponent"));
-    this->CommandSet = NULL;
-    this->RuntimeCommandSet = NULL;
-}
 

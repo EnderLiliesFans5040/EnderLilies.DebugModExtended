@@ -1,7 +1,7 @@
 #include "EffectBPFLibrary.h"
 
-class UObject;
-class UParticleSystem;
+UEffectBPFLibrary::UEffectBPFLibrary() {
+}
 
 void UEffectBPFLibrary::StopAllDeactivatingParticleSystems() {
 }
@@ -14,6 +14,4 @@ UParticleSystem* UEffectBPFLibrary::GetLandingEffectForSurfaceType(const UObject
     return NULL;
 }
 
-UEffectBPFLibrary::UEffectBPFLibrary() {
-}
 

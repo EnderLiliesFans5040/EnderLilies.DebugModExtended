@@ -7,10 +7,10 @@ USTRUCT(BlueprintType)
 struct FProcRenderMeshTangent {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector TangentX;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bFlipTangentY;
     
     PROCEDURALRENDERMESHPLUGIN_API FProcRenderMeshTangent();

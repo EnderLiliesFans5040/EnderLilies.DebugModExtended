@@ -1,6 +1,7 @@
 #include "ScreenBPFLibrary.h"
 
-class UObject;
+UScreenBPFLibrary::UScreenBPFLibrary() {
+}
 
 bool UScreenBPFLibrary::ProjectWorldToViewport(UObject* WorldContextObject, FVector WorldLocation, FVector2D& out_ViewportLocation) {
     return false;
@@ -10,6 +11,4 @@ bool UScreenBPFLibrary::DeprojectViewportToWorldAtDepth(UObject* WorldContextObj
     return false;
 }
 
-UScreenBPFLibrary::UScreenBPFLibrary() {
-}
 

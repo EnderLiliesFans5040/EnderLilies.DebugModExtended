@@ -1,49 +1,50 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
-#include "SaveDelegateDelegate.h"
 #include "Subsystems/GameInstanceSubsystem.h"
-#include "SaveGameResultDelegate.h"
-#include "ESaveExistsType.h"
 #include "ESaveCopyResult.h"
+#include "ESaveExistsType.h"
+#include "SaveDelegateDelegate.h"
+#include "SaveGameResultDelegate.h"
+#include "Templates/SubclassOf.h"
 #include "SaveSubsystem.generated.h"
 
 class USaveData;
-class USaveSettings;
-class USaveIconUserWidget;
 class USaveGame;
+class USaveIconUserWidget;
+class USaveSettings;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API USaveSubsystem : public UGameInstanceSubsystem {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSaveDelegate OnGameDataLoaded;
     
 private:
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 SaveSlotIndex;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FString SaveSlotName;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 CurrentBackupIndex;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USaveData* CurrentSaveData;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USaveSettings* CurrSaveSettings;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSaveGameResult SaveFinishDelegateToCall;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSaveGameResult LoadFinishDelegateToCall;
     
 public:
     USaveSubsystem();
+
     UFUNCTION(BlueprintCallable)
     void SetSaveSlotIndex(int32 SlotIndexToUse);
     
@@ -60,13 +61,13 @@ public:
     ESaveExistsType ReloadSettings();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSaveFinished(const FString& SlotName, const int32 UserIndex, bool bSuccess);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSaveBackupFinished(const FString& SlotName, const int32 UserIndex, bool bSuccess);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnLoadFinished(const FString& LoadedSlotName, const int32 UserIndex, USaveGame* NewSaveGame);
     
 public:
@@ -88,31 +89,31 @@ public:
     UFUNCTION(BlueprintCallable)
     bool LoadGame();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSettingsLoaded() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSaving() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsLoading() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInitializationSettingsCompleted() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsGameLoaded() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESaveExistsType HasSaveDataInSlotIndexWithResult(int32 SlotIndex) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasSaveDataInSlotIndex(int32 SlotIndex) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasSaveData() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GenerateSaveSlotName(int32 SlotIndex) const;
     
     UFUNCTION(BlueprintCallable)
@@ -127,7 +128,7 @@ public:
     UFUNCTION(BlueprintCallable)
     ESaveCopyResult CopyGameDataToEmptySlot(int32 SlotToCopy, int32& out_TargetSlot);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CheckSaveDataVersionFromSaveData(const USaveData* SaveData, bool bReturnToTitleOnFail) const;
     
     UFUNCTION(BlueprintCallable)

@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SpineAnimationDelegateDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE(FSpineAnimationDelegate);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE(FSpineAnimationDelegate);
 

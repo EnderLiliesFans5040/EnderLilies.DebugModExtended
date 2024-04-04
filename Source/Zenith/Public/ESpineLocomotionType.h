@@ -2,8 +2,8 @@
 #include "CoreMinimal.h"
 #include "ESpineLocomotionType.generated.h"
 
-UENUM()
-enum class ESpineLocomotionType {
+UENUM(BlueprintType)
+enum class ESpineLocomotionType : uint8 {
     NONE,
     IDLE,
     WALK,

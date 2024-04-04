@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "EWalkMode.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EWalkMode : uint8 {
     None,
     Walk,

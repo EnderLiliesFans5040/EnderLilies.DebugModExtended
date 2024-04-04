@@ -1,7 +1,7 @@
 #include "WaitGameDataReadyAsyncAction.h"
 
-class UObject;
-class UWaitGameDataReadyAsyncAction;
+UWaitGameDataReadyAsyncAction::UWaitGameDataReadyAsyncAction() {
+}
 
 UWaitGameDataReadyAsyncAction* UWaitGameDataReadyAsyncAction::WaitGameDataReady(const UObject* WorldContextObject) {
     return NULL;
@@ -10,6 +10,4 @@ UWaitGameDataReadyAsyncAction* UWaitGameDataReadyAsyncAction::WaitGameDataReady(
 void UWaitGameDataReadyAsyncAction::Tick() {
 }
 
-UWaitGameDataReadyAsyncAction::UWaitGameDataReadyAsyncAction() {
-}
 

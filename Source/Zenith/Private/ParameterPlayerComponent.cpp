@@ -1,5 +1,30 @@
 #include "ParameterPlayerComponent.h"
 
+UParameterPlayerComponent::UParameterPlayerComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->DefaultHP = 100;
+    this->DefaultMP = 100;
+    this->Level = 1;
+    this->ExperiencePoints = 0;
+    this->SkinLevel = 1;
+    this->SkinLevelOverride = -1;
+    this->FinalPassivePartCount = 0;
+    this->MaxFinalPassivePartCount = 7;
+    this->MaxHPBonusPercentage = 0.00f;
+    this->MaxMPBonusPercentage = 0.00f;
+    this->MaxStaminaBonusPercentage = 0.00f;
+    this->MPRestoreBonusPercentage = 0.00f;
+    this->DamageCutPercentage = 0.00f;
+    this->ExpBonusPercent = 0.00f;
+    this->PostDamageInvincibilityBonusTime = 0.00f;
+    this->DamagePercentBonus = 0.00f;
+    this->DamagePercentBonusOnMaxHP = 0.00f;
+    this->DamagePercentBonusWhenGrounded = 0.00f;
+    this->DamagePercentBonusWhenAirborne = 0.00f;
+    this->DamagePercentBonusWhenSwimming = 0.00f;
+    this->StaminaDamagePercentBonus = 0.00f;
+    this->StunDamagePercentBonus = 0.00f;
+}
+
 void UParameterPlayerComponent::SubStunDamagePercentBonus(float StunDamagePercentBonusToSub) {
 }
 
@@ -177,28 +202,4 @@ void UParameterPlayerComponent::AddDamageCutPercentageForAttribute(EDamageAttrib
 void UParameterPlayerComponent::AddDamageCutPercentage(float DamageCutToAdd) {
 }
 
-UParameterPlayerComponent::UParameterPlayerComponent() {
-    this->DefaultHP = 100;
-    this->DefaultMP = 100;
-    this->Level = 1;
-    this->ExperiencePoints = 0;
-    this->SkinLevel = 1;
-    this->SkinLevelOverride = -1;
-    this->FinalPassivePartCount = 0;
-    this->MaxFinalPassivePartCount = 7;
-    this->MaxHPBonusPercentage = 0.00f;
-    this->MaxMPBonusPercentage = 0.00f;
-    this->MaxStaminaBonusPercentage = 0.00f;
-    this->MPRestoreBonusPercentage = 0.00f;
-    this->DamageCutPercentage = 0.00f;
-    this->ExpBonusPercent = 0.00f;
-    this->PostDamageInvincibilityBonusTime = 0.00f;
-    this->DamagePercentBonus = 0.00f;
-    this->DamagePercentBonusOnMaxHP = 0.00f;
-    this->DamagePercentBonusWhenGrounded = 0.00f;
-    this->DamagePercentBonusWhenAirborne = 0.00f;
-    this->DamagePercentBonusWhenSwimming = 0.00f;
-    this->StaminaDamagePercentBonus = 0.00f;
-    this->StunDamagePercentBonus = 0.00f;
-}
 

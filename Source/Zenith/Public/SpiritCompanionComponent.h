@@ -1,35 +1,36 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "CompanionData.h"
+#include "ESummonSet.h"
 #include "SpiritCompanionEventDelegate.h"
 #include "SpiritData.h"
 #include "SummonSetCompanions.h"
-#include "ESummonSet.h"
-#include "CompanionData.h"
 #include "SpiritCompanionComponent.generated.h"
 
-class AZenithSpirit;
 class AZenithCompanionCharacter;
+class AZenithSpirit;
 
-UCLASS(BlueprintType, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API USpiritCompanionComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpiritCompanionEvent OnSpawnCompanion;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpiritCompanionEvent OnDestroyCompanion;
     
 private:
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<ESummonSet, FSummonSetCompanions> CompanionsForSummonSet;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FCompanionData> ExtraCompanions;
     
 public:
-    USpiritCompanionComponent();
+    USpiritCompanionComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void ResetCurrentSetStateAndLocation();
     
@@ -37,29 +38,29 @@ public:
     AZenithCompanionCharacter* RequestExtraCompanion(const TSoftClassPtr<AZenithCompanionCharacter>& CompanionClass);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnUnequipSpirit(ESummonSet SummonSet, const FSpiritData& SpiritData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSummonSetSwitch(ESummonSet PrevSummonSet, ESummonSet NewSummonSet);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSpiritDisappear(AZenithSpirit* Spirit);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSpiritAppear(AZenithSpirit* Spirit);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnGameMapSwitch();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnEquipSpirit(ESummonSet SummonSet, const FSpiritData& SpiritData);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<AZenithCompanionCharacter*> GetOrderedCurrentCompanions() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<AZenithCompanionCharacter*> GetExtraCompanions() const;
     
     UFUNCTION(BlueprintCallable)

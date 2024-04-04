@@ -5,13 +5,14 @@
 
 class USpineAnimSequence;
 
-UCLASS()
+UCLASS(Blueprintable)
 class SPINEEXTENSIONPLUGIN_API USpineNotifyAsset : public UObject {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FString, USpineAnimSequence*> AnimSequencePerAnims;
     
     USpineNotifyAsset();
+
 };
 

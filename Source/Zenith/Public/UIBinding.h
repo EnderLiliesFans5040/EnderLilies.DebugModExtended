@@ -3,11 +3,11 @@
 #include "InputCoreTypes.h"
 #include "UIBinding.generated.h"
 
-USTRUCT()
+USTRUCT(BlueprintType)
 struct ZENITH_API FUIBinding {
     GENERATED_BODY()
 public:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FKey> KeyBindings;
     
     FUIBinding();

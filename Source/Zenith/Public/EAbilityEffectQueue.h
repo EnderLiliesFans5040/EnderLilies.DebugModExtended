@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "EAbilityEffectQueue.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EAbilityEffectQueue : uint8 {
     FIRST,
     PRE_DEFAULT,

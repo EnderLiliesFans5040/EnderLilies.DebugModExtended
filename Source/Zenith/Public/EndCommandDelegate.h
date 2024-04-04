@@ -5,5 +5,5 @@
 
 class UCommandAction;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FEndCommand, UCommandAction*, CommandAction, ECommandRemoveTypes, RemoveType);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FEndCommand, UCommandAction*, CommandAction, ECommandRemoveTypes, RemoveType);
 

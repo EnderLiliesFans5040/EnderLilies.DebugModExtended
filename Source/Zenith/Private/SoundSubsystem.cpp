@@ -1,6 +1,9 @@
 #include "SoundSubsystem.h"
 
-class UFMODEvent;
+USoundSubsystem::USoundSubsystem() {
+    this->CurrentBGM = NULL;
+    this->CurrentAmbience = NULL;
+}
 
 void USoundSubsystem::StopSoundEventInstance(const FFMODEventInstance& SoundInstance) {
 }
@@ -66,8 +69,4 @@ void USoundSubsystem::DisableSnapshot(FName Tag) {
 void USoundSubsystem::DisableAllSnapshots() {
 }
 
-USoundSubsystem::USoundSubsystem() {
-    this->CurrentBGM = NULL;
-    this->CurrentAmbience = NULL;
-}
 

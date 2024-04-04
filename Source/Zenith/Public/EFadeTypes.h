@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "EFadeTypes.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EFadeTypes : uint8 {
     None,
     FadeIn,

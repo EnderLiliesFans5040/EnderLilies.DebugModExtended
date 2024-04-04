@@ -5,7 +5,7 @@
 UENUM(BlueprintType)
 enum class EEventActorType : uint8 {
     None,
-    Player = 0xA,
-    Binding = 0xF,
+    Player = 10,
+    Binding = 15,
 };
 

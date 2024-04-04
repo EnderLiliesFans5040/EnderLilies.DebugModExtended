@@ -1,34 +1,34 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
-#include "Components/ActorComponent.h"
-#include "ObjectArray.h"
-#include "EAbilityStopReason.h"
-#include "ESpineBone.h"
-#include "AbilityParams.h"
-#include "AbilityDescription.h"
 #include "UObject/NoExportTypes.h"
+#include "Components/ActorComponent.h"
+#include "ESpineBone.h"
+#include "AbilityDescription.h"
+#include "AbilityParams.h"
+#include "EAbilityStopReason.h"
+#include "ObjectArray.h"
+#include "Templates/SubclassOf.h"
 #include "AbilityComponent.generated.h"
-
 
 class AAbility;
 
-UCLASS(BlueprintType, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UAbilityComponent : public UActorComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<AAbility*> RunningAbilities;
     
-    UPROPERTY(Transient)
+    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<TWeakObjectPtr<AAbility>> RunningFireAndForgetAbilities;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<TSubclassOf<AAbility>, FObjectArray> AvailableAbilities;
     
 public:
-    UAbilityComponent();
+    UAbilityComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void StopAllAbilities(EAbilityStopReason AbilityStopReason, bool bStopFireAndForgetAbilities);
     
@@ -36,10 +36,10 @@ public:
     void StopAbility(AAbility* Ability, EAbilityStopReason AbilityStopReason);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnGameMapSwitch();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnDisposeAbility(AAbility* Ability);
     
 public:

@@ -1,12 +1,12 @@
 #include "PlayerCameraManagerZenithBase.h"
 
-class AGameplayCamera;
-class APlayerCameraManagerZenithBase;
-class ACameraClampVolume;
-class ACameraActor;
-class AActor;
-class UObject;
-class UCameraComponent;
+APlayerCameraManagerZenithBase::APlayerCameraManagerZenithBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->DefaultModifiers.AddDefaulted(1);
+    this->bWarnIfNoClampVolume = false;
+    this->WarnIfNoClampVolumeAfterSeconds = 0.00f;
+    this->MinTimeBetweenNoClampVolumeWarnings = 5.00f;
+    this->bExperimental_DisableAspectRatioConstraint = false;
+}
 
 void APlayerCameraManagerZenithBase::UnregisterGameplayCamera(AGameplayCamera* GameplayCamera) {
 }
@@ -70,10 +70,4 @@ FVector APlayerCameraManagerZenithBase::ClampLocationInCameraView(FVector Locati
 void APlayerCameraManagerZenithBase::AddClampVolume(ACameraClampVolume* ClampVolume) {
 }
 
-APlayerCameraManagerZenithBase::APlayerCameraManagerZenithBase() {
-    this->bWarnIfNoClampVolume = false;
-    this->WarnIfNoClampVolumeAfterSeconds = 0.00f;
-    this->MinTimeBetweenNoClampVolumeWarnings = 5.00f;
-    this->bExperimental_DisableAspectRatioConstraint = false;
-}
 

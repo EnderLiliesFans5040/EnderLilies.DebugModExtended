@@ -1,6 +1,11 @@
 #include "FollowTargetComponent.h"
 
-class USceneComponent;
+UFollowTargetComponent::UFollowTargetComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bUpdateOwnerLocation = true;
+    this->BlendSpeed = 0.00f;
+    this->OscillationScale = 0.00f;
+    this->Owner = NULL;
+}
 
 void UFollowTargetComponent::TeleportToTarget() {
 }
@@ -31,10 +36,4 @@ USceneComponent* UFollowTargetComponent::GetFollowTarget() const {
 void UFollowTargetComponent::ClearFollowTarget() {
 }
 
-UFollowTargetComponent::UFollowTargetComponent() {
-    this->bUpdateOwnerLocation = true;
-    this->BlendSpeed = 0.00f;
-    this->OscillationScale = 0.00f;
-    this->Owner = NULL;
-}
 

@@ -5,15 +5,16 @@
 
 class URectLightComponent;
 
-UCLASS(Abstract)
+UCLASS(Abstract, Blueprintable)
 class ZENITH_API AEmulatedRectLight : public AEmulatedLight {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     URectLightComponent* RectLightComponent;
     
 public:
-    AEmulatedRectLight();
+    AEmulatedRectLight(const FObjectInitializer& ObjectInitializer);
+
 };
 

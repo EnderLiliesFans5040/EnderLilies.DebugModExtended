@@ -1,12 +1,11 @@
 #include "PoolSubsystem.h"
 
-class UPoolSystem;
+UPoolSubsystem::UPoolSubsystem() {
+    this->PoolSystem = NULL;
+}
 
 UPoolSystem* UPoolSubsystem::GetPoolSystem() const {
     return NULL;
 }
 
-UPoolSubsystem::UPoolSubsystem() {
-    this->PoolSystem = NULL;
-}
 

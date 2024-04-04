@@ -1,15 +1,16 @@
 #include "EventPlayer.h"
 #include "Templates/SubclassOf.h"
 
-class AActor;
-class APlayerController;
-class UExecuteEventActionAsync;
-class UEventUserWidget;
-class AEventCamera;
-class UEventAsset;
-class UEventBlackBoard;
-class AController;
-class UEventPlayer;
+UEventPlayer::UEventPlayer() {
+    this->Owner = NULL;
+    this->EventAsset = NULL;
+    this->EventBlackBoard = NULL;
+    this->EventControllerClass = NULL;
+    this->EventWidgetClass = NULL;
+    this->EventWidgetInstance = NULL;
+    this->EventCamera = NULL;
+    this->CurrentAction = NULL;
+}
 
 void UEventPlayer::SubmitReply(const FEventNode& Reply) {
 }
@@ -124,14 +125,4 @@ void UEventPlayer::AddActorBinding(FName BindingName, AActor* Actor) {
 void UEventPlayer::Abort() {
 }
 
-UEventPlayer::UEventPlayer() {
-    this->Owner = NULL;
-    this->EventAsset = NULL;
-    this->EventBlackBoard = NULL;
-    this->EventControllerClass = NULL;
-    this->EventWidgetClass = NULL;
-    this->EventWidgetInstance = NULL;
-    this->EventCamera = NULL;
-    this->CurrentAction = NULL;
-}
 

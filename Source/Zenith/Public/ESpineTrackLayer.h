@@ -2,10 +2,10 @@
 #include "CoreMinimal.h"
 #include "ESpineTrackLayer.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class ESpineTrackLayer : uint8 {
     DEFAULT,
-    MEAT_ACTION = 0x1E,
-    DAMAGE_ADDITIVE = 0x50,
+    MEAT_ACTION = 30,
+    DAMAGE_ADDITIVE = 80,
 };
 

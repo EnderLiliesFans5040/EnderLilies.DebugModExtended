@@ -1,24 +1,25 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "LevelSequencePlayer.h"
 #include "Camera/PlayerCameraManager.h"
+#include "LevelSequencePlayer.h"
 #include "MovieSceneSequencePlayer.h"
 #include "ZenithLevelSequencePlayer.generated.h"
 
-class UObject;
-class AZenithLevelSequenceActor;
 class AActor;
-class UZenithLevelSequencePlayer;
+class AZenithLevelSequenceActor;
 class ULevelSequence;
+class UObject;
+class UZenithLevelSequencePlayer;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UZenithLevelSequencePlayer : public ULevelSequencePlayer {
     GENERATED_BODY()
 public:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     AActor* CurrCameraActor;
     
-    //UZenithLevelSequencePlayer() { this->CurrCameraActor = NULL; };
+    //UZenithLevelSequencePlayer();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static UZenithLevelSequencePlayer* CreateZenithLevelSequencePlayer(UObject* WorldContextObject, ULevelSequence* InLevelSequence, FMovieSceneSequencePlaybackSettings Settings, AZenithLevelSequenceActor*& OutActor, FViewTargetTransitionParams BlendInParams, FViewTargetTransitionParams BlendOutParams);
     

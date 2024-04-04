@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "DelayFrameCountOutputPinDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDelayFrameCountOutputPin);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDelayFrameCountOutputPin);
 

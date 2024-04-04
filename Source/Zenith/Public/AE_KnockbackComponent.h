@@ -4,20 +4,21 @@
 #include "KnockbackData.h"
 #include "AE_KnockbackComponent.generated.h"
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UAE_KnockbackComponent : public UAbilityEffectComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bBypassStaminaCheck;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FKnockbackData KnockbackData;
     
 public:
-    UAE_KnockbackComponent();
-    UFUNCTION(BlueprintPure)
+    UAE_KnockbackComponent(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FKnockbackData GetKnockbackData() const;
     
 };

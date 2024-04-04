@@ -5,15 +5,16 @@
 
 class UForceFeedbackEffect;
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UAE_ForceFeedbackComponent : public UAbilityEffectComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UForceFeedbackEffect* ForceFeedbackEffect;
     
 public:
-    UAE_ForceFeedbackComponent();
+    UAE_ForceFeedbackComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

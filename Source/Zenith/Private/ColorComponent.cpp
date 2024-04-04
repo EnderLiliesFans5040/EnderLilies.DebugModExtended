@@ -1,5 +1,9 @@
 #include "ColorComponent.h"
 
+UColorComponent::UColorComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->SpineRenderer = NULL;
+}
+
 void UColorComponent::SetDefaultColor(FLinearColor Color) {
 }
 
@@ -13,7 +17,4 @@ FLinearColor UColorComponent::GetCurrentColor() const {
 void UColorComponent::ClearColor(float LerpTime) {
 }
 
-UColorComponent::UColorComponent() {
-    this->SpineRenderer = NULL;
-}
 

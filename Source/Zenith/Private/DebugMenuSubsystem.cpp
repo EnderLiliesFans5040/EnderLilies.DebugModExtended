@@ -1,8 +1,9 @@
 #include "DebugMenuSubsystem.h"
 #include "Templates/SubclassOf.h"
 
-class UUserWidgetMenu;
-class APlayerController;
+UDebugMenuSubsystem::UDebugMenuSubsystem() {
+    this->DebugMenuInstance = NULL;
+}
 
 void UDebugMenuSubsystem::ShowDebugMenu(TSubclassOf<UUserWidgetMenu> DebugMenuClass, APlayerController* PlayerController) {
 }
@@ -22,7 +23,4 @@ bool UDebugMenuSubsystem::CanShowDebugMenu() const {
     return false;
 }
 
-UDebugMenuSubsystem::UDebugMenuSubsystem() {
-    this->DebugMenuInstance = NULL;
-}
 

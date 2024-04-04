@@ -3,15 +3,16 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "PoolSystemBPFLibrary.generated.h"
 
-class UPoolSystem;
 class UObject;
+class UPoolSystem;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class UPoolSystemBPFLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UPoolSystemBPFLibrary();
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPoolSystem* GetPoolSystem(UObject* WorldContextObject);
     
 };

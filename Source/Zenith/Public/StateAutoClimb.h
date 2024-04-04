@@ -3,10 +3,11 @@
 #include "State.h"
 #include "StateAutoClimb.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateAutoClimb : public UState {
     GENERATED_BODY()
 public:
     UStateAutoClimb();
+
 };
 

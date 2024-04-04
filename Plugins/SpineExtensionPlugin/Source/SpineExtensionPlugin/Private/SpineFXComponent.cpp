@@ -1,13 +1,12 @@
 #include "SpineFXComponent.h"
 
-class UParticleSystemComponent;
-
-void USpineFXComponent::OnFXSystemEnd(UParticleSystemComponent* ParticleSystem) {
-}
-
-USpineFXComponent::USpineFXComponent() {
+USpineFXComponent::USpineFXComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RendererComponent = NULL;
     this->BoneComponent = NULL;
     this->NavComponent = NULL;
 }
+
+void USpineFXComponent::OnFXSystemEnd(UParticleSystemComponent* ParticleSystem) {
+}
+
 

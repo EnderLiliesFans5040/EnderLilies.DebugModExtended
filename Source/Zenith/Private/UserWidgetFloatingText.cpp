@@ -1,6 +1,7 @@
 #include "UserWidgetFloatingText.h"
 
-class USceneComponent;
+UUserWidgetFloatingText::UUserWidgetFloatingText() : UUserWidget(FObjectInitializer::Get()) {
+}
 
 void UUserWidgetFloatingText::DetachFromComponent() {
 }
@@ -8,6 +9,4 @@ void UUserWidgetFloatingText::DetachFromComponent() {
 void UUserWidgetFloatingText::AttachToComponent(USceneComponent* SceneComponent, FVector InWorldLocationOffset, FVector2D InPositionOffset) {
 }
 
-UUserWidgetFloatingText::UUserWidgetFloatingText() : UUserWidget(FObjectInitializer::Get()) {
-}
 

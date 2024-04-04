@@ -4,16 +4,17 @@
 #include "BehaviorTree/BehaviorTreeTypes.h"
 #include "RefreshPawnFromController.generated.h"
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API URefreshPawnFromController : public UBTService {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FBlackboardKeySelector KeyController;
     
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FBlackboardKeySelector KeyResult;
     
     URefreshPawnFromController();
+
 };
 

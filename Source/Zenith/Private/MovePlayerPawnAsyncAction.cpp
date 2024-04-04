@@ -1,7 +1,7 @@
 #include "MovePlayerPawnAsyncAction.h"
 
-class AZenithPlayerController;
-class UMovePlayerPawnAsyncAction;
+UMovePlayerPawnAsyncAction::UMovePlayerPawnAsyncAction() {
+}
 
 void UMovePlayerPawnAsyncAction::Tick() {
 }
@@ -13,6 +13,4 @@ UMovePlayerPawnAsyncAction* UMovePlayerPawnAsyncAction::MovePlayerPawn(AZenithPl
     return NULL;
 }
 
-UMovePlayerPawnAsyncAction::UMovePlayerPawnAsyncAction() {
-}
 

@@ -1,5 +1,9 @@
 #include "FactionComponent.h"
 
+UFactionComponent::UFactionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Faction = EFaction::None;
+}
+
 void UFactionComponent::SetFaction(EFaction NewFaction) {
 }
 
@@ -11,7 +15,4 @@ bool UFactionComponent::IsPlayerFaction() const {
     return false;
 }
 
-UFactionComponent::UFactionComponent() {
-    this->Faction = EFaction::None;
-}
 

@@ -1,6 +1,9 @@
 #include "Collectable.h"
 
-class APlayerController;
+ACollectable::ACollectable(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bDeactivateOnBeginPlay = false;
+    this->bAutoCollectOnActivate = true;
+}
 
 
 void ACollectable::OnGameMapSwitch() {
@@ -25,7 +28,4 @@ APlayerController* ACollectable::GetCollectingPlayerController() const {
 void ACollectable::Collect(APlayerController* PlayerController) {
 }
 
-ACollectable::ACollectable() {
-    this->bAutoCollectOnActivate = true;
-}
 

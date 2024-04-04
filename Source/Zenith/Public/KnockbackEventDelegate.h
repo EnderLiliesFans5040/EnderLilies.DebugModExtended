@@ -3,5 +3,5 @@
 #include "KnockbackRuntimeData.h"
 #include "KnockbackEventDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FKnockbackEvent, FKnockbackRuntimeData, KnockbackRuntimeData);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FKnockbackEvent, FKnockbackRuntimeData, KnockbackRuntimeData);
 

@@ -7,7 +7,7 @@ USTRUCT(BlueprintType)
 struct FConversationData {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FConversationEntry> Entries;
     
     ZENITH_API FConversationData();

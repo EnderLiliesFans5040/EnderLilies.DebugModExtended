@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "ECommandSummonLimitType.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class ECommandSummonLimitType : uint8 {
     None,
     CastCount,

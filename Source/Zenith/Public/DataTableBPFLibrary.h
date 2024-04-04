@@ -1,28 +1,29 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "TutorialDialogData.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "AchievementData.h"
-#include "GameMapData.h"
-#include "EItemSpiritType.h"
 #include "Engine/DataTable.h"
+#include "AchievementData.h"
 #include "BaseItemData.h"
 #include "ECommandSummonLimitType.h"
-#include "RecollectionItemData.h"
+#include "EItemSpiritType.h"
 #include "ERecollectionItemType.h"
-#include "ItemTipData.h"
-#include "ItemSpiritData.h"
+#include "GameMapData.h"
 #include "ItemPassiveData.h"
+#include "ItemSpiritData.h"
+#include "ItemTipData.h"
+#include "RecollectionItemData.h"
+#include "TutorialDialogData.h"
 #include "DataTableBPFLibrary.generated.h"
 
 class AZenithPlayerController;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class UDataTableBPFLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UDataTableBPFLibrary();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsValid(const FDataTableRowHandle& Handle);
     
     UFUNCTION(BlueprintCallable)

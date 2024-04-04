@@ -8,7 +8,7 @@ USTRUCT(BlueprintType)
 struct ZENITH_API FSoundActionMaterialMap {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<ESoundAction, FSoundMaterialMap> Sounds;
     
     FSoundActionMaterialMap();

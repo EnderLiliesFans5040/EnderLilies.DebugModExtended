@@ -1,8 +1,21 @@
 #include "AutoClimbComponent.h"
 
-class AActor;
-class UCommandAction;
-class UPrimitiveComponent;
+UAutoClimbComponent::UAutoClimbComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->AllowedMaxZVelocity = 0.00f;
+    this->MaxAngleForClimb = 10.00f;
+    this->ForwardOffset = 40.00f;
+    this->TraceSphereRadius = 25.00f;
+    this->MinHeightForAutoClimbHigh = 200.00f;
+    this->MaxHeightForAutoClimbHigh = 200.00f;
+    this->MinHeightForAutoClimbMiddle = 125.00f;
+    this->MaxHeightForAutoClimbMiddle = 125.00f;
+    this->MinHeightForAutoClimbLow = 50.00f;
+    this->MaxHeightForAutoClimbLow = 50.00f;
+    this->DistanceAboveHeadToCheck = 50.00f;
+    this->IgnoreAutoClimbStates.AddDefaulted(2);
+    this->BoxComponent = NULL;
+    this->CharacterOwner = NULL;
+}
 
 void UAutoClimbComponent::OnStartCommand(UCommandAction* CommandAction) {
 }
@@ -24,20 +37,4 @@ float UAutoClimbComponent::GetForwardOffset() const {
     return 0.0f;
 }
 
-UAutoClimbComponent::UAutoClimbComponent() {
-    this->AllowedMaxZVelocity = 0.00f;
-    this->MaxAngleForClimb = 10.00f;
-    this->ForwardOffset = 40.00f;
-    this->TraceSphereRadius = 25.00f;
-    this->MinHeightForAutoClimbHigh = 200.00f;
-    this->MaxHeightForAutoClimbHigh = 200.00f;
-    this->MinHeightForAutoClimbMiddle = 125.00f;
-    this->MaxHeightForAutoClimbMiddle = 125.00f;
-    this->MinHeightForAutoClimbLow = 50.00f;
-    this->MaxHeightForAutoClimbLow = 50.00f;
-    this->DistanceAboveHeadToCheck = 50.00f;
-    this->IgnoreAutoClimbStates.AddDefaulted(2);
-    this->BoxComponent = NULL;
-    this->CharacterOwner = NULL;
-}
 

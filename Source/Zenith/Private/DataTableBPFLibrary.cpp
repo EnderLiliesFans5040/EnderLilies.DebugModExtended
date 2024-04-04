@@ -1,6 +1,7 @@
 #include "DataTableBPFLibrary.h"
 
-class AZenithPlayerController;
+UDataTableBPFLibrary::UDataTableBPFLibrary() {
+}
 
 bool UDataTableBPFLibrary::IsValid(const FDataTableRowHandle& Handle) {
     return false;
@@ -42,6 +43,4 @@ bool UDataTableBPFLibrary::GetAchievementData(const FDataTableRowHandle& Handle,
     return false;
 }
 
-UDataTableBPFLibrary::UDataTableBPFLibrary() {
-}
 

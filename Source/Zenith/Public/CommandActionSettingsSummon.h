@@ -1,9 +1,9 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "EResummonType.h"
-#include "ESpiritLocationStyle.h"
-#include "ESpiritEndType.h"
 #include "UObject/NoExportTypes.h"
+#include "EResummonType.h"
+#include "ESpiritEndType.h"
+#include "ESpiritLocationStyle.h"
 #include "CommandActionSettingsSummon.generated.h"
 
 USTRUCT(BlueprintType)
@@ -11,19 +11,19 @@ struct ZENITH_API FCommandActionSettingsSummon {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EResummonType ResummonType;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESpiritLocationStyle SpiritLocationStyle;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector LocationOffset;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESpiritEndType SpiritEndType;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float TimeUntilAutoEnd;
     
 public:

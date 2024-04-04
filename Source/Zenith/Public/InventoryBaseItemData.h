@@ -6,7 +6,7 @@ USTRUCT(BlueprintType)
 struct FInventoryBaseItemData {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName RowName;
     
     ZENITH_API FInventoryBaseItemData();

@@ -5,5 +5,5 @@
 
 class USaveGame;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FLoadGameDataFromSlotIndexDelegate, USaveGame*, SaveGame, ESaveExistsType, SaveExistsType);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FLoadGameDataFromSlotIndexDelegate, USaveGame*, SaveGame, ESaveExistsType, SaveExistsType);
 

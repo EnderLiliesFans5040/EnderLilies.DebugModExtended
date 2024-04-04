@@ -1,6 +1,7 @@
 #include "GameViewportZenithBase.h"
 
-class UGameViewportZenithBase;
+UGameViewportZenithBase::UGameViewportZenithBase() {
+}
 
 void UGameViewportZenithBase::UnlockActiveController(bool bResetLockCount) {
 }
@@ -58,6 +59,4 @@ int32 UGameViewportZenithBase::GetActiveControllerID() const {
 void UGameViewportZenithBase::DelayedSetFocusToHighestWidget() {
 }
 
-UGameViewportZenithBase::UGameViewportZenithBase() {
-}
 

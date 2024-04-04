@@ -5,16 +5,17 @@
 
 class UPointLightComponent;
 
-UCLASS(Abstract)
+UCLASS(Abstract, Blueprintable)
 class ZENITH_API AEmulatedPointLight : public AEmulatedLight {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPointLightComponent* PointLightComponent;
     
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ActorAffectRadiusOffset;
     
-    AEmulatedPointLight();
+    AEmulatedPointLight(const FObjectInitializer& ObjectInitializer);
+
 };
 

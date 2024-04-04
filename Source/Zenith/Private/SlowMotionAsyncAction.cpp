@@ -1,7 +1,7 @@
 #include "SlowMotionAsyncAction.h"
 
-class AZenithPlayerController;
-class USlowMotionAsyncAction;
+USlowMotionAsyncAction::USlowMotionAsyncAction() {
+}
 
 void USlowMotionAsyncAction::Tick() {
 }
@@ -10,6 +10,4 @@ USlowMotionAsyncAction* USlowMotionAsyncAction::SlowMotion(AZenithPlayerControll
     return NULL;
 }
 
-USlowMotionAsyncAction::USlowMotionAsyncAction() {
-}
 

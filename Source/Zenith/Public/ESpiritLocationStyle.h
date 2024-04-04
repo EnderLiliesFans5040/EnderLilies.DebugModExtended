@@ -2,9 +2,9 @@
 #include "CoreMinimal.h"
 #include "ESpiritLocationStyle.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class ESpiritLocationStyle : uint8 {
     Default,
-    ResetToSummoner = 0xA,
+    ResetToSummoner = 10,
 };
 

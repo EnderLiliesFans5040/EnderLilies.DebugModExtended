@@ -1,7 +1,7 @@
 #include "DisableAudioSnapshotOnGameMapReadyAsyncAction.h"
 
-class UObject;
-class UDisableAudioSnapshotOnGameMapReadyAsyncAction;
+UDisableAudioSnapshotOnGameMapReadyAsyncAction::UDisableAudioSnapshotOnGameMapReadyAsyncAction() {
+}
 
 void UDisableAudioSnapshotOnGameMapReadyAsyncAction::OnGameMapReady() {
 }
@@ -13,6 +13,4 @@ UDisableAudioSnapshotOnGameMapReadyAsyncAction* UDisableAudioSnapshotOnGameMapRe
 void UDisableAudioSnapshotOnGameMapReadyAsyncAction::CheckGameMapReady() {
 }
 
-UDisableAudioSnapshotOnGameMapReadyAsyncAction::UDisableAudioSnapshotOnGameMapReadyAsyncAction() {
-}
 

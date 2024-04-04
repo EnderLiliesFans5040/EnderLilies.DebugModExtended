@@ -3,17 +3,18 @@
 #include "AbilityEffectComponent.h"
 #include "AbilityEffectTimedComponent.generated.h"
 
-UCLASS(Abstract, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Abstract, Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UAbilityEffectTimedComponent : public UAbilityEffectComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AbilityEffectDuration;
     
 public:
-    UAbilityEffectTimedComponent();
-    UFUNCTION(BlueprintPure)
+    UAbilityEffectTimedComponent(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetAbilityEffectDuration() const;
     
 };

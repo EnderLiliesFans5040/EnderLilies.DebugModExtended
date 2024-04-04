@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "ESoundHeavinessCategory.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class ESoundHeavinessCategory : uint8 {
     NONE,
     Light,

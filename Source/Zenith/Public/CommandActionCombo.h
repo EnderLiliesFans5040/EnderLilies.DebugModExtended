@@ -1,40 +1,41 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
-#include "NextComboAction.h"
 #include "CommandActionProxy.h"
-#include "KnockbackRuntimeData.h"
 #include "ECommandRemoveTypes.h"
+#include "KnockbackRuntimeData.h"
+#include "NextComboAction.h"
+#include "Templates/SubclassOf.h"
 #include "CommandActionCombo.generated.h"
 
-class UCommandActionComboEntry;
 class UCommandAction;
+class UCommandActionComboEntry;
 
-UCLASS(Abstract)
+UCLASS(Abstract, Blueprintable)
 class ZENITH_API UCommandActionCombo : public UCommandActionProxy {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FNextComboAction> NextCombos;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 ResetComboOnInputs;
     
 protected:
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<TSubclassOf<UCommandActionComboEntry>, UCommandActionComboEntry*> CommandActionInstances;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UCommandActionComboEntry* CurrDefinition;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UCommandActionComboEntry* NextDefinition;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UCommandActionComboEntry* OverrideNextDefinition;
     
 public:
     UCommandActionCombo();
+
     UFUNCTION(BlueprintCallable)
     void SetNextComboEntry(TSubclassOf<UCommandActionComboEntry> NextComboEntry, bool bExecuteAutomatically);
     
@@ -42,17 +43,17 @@ public:
     void ResetCombo();
     
 protected:
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnResetCombo();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPawnStartCommand(UCommandAction* Command);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPawnKnockback(FKnockbackRuntimeData KnockbackRuntimeData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPawnEndCommand(UCommandAction* Command, ECommandRemoveTypes RemoveType);
     
 };

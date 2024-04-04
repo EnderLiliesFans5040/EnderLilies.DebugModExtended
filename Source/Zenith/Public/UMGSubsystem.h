@@ -1,23 +1,24 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
 #include "Subsystems/GameInstanceSubsystem.h"
-#include "UMGSubsystemDelegateDelegate.h"
-#include "EUIInputTypes.h"
 #include "InputCoreTypes.h"
+#include "EUIInputTypes.h"
+#include "Templates/SubclassOf.h"
+#include "UMGSubsystemDelegateDelegate.h"
 #include "UMGSubsystem.generated.h"
 
 class UFooterUserWidget;
 class UUserWidget;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API UUMGSubsystem : public UGameInstanceSubsystem {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUMGSubsystemDelegate OnUIInputChange;
     
     UUMGSubsystem();
+
     UFUNCTION(BlueprintCallable)
     void SetFocusedWidget(UUserWidget* NewFocusedWidget);
     
@@ -30,25 +31,25 @@ public:
     UFUNCTION(BlueprintCallable)
     void OverrideUIInput(EUIInputTypes UIInputType, FKey Key);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsNavigationEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsKeyUIInputType(EUIInputTypes UIInputType, FKey Key) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsFocusingAnyWidget() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UUserWidget* GetLastFocusedWidget() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FKey> GetKeysForUIInput(EUIInputTypes UIInputType) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FKey GetKeyForUIInput(EUIInputTypes UIInputType, bool bGamepad) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UFooterUserWidget* GetCurrentFooterWidget() const;
     
     UFUNCTION(BlueprintCallable)

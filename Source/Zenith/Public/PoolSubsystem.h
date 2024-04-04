@@ -5,17 +5,18 @@
 
 class UPoolSystem;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API UPoolSubsystem : public UGameInstanceSubsystem {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPoolSystem* PoolSystem;
     
 public:
     UPoolSubsystem();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UPoolSystem* GetPoolSystem() const;
     
 };

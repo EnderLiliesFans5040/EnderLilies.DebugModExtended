@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ItemSpiritData.h"
 #include "ECommandInputTypes.h"
+#include "ItemSpiritData.h"
 #include "CompanionData.generated.h"
 
 class AZenithAICompanionController;
@@ -11,16 +11,16 @@ USTRUCT(BlueprintType)
 struct FCompanionData {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FItemSpiritData ItemSpiritData;
     
-    UPROPERTY(BlueprintReadOnly, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<AZenithAICompanionController> CompanionController;
     
-    UPROPERTY(BlueprintReadOnly, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<AZenithCompanionCharacter> Companion;
     
-    UPROPERTY(BlueprintReadOnly, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ECommandInputTypes CommandInputType;
     
     ZENITH_API FCompanionData();

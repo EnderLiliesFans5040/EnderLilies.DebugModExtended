@@ -1,7 +1,8 @@
 #include "AbilityComponent.h"
 #include "Templates/SubclassOf.h"
 
-class AAbility;
+UAbilityComponent::UAbilityComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
 
 void UAbilityComponent::StopAllAbilities(EAbilityStopReason AbilityStopReason, bool bStopFireAndForgetAbilities) {
 }
@@ -27,6 +28,4 @@ AAbility* UAbilityComponent::LaunchAbility(TSubclassOf<AAbility> AbilityClass, c
     return NULL;
 }
 
-UAbilityComponent::UAbilityComponent() {
-}
 

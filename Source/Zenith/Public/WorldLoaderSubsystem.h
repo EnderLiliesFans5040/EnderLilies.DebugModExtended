@@ -1,83 +1,84 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
-#include "Subsystems/GameInstanceSubsystem.h"
 #include "Engine/DataTable.h"
+#include "Subsystems/GameInstanceSubsystem.h"
 #include "GameMapData.h"
+#include "Templates/SubclassOf.h"
 #include "WorldLoaderSubsystem.generated.h"
 
+class APlayerController;
 class AZenithCharacter;
 class UFadeUserWidget;
-class APlayerController;
 class ULevelStreamingDynamic;
 class UWorld;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API UWorldLoaderSubsystem : public UGameInstanceSubsystem {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FString LevelToLoad;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bLoadLevelAsync;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FName PlayerStartTag;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bProcessingLoad;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bWaitingFade;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bRequestPersistentGameMapLoad;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TSubclassOf<UFadeUserWidget> SaveFadeClass;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FName SaveGameMapIDToLoad;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGameMapData SavedGameMapDataToLoad;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FName CurrentGameMapID;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGameMapData CurrentGameMapData;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<ULevelStreamingDynamic*> CurrentGameLevels;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<APlayerController*, bool> InputSoftLockStates;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<APlayerController*, TWeakObjectPtr<AZenithCharacter>> InputSoftLockedCharacters;
     
 public:
     UWorldLoaderSubsystem();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void UnpossessAllPlayers() const;
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SwitchGameMap_UnloadAndLoad();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SwitchGameMap_RestoreGame();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SwitchGameMap_PostFadeOut();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SwitchGameMap_PostFadeIn();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SwitchGameMap_Finalize();
     
 public:
@@ -85,10 +86,10 @@ public:
     void SwitchGameMap(const FDataTableRowHandle& GameMapHandle, TSubclassOf<UFadeUserWidget> FadeOutClass, TSubclassOf<UFadeUserWidget> FadeInClass, FName NextPlayerStartTag);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ProcessLevelTravel(const FString& WorldToLoad, bool bAsync);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OpenLevelInternal(const FString& WorldToLoad, TSubclassOf<UFadeUserWidget> FadeClass, bool bAsync, FName NextPlayerStartTag);
     
 public:
@@ -108,29 +109,29 @@ public:
     void OpenGameMap(const FDataTableRowHandle& GameMapHandle, TSubclassOf<UFadeUserWidget> FadeOutClass, TSubclassOf<UFadeUserWidget> FadeInClass, FName NextPlayerStartTag);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPostWorldCleanup(UWorld* World, bool bSessionEnded, bool bCleanupResources);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnLevelStreamingDynamicLoaded();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnFadeFinished();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsLoading(bool bConsiderFadeAsLoading) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsGameMapReady(bool bConsiderFadeAsLoading) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetPlayerStartTag() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetCurrentGameMapID() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FGameMapData GetCurrentGameMapData() const;
     
 };

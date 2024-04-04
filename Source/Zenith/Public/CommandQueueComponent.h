@@ -1,66 +1,68 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
-#include "ECommandResult.h"
 #include "Components/ActorComponent.h"
-#include "EDirectionInputTypes.h"
-#include "InputSnapshot.h"
-#include "StartCommandDelegate.h"
-#include "EndCommandDelegate.h"
 #include "CommandEventDelegate.h"
 #include "CommandSettings.h"
 #include "ECommandInputTypes.h"
+#include "ECommandResult.h"
+#include "EDirectionInputTypes.h"
+#include "EndCommandDelegate.h"
+#include "InputSnapshot.h"
+#include "StartCommandDelegate.h"
+#include "Templates/SubclassOf.h"
 #include "CommandQueueComponent.generated.h"
 
-class UCommand;
 class APawn;
-class UCommandAction;
-class UStateComponent;
 class UCharacterMovementComponent;
+class UCommand;
+class UCommandAction;
 class UCommandSet;
+class UStateComponent;
 
-UCLASS(BlueprintType, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UCommandQueueComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPROPERTY(Transient, BlueprintReadOnly)
-    TMap<UClass*, UCommandAction*> CommandsForClasses;
 private:
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APawn* Pawn;
-
-    UPROPERTY(Transient, VisibleAnywhere)
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<UClass*, UCommandAction*> CommandsForClasses;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<UCommand*> AvailableCommands;
     
-    UPROPERTY(Transient, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<UCommand*> CommandQueue;
     
-    UPROPERTY(Instanced)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UStateComponent* StateComponent;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UCharacterMovementComponent* MovementComponent;
     
 public:
-    UPROPERTY(BlueprintReadOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FInputSnapshot CurrentInputSnapshot;
     
-    UPROPERTY(BlueprintReadOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FInputSnapshot LastInputSnapshot;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FStartCommand OnStartCommand;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FEndCommand OnEndCommand;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCommandEvent OnClearCommands;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCommandEvent OnPostUpdateCommands;
     
-    UCommandQueueComponent();
+    UCommandQueueComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void UpdateCommands(float DeltaTime);
     
@@ -97,25 +99,25 @@ public:
     UFUNCTION(BlueprintCallable)
     bool IsCommandSettingsStartable(const FCommandSettings& CommandSettings, EDirectionInputTypes DirectionInputType, ECommandInputTypes CommandInputType);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasCommandOfType(TSubclassOf<UCommandAction> CommandActionClass) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasCommandForCommandID(int32 CommandID) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasCommand() const;
     
     UFUNCTION(BlueprintCallable)
     UCommandAction* GetOrCreateCommandAction(const TSubclassOf<UCommandAction>& CommandActionType);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetNextFrameID();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ECommandResult GetCurrentResultForCommandID(int32 CommandID) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UCommand* GetCurrentCommand() const;
     
     UFUNCTION(BlueprintCallable)

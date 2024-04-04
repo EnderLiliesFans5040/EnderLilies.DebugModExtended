@@ -3,10 +3,11 @@
 #include "BaseInventory.h"
 #include "ItemInventory.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class UItemInventory : public UBaseInventory {
     GENERATED_BODY()
 public:
     UItemInventory();
+
 };
 

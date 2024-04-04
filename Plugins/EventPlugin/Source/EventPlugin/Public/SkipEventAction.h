@@ -10,11 +10,12 @@ class EVENTPLUGIN_API USkipEventAction : public UEventObject {
     GENERATED_BODY()
 public:
     USkipEventAction();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSkip(UEventPlayer* EventPlayer);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPostSkip(UEventPlayer* EventPlayer);
     
 };

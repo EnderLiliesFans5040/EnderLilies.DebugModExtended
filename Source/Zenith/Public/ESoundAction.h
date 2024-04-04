@@ -2,11 +2,11 @@
 #include "CoreMinimal.h"
 #include "ESoundAction.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class ESoundAction : uint8 {
     NONE,
-    Cut = 0xA,
-    Knock = 0x14,
-    Stab = 0x1E,
+    Cut = 10,
+    Knock = 20,
+    Stab = 30,
 };
 

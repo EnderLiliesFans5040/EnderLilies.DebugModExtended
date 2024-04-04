@@ -1,40 +1,41 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "InteractableEventDelegate.h"
-#include "EInteractableInputType.h"
 #include "EInteractableFacingMode.h"
+#include "EInteractableInputType.h"
+#include "InteractableEventDelegate.h"
 #include "Interactable.generated.h"
 
 class APlayerController;
 class UClearableComponent;
 
-UCLASS(Abstract)
+UCLASS(Abstract, Blueprintable)
 class ZENITH_API AInteractable : public AActor {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FInteractableEvent OnInteractDelegate;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FInteractableEvent OnMarkClearedDelegate;
     
 protected:
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UClearableComponent* ClearableComponent;
     
 private:
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EInteractableInputType InteractionInputType;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EInteractableFacingMode FacingMode;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText InteractionText;
     
 public:
-    AInteractable();
+    AInteractable(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     bool TryMarkAsCleared();
     
@@ -42,62 +43,62 @@ public:
     void SetFacingMode(EInteractableFacingMode NewFacingMode);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTargetRemoveState();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTargetAddState();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnReleaseInteract();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPressInteract();
     
 protected:
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     bool OnIsInteractable(APlayerController* Controller) const;
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnInteractableAlreadyCleared();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnInteract(APlayerController* Controller);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInputOverrideChanged();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInputDeviceChanged();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDeactivateInteractable(APlayerController* Controller);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnClearedStatusChecked(bool bCleared);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnActivateInteractable(APlayerController* Controller);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInteractableActive() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInteractable(APlayerController* Controller) const;
     
-    UFUNCTION(BlueprintNativeEvent, BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     FText GetInteractionText() const;
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     APlayerController* GetInteractingController() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     EInteractableInputType GetInteractableInputType() const;
     
 public:
@@ -105,7 +106,7 @@ public:
     void DeactivateInteractable(APlayerController* Controller);
     
 protected:
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     bool CanBeMarkedAsCleared() const;
     
 public:

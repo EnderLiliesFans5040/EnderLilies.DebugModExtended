@@ -3,22 +3,23 @@
 #include "AIController.h"
 #include "ZenithAIBaseController.generated.h"
 
-class UBlackboardData;
 class UBehaviorTree;
+class UBlackboardData;
 
-UCLASS(Abstract)
+UCLASS(Abstract, Blueprintable)
 class ZENITH_API AZenithAIBaseController : public AAIController {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UBehaviorTree* BehaviourTree;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UBlackboardData* BlackboardAsset;
     
 public:
-    AZenithAIBaseController();
+    AZenithAIBaseController(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void StopAllLogic();
     

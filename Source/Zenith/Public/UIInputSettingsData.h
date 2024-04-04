@@ -1,17 +1,17 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UIBinding.h"
 #include "EUIInputTypes.h"
+#include "UIBinding.h"
 #include "UIInputSettingsData.generated.h"
 
 USTRUCT(BlueprintType)
 struct ZENITH_API FUIInputSettingsData {
     GENERATED_BODY()
 public:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 Version;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EUIInputTypes, FUIBinding> BindingsForUI;
     
     FUIInputSettingsData();

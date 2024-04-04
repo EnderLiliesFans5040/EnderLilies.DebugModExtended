@@ -3,10 +3,11 @@
 #include "NavAreas/NavArea.h"
 #include "NavArea_Jump.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class UNavArea_Jump : public UNavArea {
     GENERATED_BODY()
 public:
     UNavArea_Jump();
+
 };
 

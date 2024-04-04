@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "ESpiritEndType.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class ESpiritEndType : uint8 {
     Manual,
     CommandQueueEnd,

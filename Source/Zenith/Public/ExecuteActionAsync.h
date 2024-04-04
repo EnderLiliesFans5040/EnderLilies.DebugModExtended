@@ -1,28 +1,29 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
 #include "CommandActionOutputPinDelegate.h"
+#include "Templates/SubclassOf.h"
 #include "ExecuteActionAsync.generated.h"
 
 class UCommandAction;
-class UExecuteActionAsync;
 class UCommandQueueComponent;
+class UExecuteActionAsync;
 class UObject;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UExecuteActionAsync : public UBlueprintAsyncActionBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCommandActionOutputPin OnFinish;
     
     UExecuteActionAsync();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void Update();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void Finish();
     
 public:

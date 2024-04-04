@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "KnockbackData.h"
 #include "UObject/NoExportTypes.h"
+#include "KnockbackData.h"
 #include "KnockbackDeathSettings.generated.h"
 
 class UFMODEvent;
@@ -11,16 +11,16 @@ USTRUCT(BlueprintType)
 struct FKnockbackDeathSettings {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FKnockbackData KnockbackData;
     
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UParticleSystem* ParticleTemplate;
     
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTransform ParticleOffset;
     
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UFMODEvent* SoundEvent;
     
     ZENITH_API FKnockbackDeathSettings();

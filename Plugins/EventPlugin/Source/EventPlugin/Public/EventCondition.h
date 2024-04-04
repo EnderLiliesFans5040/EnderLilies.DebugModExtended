@@ -12,6 +12,7 @@ class EVENTPLUGIN_API UEventCondition : public UEventObject {
     GENERATED_BODY()
 public:
     UEventCondition();
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     bool IsConditionMet(APlayerController* ConsideringPlayer, AActor* Subject, AActor* Target, UEventBlackBoard* EventBlackBoard);
     

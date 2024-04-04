@@ -4,17 +4,18 @@
 #include "RealTimeDelayOutputPinDelegate.h"
 #include "RealTimeDelayAsyncAction.generated.h"
 
-class URealTimeDelayAsyncAction;
 class UObject;
+class URealTimeDelayAsyncAction;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API URealTimeDelayAsyncAction : public UBlueprintAsyncActionBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRealTimeDelayOutputPin OnFinish;
     
     URealTimeDelayAsyncAction();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static URealTimeDelayAsyncAction* RealTimeDelay(const UObject* WorldContextObject, float DelayInSeconds);
     

@@ -1,11 +1,7 @@
 #include "MGBPFLibrary.h"
 
-class UPanelWidget;
-class UPaperSprite;
-class UObject;
-class UImage;
-class UScrollBox;
-class UUserWidget;
+UMGBPFLibrary::UMGBPFLibrary() {
+}
 
 void UMGBPFLibrary::SetupVerticalWrapNavigation(UPanelWidget* PanelWidget, int32 ColumnCount) {
 }
@@ -38,6 +34,4 @@ TArray<UUserWidget*> UMGBPFLibrary::GetAllTopLevelWidgets(UObject* WorldContextO
 void UMGBPFLibrary::FlushUMGAnimations(UObject* WorldContextObject) {
 }
 
-UMGBPFLibrary::UMGBPFLibrary() {
-}
 

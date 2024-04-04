@@ -4,21 +4,22 @@
 #include "ESpineTrackLayer.h"
 #include "SpineBPFLibrary.generated.h"
 
-class USpineSkeletonAnimationComponent;
 class USpineBoneFollowerComponent;
+class USpineSkeletonAnimationComponent;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class USpineBPFLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USpineBPFLibrary();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsPlayingAnyAnimation(USpineSkeletonAnimationComponent* AnimSkelComponent, int32 TrackIndex);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsPlayingAnimation(USpineSkeletonAnimationComponent* AnimSkelComponent, const FString& AnimName, int32 TrackIndex);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetTrackIndex(ESpineTrackLayer TrackLayer);
     
     UFUNCTION(BlueprintCallable)

@@ -1,6 +1,9 @@
 #include "DeathComponent.h"
 
-class AActor;
+UDeathComponent::UDeathComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->DeathStyle = EDeathStyle::ANIMATION;
+    this->bDestroyActorOnDeath = true;
+}
 
 void UDeathComponent::ResetDeathProcess() {
 }
@@ -36,8 +39,4 @@ bool UDeathComponent::IsAlive() const {
 void UDeathComponent::ForceDeath() {
 }
 
-UDeathComponent::UDeathComponent() {
-    this->DeathStyle = EDeathStyle::ANIMATION;
-    this->bDestroyActorOnDeath = true;
-}
 

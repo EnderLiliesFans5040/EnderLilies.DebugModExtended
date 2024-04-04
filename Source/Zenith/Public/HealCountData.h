@@ -7,7 +7,7 @@ USTRUCT(BlueprintType)
 struct FHealCountData : public FTableRowBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MaxHealCount;
     
     ZENITH_API FHealCountData();

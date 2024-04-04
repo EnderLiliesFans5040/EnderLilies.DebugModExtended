@@ -1,11 +1,8 @@
 #include "ActorBPFLibrary.h"
 #include "Templates/SubclassOf.h"
 
-class APlayerController;
-class AActor;
-class UBoxComponent;
-class USceneComponent;
-class UActorComponent;
+UActorBPFLibrary::UActorBPFLibrary() {
+}
 
 bool UActorBPFLibrary::SetActorLocationToGround(AActor* Actor, float OffsetFromGround) {
     return false;
@@ -49,6 +46,4 @@ UActorComponent* UActorBPFLibrary::AddComponent(AActor* Actor, TSubclassOf<UActo
     return NULL;
 }
 
-UActorBPFLibrary::UActorBPFLibrary() {
-}
 

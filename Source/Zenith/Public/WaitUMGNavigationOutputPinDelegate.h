@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "WaitUMGNavigationOutputPinDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWaitUMGNavigationOutputPin);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWaitUMGNavigationOutputPin);
 

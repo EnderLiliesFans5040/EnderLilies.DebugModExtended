@@ -3,32 +3,33 @@
 #include "BaseFXComponent.h"
 #include "SpineFXComponent.generated.h"
 
+class UBaseBoneComponent;
+class UNavMovementComponent;
 class UParticleSystemComponent;
 class USpineSkeletonRendererComponent;
-class UNavMovementComponent;
-class UBaseBoneComponent;
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class SPINEEXTENSIONPLUGIN_API USpineFXComponent : public UBaseFXComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(Instanced)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USpineSkeletonRendererComponent* RendererComponent;
     
-    UPROPERTY(Instanced)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UBaseBoneComponent* BoneComponent;
     
-    UPROPERTY(Instanced)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UNavMovementComponent* NavComponent;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(EditAnywhere, Export, meta=(AllowPrivateAccess=true))
     TArray<TWeakObjectPtr<UParticleSystemComponent>> RunningFXs;
     
 public:
-    USpineFXComponent();
+    USpineFXComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnFXSystemEnd(UParticleSystemComponent* ParticleSystem);
     
 };

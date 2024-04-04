@@ -3,13 +3,14 @@
 #include "BehaviorTree/BTDecorator.h"
 #include "OverrideClampedInArea.generated.h"
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API UOverrideClampedInArea : public UBTDecorator {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bSetClampedInArea;
     
     UOverrideClampedInArea();
+
 };
 

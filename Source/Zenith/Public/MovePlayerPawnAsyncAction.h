@@ -1,26 +1,27 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "MovePlayerPawnOutputPinDelegate.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
+#include "MovePlayerPawnOutputPinDelegate.h"
 #include "MovePlayerPawnAsyncAction.generated.h"
 
-class UMovePlayerPawnAsyncAction;
 class AZenithPlayerController;
+class UMovePlayerPawnAsyncAction;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UMovePlayerPawnAsyncAction : public UBlueprintAsyncActionBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FMovePlayerPawnOutputPin OnFinished;
     
     UMovePlayerPawnAsyncAction();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void Tick();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSimulatedInputChanged();
     
 public:

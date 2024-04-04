@@ -1,6 +1,7 @@
 #include "EventCamera.h"
 
-class AActor;
+AEventCamera::AEventCamera(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
 
 void AEventCamera::Unlock() {
 }
@@ -8,6 +9,4 @@ void AEventCamera::Unlock() {
 void AEventCamera::LockToTarget(AActor* TargetToLock, FTransform Offset) {
 }
 
-AEventCamera::AEventCamera() {
-}
 

@@ -2,10 +2,10 @@
 #include "CoreMinimal.h"
 #include "EZenithError.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EZenithError : uint8 {
     None,
-    SaveFailed = 0x64,
+    SaveFailed = 100,
     LoadFailed,
     LoadInvalidSaveDataVersion,
 };

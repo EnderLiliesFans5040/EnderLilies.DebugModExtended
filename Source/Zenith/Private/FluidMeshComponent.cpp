@@ -1,7 +1,16 @@
 #include "FluidMeshComponent.h"
 
-class UPrimitiveComponent;
-class AActor;
+UFluidMeshComponent::UFluidMeshComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bEnableActorInteraction = true;
+    this->CellSize = 10.00f;
+    this->ActorHeightRange = 50.00f;
+    this->SizeY = 20;
+    this->SizeZ = 0;
+    this->Owner = NULL;
+    this->ShapeComponent = NULL;
+    this->Vertices.AddDefaulted(42);
+    this->UVs.AddDefaulted(42);
+}
 
 void UFluidMeshComponent::OnComponentEndOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) {
 }
@@ -21,15 +30,4 @@ float UFluidMeshComponent::GetHeightAtLocation(const FVector& Location) const {
     return 0.0f;
 }
 
-UFluidMeshComponent::UFluidMeshComponent() {
-    this->bEnableActorInteraction = true;
-    this->CellSize = 10.00f;
-    this->ActorHeightRange = 50.00f;
-    this->SizeY = 20;
-    this->SizeZ = 0;
-    this->Owner = NULL;
-    this->ShapeComponent = NULL;
-    this->Vertices.AddDefaulted(42);
-    this->UVs.AddDefaulted(42);
-}
 

@@ -1,6 +1,10 @@
 #include "GameplayCamera.h"
 
-class AController;
+AGameplayCamera::AGameplayCamera(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->InputMoveLerpSpeed = 5.00f;
+    this->InputMoveRadius = 300.00f;
+    this->CameraManager = NULL;
+}
 
 void AGameplayCamera::UnregisterEnemyControllers(const TArray<AController*>& EnemyControllersToRemove) {
 }
@@ -72,9 +76,4 @@ int32 AGameplayCamera::AddOverrideSettings(const FGameplayCameraOverrideSettings
     return 0;
 }
 
-AGameplayCamera::AGameplayCamera() {
-    this->InputMoveLerpSpeed = 5.00f;
-    this->InputMoveRadius = 300.00f;
-    this->CameraManager = NULL;
-}
 

@@ -3,10 +3,11 @@
 #include "HandlerComponentFactory.h"
 #include "SteamAuthComponentModuleInterface.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class USteamAuthComponentModuleInterface : public UHandlerComponentFactory {
     GENERATED_BODY()
 public:
     USteamAuthComponentModuleInterface();
+
 };
 

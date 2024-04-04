@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "GameSettingsDelegateDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FGameSettingsDelegate);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FGameSettingsDelegate);
 

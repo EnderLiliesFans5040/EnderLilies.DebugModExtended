@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
 #include "UObject/Interface.h"
+#include "Templates/SubclassOf.h"
 #include "CommandActionSummonInterface.generated.h"
 
 class AZenithSpirit;
@@ -14,7 +14,7 @@ class UCommandActionSummonInterface : public UInterface {
 class ICommandActionSummonInterface : public IInterface {
     GENERATED_BODY()
 public:
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     TSubclassOf<AZenithSpirit> GetSpiritClass() const;
     
 };

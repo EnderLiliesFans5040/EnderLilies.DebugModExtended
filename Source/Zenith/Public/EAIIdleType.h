@@ -2,8 +2,8 @@
 #include "CoreMinimal.h"
 #include "EAIIdleType.generated.h"
 
-UENUM()
-enum class EAIIdleType {
+UENUM(BlueprintType)
+enum class EAIIdleType : uint8 {
     None,
     Patrol,
     IdlePeace,

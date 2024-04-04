@@ -1,5 +1,6 @@
 #include "EmulatedLight.h"
 
-AEmulatedLight::AEmulatedLight() {
+AEmulatedLight::AEmulatedLight(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

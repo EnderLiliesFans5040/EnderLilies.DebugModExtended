@@ -1,5 +1,6 @@
 #include "ZenithCableComponent.h"
 
-UZenithCableComponent::UZenithCableComponent() {
+UZenithCableComponent::UZenithCableComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

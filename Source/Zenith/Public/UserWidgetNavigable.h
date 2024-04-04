@@ -1,53 +1,54 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Input/Events.h"
+#include "Input/Events.h"
 #include "Components/SlateWrapperTypes.h"
 #include "Blueprint/UserWidget.h"
-#include "Input/Events.h"
-#include "Input/Events.h"
 #include "UserWidgetNavigable.generated.h"
 
 class UFMODEvent;
 class UNativeWidgetHost;
 
-UCLASS(EditInlineNew)
+UCLASS(Blueprintable, EditInlineNew)
 class ZENITH_API UUserWidgetNavigable : public UUserWidget {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAcceptRepeatKeysInKeyDownEvent;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAcceptRepeatKeysInPressUpDown;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAcceptRepeatKeysInPressLeftRight;
     
 private:
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bSaveAsFocusedWidget;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool TriggerDescendantFocusedEvents;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UFMODEvent* SoundEvent_OnNavigate;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UFMODEvent* SoundEvent_OnConfirm;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UFMODEvent* SoundEvent_OnCancel;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UFMODEvent* SoundEvent_OnContext;
     
-    UPROPERTY(Instanced)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UNativeWidgetHost* WidgetHost;
     
 public:
     UUserWidgetNavigable();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void RefreshDesign(bool bFocused);
     
     UFUNCTION(BlueprintCallable)
@@ -88,11 +89,11 @@ public:
     FEventReply OnPressCancel(const FKeyEvent& KeyEvent);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDescendantFocused(UNativeWidgetHost* FocusedWidget, EFocusCause FocusCause);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsOnFocusPath() const;
     
 };

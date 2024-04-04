@@ -3,15 +3,16 @@
 #include "Components/ActorComponent.h"
 #include "GameStatsComponent.generated.h"
 
-UCLASS(BlueprintType, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UGameStatsComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UGameStatsComponent();
-    UFUNCTION(BlueprintPure)
+    UGameStatsComponent(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetPlayTimeAsString() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetPlayTime() const;
     
 };

@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "FadeEventDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FFadeEvent, bool, bWasFadeIn);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FFadeEvent, bool, bWasFadeIn);
 

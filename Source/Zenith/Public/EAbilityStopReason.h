@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "EAbilityStopReason.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EAbilityStopReason : uint8 {
     NORMAL,
     MAX_EXECUTION_TIME,

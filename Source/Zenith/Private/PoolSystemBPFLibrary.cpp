@@ -1,12 +1,10 @@
 #include "PoolSystemBPFLibrary.h"
 
-class UObject;
-class UPoolSystem;
+UPoolSystemBPFLibrary::UPoolSystemBPFLibrary() {
+}
 
 UPoolSystem* UPoolSystemBPFLibrary::GetPoolSystem(UObject* WorldContextObject) {
     return NULL;
 }
 
-UPoolSystemBPFLibrary::UPoolSystemBPFLibrary() {
-}
 

@@ -1,18 +1,35 @@
 #include "GameModeZenithBase.h"
-#include "Templates/SubclassOf.h"
 #include "ChallengeSettings.h"
-#include "EmulatedLightDetector.h"
 #include "ClearedObjectManagerComponent.h"
+#include "EmulatedLightDetector.h"
 #include "GameStatsComponent.h"
+#include "Templates/SubclassOf.h"
 
-class APlayerController;
-class AZenithPlayerController;
-class UFadeUserWidget;
-class UDataTable;
-class UBossRushComponent;
-class UObject;
-class AGameModeZenithBase;
-class UEffectMatrixData;
+AGameModeZenithBase::AGameModeZenithBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->EmulatedLightDetector = CreateDefaultSubobject<UEmulatedLightDetector>(TEXT("EmulatedLightDetectorComponent"));
+    this->ClearedObjectManager = CreateDefaultSubobject<UClearedObjectManagerComponent>(TEXT("ClearedObjectManagerComponent"));
+    this->GameStats = CreateDefaultSubobject<UGameStatsComponent>(TEXT("GameStatsComponent"));
+    this->BossRushComponent = NULL;
+    this->GameMapTable = NULL;
+    this->ItemGenericTable = NULL;
+    this->ItemParameterTable = NULL;
+    this->ItemAptitudeTable = NULL;
+    this->ItemSpiritTable = NULL;
+    this->ItemPassiveTable = NULL;
+    this->ItemTipTable = NULL;
+    this->ParameterLevelTable = NULL;
+    this->HealCountLevelTable = NULL;
+    this->HealPowerLevelTable = NULL;
+    this->InitialCommonSpiritLevel = NULL;
+    this->InitialBossSpiritLevel = NULL;
+    this->TutorialTable = NULL;
+    this->EffectMatrixData = NULL;
+    this->DifficultyLevel = 1;
+    this->MaxDifficultyLevel = 10;
+    this->NewGamePlusGeneration = 0;
+    this->bGameDataReady = false;
+    this->ChallengeSettings = CreateDefaultSubobject<UChallengeSettings>(TEXT("ChallengeSettings"));
+}
 
 int32 AGameModeZenithBase::SetNewGamePlusGeneration(int32 NewNewGamePlusGeneration) {
     return 0;
@@ -143,29 +160,4 @@ int32 AGameModeZenithBase::AddDifficultyLevel() {
     return 0;
 }
 
-AGameModeZenithBase::AGameModeZenithBase() {
-    this->EmulatedLightDetector = CreateDefaultSubobject<UEmulatedLightDetector>(TEXT("EmulatedLightDetectorComponent"));
-    this->ClearedObjectManager = CreateDefaultSubobject<UClearedObjectManagerComponent>(TEXT("ClearedObjectManagerComponent"));
-    this->GameStats = CreateDefaultSubobject<UGameStatsComponent>(TEXT("GameStatsComponent"));
-    this->BossRushComponent = NULL;
-    this->GameMapTable = NULL;
-    this->ItemGenericTable = NULL;
-    this->ItemParameterTable = NULL;
-    this->ItemAptitudeTable = NULL;
-    this->ItemSpiritTable = NULL;
-    this->ItemPassiveTable = NULL;
-    this->ItemTipTable = NULL;
-    this->ParameterLevelTable = NULL;
-    this->HealCountLevelTable = NULL;
-    this->HealPowerLevelTable = NULL;
-    this->InitialCommonSpiritLevel = NULL;
-    this->InitialBossSpiritLevel = NULL;
-    this->TutorialTable = NULL;
-    this->EffectMatrixData = NULL;
-    this->DifficultyLevel = 1;
-    this->MaxDifficultyLevel = 10;
-    this->NewGamePlusGeneration = 0;
-    this->bGameDataReady = false;
-    this->ChallengeSettings = CreateDefaultSubobject<UChallengeSettings>(TEXT("ChallengeSettings"));
-}
 

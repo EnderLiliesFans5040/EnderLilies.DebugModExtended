@@ -3,5 +3,5 @@
 #include "ESummonSet.h"
 #include "SummonerSwitchSetEventDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSummonerSwitchSetEvent, ESummonSet, PrevSummonSet, ESummonSet, NewSummonSet);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSummonerSwitchSetEvent, ESummonSet, PrevSummonSet, ESummonSet, NewSummonSet);
 

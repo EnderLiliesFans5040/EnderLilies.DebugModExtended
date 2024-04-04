@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "ZenithCharacterEventDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FZenithCharacterEvent);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FZenithCharacterEvent);
 

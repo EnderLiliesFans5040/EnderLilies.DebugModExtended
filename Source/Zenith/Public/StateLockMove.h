@@ -3,10 +3,11 @@
 #include "State.h"
 #include "StateLockMove.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateLockMove : public UState {
     GENERATED_BODY()
 public:
     UStateLockMove();
+
 };
 

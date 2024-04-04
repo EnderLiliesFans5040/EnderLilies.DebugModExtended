@@ -1,6 +1,8 @@
 #include "InputSettingsSubsystem.h"
 
-class APlayerController;
+UInputSettingsSubsystem::UInputSettingsSubsystem() {
+    this->InputStyle = EInputStyle::INPUTSTYLE_XBOXONE;
+}
 
 void UInputSettingsSubsystem::SetupOverride(const APlayerController* PlayerController) {
 }
@@ -61,7 +63,4 @@ EInputStyle UInputSettingsSubsystem::GetDefaultInputStyle() const {
 void UInputSettingsSubsystem::ActivateActionSet(EInputActionSet ActionSet) {
 }
 
-UInputSettingsSubsystem::UInputSettingsSubsystem() {
-    this->InputStyle = EInputStyle::INPUTSTYLE_XBOXONE;
-}
 

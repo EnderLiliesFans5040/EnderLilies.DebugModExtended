@@ -1,30 +1,31 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Components/MeshComponent.h"
 #include "Engine/EngineTypes.h"
+#include "Components/MeshComponent.h"
 #include "ProceduralRenderMeshProxyComponent.generated.h"
 
 class UMaterialInterface;
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class PROCEDURALRENDERMESHPLUGIN_API UProceduralRenderMeshProxyComponent : public UMeshComponent {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FComponentReference MasterProceduralRenderMesh;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UMaterialInterface* MaterialOverride;
     
-    UProceduralRenderMeshProxyComponent();
+    UProceduralRenderMeshProxyComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnUpdateBounds();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRefreshSection(int32 SectionIndex);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnMarkRenderStateDirty();
     
 };

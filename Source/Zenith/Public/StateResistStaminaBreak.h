@@ -3,10 +3,11 @@
 #include "State.h"
 #include "StateResistStaminaBreak.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API UStateResistStaminaBreak : public UState {
     GENERATED_BODY()
 public:
     UStateResistStaminaBreak();
+
 };
 

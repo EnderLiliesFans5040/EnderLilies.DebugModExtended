@@ -2,8 +2,8 @@
 #include "CoreMinimal.h"
 #include "ESpineRefreshType.generated.h"
 
-UENUM()
-enum class ESpineRefreshType {
+UENUM(BlueprintType)
+enum class ESpineRefreshType : uint8 {
     DoNotRefresh,
     RefreshWithoutTransition,
     RefreshWithTransition,

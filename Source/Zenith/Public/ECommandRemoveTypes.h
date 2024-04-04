@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "ECommandRemoveTypes.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class ECommandRemoveTypes : uint8 {
     Normal,
     TTL,

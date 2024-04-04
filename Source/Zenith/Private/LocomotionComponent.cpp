@@ -1,5 +1,18 @@
 #include "LocomotionComponent.h"
 
+ULocomotionComponent::ULocomotionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Owner = NULL;
+    this->PawnOwner = NULL;
+    this->StateComponent = NULL;
+    this->MovementComponent = NULL;
+    this->bUseRootMotionLocomotion = false;
+    this->MinXInputForMovement = 0.25f;
+    this->MinInputForRun = 0.75f;
+    this->ForcedWalkMode = EWalkMode::None;
+    this->bSetRotationFromFacing = true;
+    this->bUseCheapMove = false;
+}
+
 bool ULocomotionComponent::WasFacingRight() const {
     return false;
 }
@@ -50,16 +63,4 @@ bool ULocomotionComponent::CanApplyMove() const {
     return false;
 }
 
-ULocomotionComponent::ULocomotionComponent() {
-    this->Owner = NULL;
-    this->PawnOwner = NULL;
-    this->StateComponent = NULL;
-    this->MovementComponent = NULL;
-    this->bUseRootMotionLocomotion = false;
-    this->MinXInputForMovement = 0.25f;
-    this->MinInputForRun = 0.75f;
-    this->ForcedWalkMode = EWalkMode::None;
-    this->bSetRotationFromFacing = true;
-    this->bUseCheapMove = false;
-}
 

@@ -1,5 +1,10 @@
 #include "Fader.h"
 
+AFader::AFader(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->FadeInSequence = NULL;
+    this->FadeOutSequence = NULL;
+}
+
 void AFader::PrepareFadeIn() {
 }
 
@@ -15,8 +20,4 @@ void AFader::LaunchFadeOut() {
 void AFader::LaunchFadeIn() {
 }
 
-AFader::AFader() {
-    this->FadeInSequence = NULL;
-    this->FadeOutSequence = NULL;
-}
 

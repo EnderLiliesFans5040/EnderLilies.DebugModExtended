@@ -4,18 +4,19 @@
 #include "ShakeData.h"
 #include "AE_ShakeTargetComponent.generated.h"
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UAE_ShakeTargetComponent : public UAbilityEffectComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FShakeData GroundShakeData;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FShakeData AirShakeData;
     
 public:
-    UAE_ShakeTargetComponent();
+    UAE_ShakeTargetComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

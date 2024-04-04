@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "EBindingType.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EBindingType : uint8 {
     All,
     Gamepad,

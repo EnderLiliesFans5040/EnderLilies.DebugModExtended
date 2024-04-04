@@ -3,17 +3,18 @@
 #include "UserWidgetNavigable.h"
 #include "UserWidgetError.generated.h"
 
-UCLASS(Abstract, EditInlineNew)
+UCLASS(Abstract, Blueprintable, EditInlineNew)
 class ZENITH_API UUserWidgetError : public UUserWidgetNavigable {
     GENERATED_BODY()
 public:
     UUserWidgetError();
+
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool ShouldReturnToTitle() const;
     
 public:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetErrorMessage(const FText& Title, const FText& Message);
     
 };

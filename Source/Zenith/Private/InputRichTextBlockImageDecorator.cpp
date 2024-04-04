@@ -4,3 +4,4 @@ UInputRichTextBlockImageDecorator::UInputRichTextBlockImageDecorator() : URichTe
     this->DecoratorMode = ERichTextDecoratorMode::Auto;
 }
 
+

@@ -8,7 +8,7 @@ struct ZENITH_API FStateTimeline {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FStateTimelineEntry> StateEntries;
     
 public:

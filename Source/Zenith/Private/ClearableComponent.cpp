@@ -1,5 +1,13 @@
 #include "ClearableComponent.h"
 
+UClearableComponent::UClearableComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bIsUnique = false;
+    this->bCheckPreviousRuns = false;
+    this->bIsUsedForMapCompletion = false;
+    this->bClearStatusChecked = false;
+    this->bCleared = false;
+}
+
 void UClearableComponent::UnsetUniqueFlag() {
 }
 
@@ -35,11 +43,4 @@ bool UClearableComponent::CheckPreviousRuns() const {
     return false;
 }
 
-UClearableComponent::UClearableComponent() {
-    this->bIsUnique = false;
-    this->bCheckPreviousRuns = false;
-    this->bIsUsedForMapCompletion = false;
-    this->bClearStatusChecked = false;
-    this->bCleared = false;
-}
 

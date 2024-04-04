@@ -1,42 +1,42 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
-#include "ESoundMaterial.h"
-#include "ESoundFamily.h"
-#include "ESoundAction.h"
-#include "ESoundHeavinessCategory.h"
-#include "FMODBlueprintStatics.h"
-//#include "FMODEventInstance.h"
+#include "FMODEventInstance.h"
 #include "Chaos/ChaosEngineInterface.h"
+#include "ESoundAction.h"
+#include "ESoundFamily.h"
+#include "ESoundHeavinessCategory.h"
+#include "ESoundMaterial.h"
 #include "SoundSubsystem.generated.h"
 
 class UFMODEvent;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API USoundSubsystem : public UGameInstanceSubsystem {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<ESoundFamily, float> VolumeForSoundFamilies;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FName, FFMODEventInstance> SnapshotInstances;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UFMODEvent* CurrentBGM;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FFMODEventInstance CurrentBGMInstance;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UFMODEvent* CurrentAmbience;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FFMODEventInstance CurrentAmbienceInstance;
     
 public:
     USoundSubsystem();
+
     UFUNCTION(BlueprintCallable)
     void StopSoundEventInstance(const FFMODEventInstance& SoundInstance);
     
@@ -67,22 +67,22 @@ public:
     UFUNCTION(BlueprintCallable)
     void PlayAmbience(UFMODEvent* SoundEvent);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetVolume(ESoundFamily SoundFamily) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UFMODEvent* GetStepSoundEffect(ESoundHeavinessCategory Heaviness, TEnumAsByte<EPhysicalSurface> SurfaceType) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UFMODEvent* GetLandingSoundEffect(ESoundHeavinessCategory Heaviness, TEnumAsByte<EPhysicalSurface> SurfaceType) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UFMODEvent* GetHitSoundEffect(ESoundMaterial From, ESoundMaterial To, ESoundAction Action) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UFMODEvent* GetCurrentBGM() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UFMODEvent* GetCurrentAmbience() const;
     
     UFUNCTION(BlueprintCallable)

@@ -1,117 +1,118 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "BaseInventoryEventDelegate.h"
-#include "ECurrencyType.h"
-#include "CurrencyEventDelegate.h"
-#include "InventoryBaseItemData.h"
 #include "Engine/DataTable.h"
+#include "BaseInventoryEventDelegate.h"
+#include "CurrencyEventDelegate.h"
+#include "ECurrencyType.h"
+#include "InventoryBaseItemData.h"
 #include "InventoryComponent.generated.h"
 
-class UItemParameterInventory;
-class UItemSpiritInventory;
-class UItemInventory;
 class UItemAptitudeInventory;
+class UItemInventory;
+class UItemParameterInventory;
 class UItemPassiveInventory;
+class UItemSpiritInventory;
 class UItemTipInventory;
 
-UCLASS(BlueprintType, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UInventoryComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FBaseInventoryEvent OnAptitudeItemAddedDelegate;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FBaseInventoryEvent OnAptitudeItemRemovedDelegate;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FBaseInventoryEvent OnTipItemAddedDelegate;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCurrencyEvent OnCurrencyChanged;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCurrencyEvent OnCurrencyAdded;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCurrencyEvent OnCurrencySubtracted;
     
 private:
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<ECurrencyType, int32> Currencies;
     
-    UPROPERTY(VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 PassiveSlotCount;
     
-    UPROPERTY(Transient, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UItemInventory* ItemGenericInventory;
     
-    UPROPERTY(Transient, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UItemParameterInventory* ItemParameterInventory;
     
-    UPROPERTY(Transient, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UItemSpiritInventory* ItemSpiritInventory;
     
-    UPROPERTY(Transient, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UItemAptitudeInventory* ItemAptitudeInventory;
     
-    UPROPERTY(Transient, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UItemPassiveInventory* ItemPassiveInventory;
     
-    UPROPERTY(Transient, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UItemTipInventory* ItemTipInventory;
     
 public:
-    UInventoryComponent();
+    UInventoryComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     int32 SpendCurrency(ECurrencyType CurrencyType, int32 CurrencyToSpend);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTryAddSpiritItem(const FInventoryBaseItemData& ItemData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTipItemAdded(const FInventoryBaseItemData& ItemData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSpiritItemAdded(const FInventoryBaseItemData& ItemData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPassiveItemAdded(const FInventoryBaseItemData& ItemData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnParameterItemAdded(const FInventoryBaseItemData& ItemData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAptitudeItemRemoved(const FInventoryBaseItemData& ItemData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAptitudeItemAdded(const FInventoryBaseItemData& ItemData);
     
 public:
     UFUNCTION(BlueprintCallable)
     bool HasItem(FDataTableRowHandle ItemToAdd);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UItemTipInventory* GetItemTipInventory();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UItemSpiritInventory* GetItemSpiritInventory();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UItemPassiveInventory* GetItemPassiveInventory();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UItemParameterInventory* GetItemParameterInventory();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UItemInventory* GetItemGenericInventory();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UItemAptitudeInventory* GetItemAptitudeInventory();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetCurrency(ECurrencyType CurrencyType);
     
     UFUNCTION(BlueprintCallable)

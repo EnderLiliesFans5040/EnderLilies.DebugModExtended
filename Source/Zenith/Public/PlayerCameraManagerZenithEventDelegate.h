@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "PlayerCameraManagerZenithEventDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPlayerCameraManagerZenithEvent);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPlayerCameraManagerZenithEvent);
 

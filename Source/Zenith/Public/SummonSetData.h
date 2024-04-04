@@ -8,7 +8,7 @@ USTRUCT(BlueprintType)
 struct FSummonSetData {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<ECommandInputTypes, FSpiritData> Spirits;
     
     ZENITH_API FSummonSetData();

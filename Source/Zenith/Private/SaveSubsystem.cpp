@@ -1,9 +1,12 @@
 #include "SaveSubsystem.h"
 #include "Templates/SubclassOf.h"
 
-class USaveIconUserWidget;
-class USaveData;
-class USaveGame;
+USaveSubsystem::USaveSubsystem() {
+    this->SaveSlotIndex = 0;
+    this->CurrentBackupIndex = 0;
+    this->CurrentSaveData = NULL;
+    this->CurrSaveSettings = NULL;
+}
 
 void USaveSubsystem::SetSaveSlotIndex(int32 SlotIndexToUse) {
 }
@@ -109,10 +112,4 @@ bool USaveSubsystem::CheckSaveDataVersion(bool bReturnToTitleOnFail) {
     return false;
 }
 
-USaveSubsystem::USaveSubsystem() {
-    this->SaveSlotIndex = 0;
-    this->CurrentBackupIndex = 0;
-    this->CurrentSaveData = NULL;
-    this->CurrSaveSettings = NULL;
-}
 

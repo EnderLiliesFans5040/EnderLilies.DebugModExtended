@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "HomingEventDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHomingEvent);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHomingEvent);
 

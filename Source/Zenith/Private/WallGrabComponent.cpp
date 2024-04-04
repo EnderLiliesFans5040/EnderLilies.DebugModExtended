@@ -1,7 +1,18 @@
 #include "WallGrabComponent.h"
 
-class UPrimitiveComponent;
-class AActor;
+UWallGrabComponent::UWallGrabComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->MinVerticalityForWallGrab = 0.90f;
+    this->DistanceToWallGrabOffset = 10.00f;
+    this->MaxZVelocityForGrab = -10.00f;
+    this->NecessaryAptitude = EAptitudeType::Wallgrab;
+    this->WallGrabCommandActionClass = NULL;
+    this->NoWallGrabStates.AddDefaulted(2);
+    this->CharacterOwner = NULL;
+    this->BoxComponent = NULL;
+    this->CommandQueueComponent = NULL;
+    this->StateComponent = NULL;
+    this->InputComponent = NULL;
+}
 
 void UWallGrabComponent::OnWallGrab_Implementation() {
 }
@@ -16,17 +27,4 @@ bool UWallGrabComponent::IsGrabingWall() const {
     return false;
 }
 
-UWallGrabComponent::UWallGrabComponent() {
-    this->MinVerticalityForWallGrab = 0.90f;
-    this->DistanceToWallGrabOffset = 10.00f;
-    this->MaxZVelocityForGrab = -10.00f;
-    this->NecessaryAptitude = EAptitudeType::Wallgrab;
-    this->WallGrabCommandActionClass = NULL;
-    this->NoWallGrabStates.AddDefaulted(2);
-    this->CharacterOwner = NULL;
-    this->BoxComponent = NULL;
-    this->CommandQueueComponent = NULL;
-    this->StateComponent = NULL;
-    this->InputComponent = NULL;
-}
 

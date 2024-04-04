@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "AbilityTimelineEntry.h"
 #include "UObject/NoExportTypes.h"
+#include "AbilityTimelineEntry.h"
 #include "AbilityTimeline.generated.h"
 
 class UAbilityComponent;
@@ -12,17 +12,17 @@ struct ZENITH_API FAbilityTimeline {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UAbilityComponent* TargetAbilityComponent;
     
-    UPROPERTY(Instanced, Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USpineFXComponent* FXComponent;
     
 protected:
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTransform GlobalOffset;
     
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FAbilityTimelineEntry> Entries;
     
 public:

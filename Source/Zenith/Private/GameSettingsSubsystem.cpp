@@ -1,5 +1,8 @@
 #include "GameSettingsSubsystem.h"
 
+UGameSettingsSubsystem::UGameSettingsSubsystem() {
+}
+
 bool UGameSettingsSubsystem::SetUseForceFeedback(bool bUseForceFeedback) {
     return false;
 }
@@ -117,6 +120,4 @@ bool UGameSettingsSubsystem::DidReachGameEnding(EGameEndingType GameEndingType) 
     return false;
 }
 
-UGameSettingsSubsystem::UGameSettingsSubsystem() {
-}
 

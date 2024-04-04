@@ -1,8 +1,22 @@
 #include "AbilityHitbox.h"
 #include "Components/SceneComponent.h"
 
-class AActor;
-class UPrimitiveComponent;
+AAbilityHitbox::AAbilityHitbox(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
+    this->IgnoreIfTargetHasAnyState.AddDefaulted(4);
+    this->bCanHitHitboxes = false;
+    this->bCanBeHitByHitboxes = false;
+    this->bCollideInvoker = false;
+    this->bCollideInvokerFaction = false;
+    this->bStopOnPawnCollision = false;
+    this->bStopOnHitboxCollision = false;
+    this->bStopOnNonPawnCollision = false;
+    this->BlockingCollisionChannels.AddDefaulted(3);
+    this->bIgnoreReentry = false;
+    this->RetriggerContactAfter = 0.00f;
+    this->SkipCollisionIfTargetHasAnyStates.AddDefaulted(2);
+    this->RootSceneComponent = (USceneComponent*)RootComponent;
+}
 
 void AAbilityHitbox::SetCollisionEnabled(bool bEnableCollision) {
 }
@@ -28,18 +42,4 @@ void AAbilityHitbox::OnActorOverlapEnd(UPrimitiveComponent* OverlapComponent, AA
 void AAbilityHitbox::OnActorOverlapBegin(UPrimitiveComponent* OverlapComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
 }
 
-AAbilityHitbox::AAbilityHitbox() {
-    this->bCanHitHitboxes = false;
-    this->bCanBeHitByHitboxes = false;
-    this->bCollideInvoker = false;
-    this->bCollideInvokerFaction = false;
-    this->bStopOnPawnCollision = false;
-    this->bStopOnHitboxCollision = false;
-    this->bStopOnNonPawnCollision = false;
-    this->BlockingCollisionChannels.AddDefaulted(3);
-    this->bIgnoreReentry = false;
-    this->RetriggerContactAfter = 0.00f;
-    this->SkipCollisionIfTargetHasAnyStates.AddDefaulted(2);
-    this->RootSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
-}
 

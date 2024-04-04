@@ -1,5 +1,10 @@
 #include "RefreshableRichTextBlock.h"
 
+URefreshableRichTextBlock::URefreshableRichTextBlock() : URichTextBlock(FObjectInitializer::Get()) {
+    this->DecoratorClasses.AddDefaulted(1);
+    this->Format = FText::FromString(TEXT("{0}"));
+}
+
 void URefreshableRichTextBlock::SetupAndRefresh(const FText& NewFormat, const TArray<FRichTextFormatElement>& NewFormatElements) {
 }
 
@@ -16,6 +21,4 @@ TArray<FRichTextFormatElement> URefreshableRichTextBlock::GetFormatElements() co
     return TArray<FRichTextFormatElement>();
 }
 
-URefreshableRichTextBlock::URefreshableRichTextBlock() : URichTextBlock(FObjectInitializer::Get()) {
-}
 

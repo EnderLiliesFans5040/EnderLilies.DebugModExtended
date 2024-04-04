@@ -1,11 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "PlayerDeathSettings.h"
-#include "KnockbackDeathSettings.h"
 #include "Components/ActorComponent.h"
+#include "DeathEventDelegate.h"
 #include "DissolveDeathSettings.h"
 #include "EDeathStyle.h"
-#include "DeathEventDelegate.h"
+#include "KnockbackDeathSettings.h"
+#include "PlayerDeathSettings.h"
 #include "DeathComponent.generated.h"
 
 class AActor;
@@ -14,51 +14,52 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UDeathComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EDeathStyle DeathStyle;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bDestroyActorOnDeath;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FKnockbackDeathSettings KnockbackDeathSettings;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPlayerDeathSettings PlayerDeathSettings;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDissolveDeathSettings DissolveDeathSettings;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDeathEvent OnDeathProcessStart;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDeathEvent OnDeathProcessEnd;
     
-    UDeathComponent();
+    UDeathComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void ResetDeathProcess();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnStartDeathProcess();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnReceiveDeadEvent(AActor* From);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPlayerDeathTimerComplete();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnKnockbackTimerComplete();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnFinishDeathProcess();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnDeathAnimationComplete();
     
 public:
@@ -68,10 +69,10 @@ public:
     UFUNCTION(BlueprintCallable)
     void NotifyDissolveDeathCompleted();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsDead() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsAlive() const;
     
     UFUNCTION(BlueprintCallable)

@@ -1,10 +1,8 @@
 #include "ExecuteActionAsync.h"
 #include "Templates/SubclassOf.h"
 
-class UCommandQueueComponent;
-class UObject;
-class UCommandAction;
-class UExecuteActionAsync;
+UExecuteActionAsync::UExecuteActionAsync() {
+}
 
 void UExecuteActionAsync::Update() {
 }
@@ -16,6 +14,4 @@ UExecuteActionAsync* UExecuteActionAsync::ExecuteActionAsync(const UObject* Worl
     return NULL;
 }
 
-UExecuteActionAsync::UExecuteActionAsync() {
-}
 

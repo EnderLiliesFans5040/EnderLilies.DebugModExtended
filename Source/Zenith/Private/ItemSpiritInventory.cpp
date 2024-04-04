@@ -1,5 +1,9 @@
 #include "ItemSpiritInventory.h"
 
+UItemSpiritInventory::UItemSpiritInventory() {
+    this->bAllowDuplicates = false;
+}
+
 bool UItemSpiritInventory::UnlockedAllSpirits() const {
     return false;
 }
@@ -47,6 +51,4 @@ int32 UItemSpiritInventory::AddSpiritLevel(const FName& SpiritID) {
     return 0;
 }
 
-UItemSpiritInventory::UItemSpiritInventory() {
-}
 

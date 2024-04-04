@@ -1,20 +1,20 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ESummonSet.h"
 #include "ECommandInputTypes.h"
+#include "ESummonSet.h"
 #include "SpiritEquipElementSaveData.generated.h"
 
 USTRUCT(BlueprintType)
 struct FSpiritEquipElementSaveData {
     GENERATED_BODY()
 public:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESummonSet SummonSet;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName SpiritID;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ECommandInputTypes CommandInputType;
     
     ZENITH_API FSpiritEquipElementSaveData();

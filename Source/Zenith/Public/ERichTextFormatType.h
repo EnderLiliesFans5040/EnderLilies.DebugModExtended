@@ -7,6 +7,6 @@ enum class ERichTextFormatType : uint8 {
     DIRECTION,
     COMMAND,
     UI,
-    CUSTOM = 0xA,
+    CUSTOM = 10,
 };
 

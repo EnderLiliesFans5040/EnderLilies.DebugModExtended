@@ -1,7 +1,7 @@
 #include "UndilatedDelayAsyncAction.h"
 
-class UObject;
-class UUndilatedDelayAsyncAction;
+UUndilatedDelayAsyncAction::UUndilatedDelayAsyncAction() {
+}
 
 UUndilatedDelayAsyncAction* UUndilatedDelayAsyncAction::UndilatedDelay(const UObject* WorldContextObject, float DelayInSeconds) {
     return NULL;
@@ -10,6 +10,4 @@ UUndilatedDelayAsyncAction* UUndilatedDelayAsyncAction::UndilatedDelay(const UOb
 void UUndilatedDelayAsyncAction::Tick() {
 }
 
-UUndilatedDelayAsyncAction::UUndilatedDelayAsyncAction() {
-}
 

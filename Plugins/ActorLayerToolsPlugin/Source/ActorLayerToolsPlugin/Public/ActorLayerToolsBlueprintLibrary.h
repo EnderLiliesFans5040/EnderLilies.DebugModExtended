@@ -7,11 +7,12 @@
 class AActor;
 class UObject;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class UActorLayerToolsBlueprintLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UActorLayerToolsBlueprintLibrary();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static TArray<AActor*> GetActorsFromLayer(UObject* WorldContextObject, const FLayerName& Layer);
     

@@ -6,26 +6,27 @@
 
 class UFluidMeshComponent;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API ACustomPhysicsVolumeWater : public ACustomPhysicsVolume {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UFluidMeshComponent* FluidMeshComponent;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float FluidFriction;
     
 public:
-    ACustomPhysicsVolumeWater();
-    UFUNCTION(BlueprintPure)
+    ACustomPhysicsVolumeWater(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSimulatingWaterLine() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetHeightAtLocation(const FVector& Location) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetFluidFriction() const;
     
 };

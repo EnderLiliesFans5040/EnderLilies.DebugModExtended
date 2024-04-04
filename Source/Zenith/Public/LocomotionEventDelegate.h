@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "LocomotionEventDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FLocomotionEvent);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FLocomotionEvent);
 

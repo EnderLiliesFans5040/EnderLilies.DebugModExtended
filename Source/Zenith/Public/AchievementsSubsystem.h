@@ -1,17 +1,18 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "AchievementData.h"
 #include "EZenithAchievement.h"
 #include "ZenithBaseSubsystem.h"
-#include "AchievementData.h"
 #include "AchievementsSubsystem.generated.h"
 
 class UDataTable;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API UAchievementsSubsystem : public UZenithBaseSubsystem {
     GENERATED_BODY()
 public:
     UAchievementsSubsystem();
+
     UFUNCTION(BlueprintCallable)
     void UnlockAchievement(EZenithAchievement Achievement);
     
@@ -19,10 +20,10 @@ public:
     bool ResetAchievements();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnMainProfileChanged();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnGameDataLoaded();
     
 public:
@@ -35,16 +36,16 @@ public:
     UFUNCTION(BlueprintCallable)
     bool IsAchievementUnlocked(EZenithAchievement Achievement);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetAchievementProgress(EZenithAchievement Achievement) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetAchievementID(EZenithAchievement Achievement) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UDataTable* GetAchievementDataTable() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetAchievementData(EZenithAchievement Achievement, FAchievementData& out_AchievementData) const;
     
 };

@@ -8,7 +8,7 @@ USTRUCT(BlueprintType)
 struct FRecollectionItemData : public FTableRowBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRecollectionConditionData Conditions;
     
     ZENITH_API FRecollectionItemData();

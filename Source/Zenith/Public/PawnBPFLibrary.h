@@ -1,19 +1,20 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "EFaction.h"
+#include "Templates/SubclassOf.h"
 #include "PawnBPFLibrary.generated.h"
 
+class AAIController;
 class APawn;
 class AZenithPlayerController;
-class AAIController;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class UPawnBPFLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UPawnBPFLibrary();
+
     UFUNCTION(BlueprintCallable)
     static void SpawnCustomController(APawn* Pawn, TSubclassOf<AAIController> AIControllerClass);
     
@@ -23,7 +24,7 @@ public:
     UFUNCTION(BlueprintCallable)
     static void ResetVelocity(APawn* Pawn);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static AZenithPlayerController* GetZenithPlayerController(APawn* Pawn);
     
     UFUNCTION(BlueprintCallable)

@@ -1,5 +1,6 @@
 #include "GameStateZenithBase.h"
 
-AGameStateZenithBase::AGameStateZenithBase() {
+AGameStateZenithBase::AGameStateZenithBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

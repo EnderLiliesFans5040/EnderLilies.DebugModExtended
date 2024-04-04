@@ -1,5 +1,8 @@
 #include "UserWidgetMenu.h"
 
+UUserWidgetMenu::UUserWidgetMenu() : UUserWidget(FObjectInitializer::Get()) {
+}
+
 void UUserWidgetMenu::OpenMenu() {
 }
 
@@ -16,6 +19,4 @@ bool UUserWidgetMenu::IsOpen() const {
 void UUserWidgetMenu::CloseMenu() {
 }
 
-UUserWidgetMenu::UUserWidgetMenu() : UUserWidget(FObjectInitializer::Get()) {
-}
 

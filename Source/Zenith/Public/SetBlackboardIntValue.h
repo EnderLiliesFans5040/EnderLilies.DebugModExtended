@@ -3,13 +3,14 @@
 #include "SetBlackboardValue.h"
 #include "SetBlackboardIntValue.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API USetBlackboardIntValue : public USetBlackboardValue {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 ValueToSet;
     
     USetBlackboardIntValue();
+
 };
 

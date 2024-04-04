@@ -10,15 +10,7 @@ public class SpineExtensionPlugin : ModuleRules {
             "Core",
             "CoreUObject",
             "Engine",
-            "InputCore",
-            "MovieScene",
-            "MovieSceneTracks",
-            "ProceduralRenderMeshPlugin",
-            "PropertyPath",
-            "Slate",
-            "SlateCore",
             "SpinePlugin",
-            "UMG",
         });
     }
 }

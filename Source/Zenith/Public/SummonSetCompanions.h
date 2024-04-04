@@ -9,7 +9,7 @@ USTRUCT(BlueprintType)
 struct FSummonSetCompanions {
     GENERATED_BODY()
 public:
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<AZenithSpirit*, FCompanionData> Companions;
     
     ZENITH_API FSummonSetCompanions();

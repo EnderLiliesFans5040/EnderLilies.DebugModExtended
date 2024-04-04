@@ -8,10 +8,10 @@ USTRUCT(BlueprintType)
 struct FSpiritEquipSaveData {
     GENERATED_BODY()
 public:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESummonSet ActiveSet;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpiritEquipElementSaveData> Elements;
     
     ZENITH_API FSpiritEquipSaveData();

@@ -2,8 +2,8 @@
 #include "CoreMinimal.h"
 #include "StreamingVolumeState.generated.h"
 
-UENUM()
-enum class StreamingVolumeState {
+UENUM(BlueprintType)
+enum class StreamingVolumeState : uint8 {
     None,
     LoadingPrimary,
     LoadingSecondary,

@@ -1,35 +1,36 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
 #include "Subsystems/GameInstanceSubsystem.h"
+#include "Templates/SubclassOf.h"
 #include "DebugMenuSubsystem.generated.h"
 
-class UUserWidgetMenu;
 class APlayerController;
+class UUserWidgetMenu;
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API UDebugMenuSubsystem : public UGameInstanceSubsystem {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(Instanced)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UUserWidgetMenu* DebugMenuInstance;
     
 public:
     UDebugMenuSubsystem();
+
     UFUNCTION(BlueprintCallable)
     void ShowDebugMenu(TSubclassOf<UUserWidgetMenu> DebugMenuClass, APlayerController* PlayerController);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsDebugMenuShown() const;
     
     UFUNCTION(BlueprintCallable)
     void HideDebugMenu();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetTimeSinceLastClose() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanShowDebugMenu() const;
     
 };

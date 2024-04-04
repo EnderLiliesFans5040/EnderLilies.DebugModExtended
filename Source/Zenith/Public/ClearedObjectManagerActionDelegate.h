@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "ClearedObjectManagerActionDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FClearedObjectManagerAction);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FClearedObjectManagerAction);
 

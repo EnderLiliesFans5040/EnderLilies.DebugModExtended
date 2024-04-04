@@ -6,10 +6,10 @@ USTRUCT(BlueprintType)
 struct FRespawnPointSaveData {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName GameMapID;
     
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName PlayerStartTag;
     
     ZENITH_API FRespawnPointSaveData();

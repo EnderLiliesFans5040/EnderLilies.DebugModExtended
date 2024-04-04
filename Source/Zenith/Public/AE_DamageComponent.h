@@ -4,21 +4,22 @@
 #include "EDamageEffectType.h"
 #include "AE_DamageComponent.generated.h"
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UAE_DamageComponent : public UAbilityEffectDamageComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     EDamageEffectType DamageEffectType;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 AbsoluteDamage;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float TargetPercentageDamage;
     
 public:
-    UAE_DamageComponent();
+    UAE_DamageComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

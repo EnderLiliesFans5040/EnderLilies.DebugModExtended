@@ -5,36 +5,37 @@
 
 class UClearableComponent;
 
-UCLASS(Abstract)
+UCLASS(Abstract, Blueprintable)
 class ZENITH_API ATrigger : public AActor {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UClearableComponent* ClearableComponent;
     
 private:
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsRepeatable;
     
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MinDelayBetweenRepeat;
     
 public:
-    ATrigger();
+    ATrigger(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTriggerAlreadyCleared();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnClearedStatusChecked(bool bCleared);
     
 protected:
     UFUNCTION(BlueprintCallable)
     void MarkAsTriggered();
     
-    UFUNCTION(BlueprintNativeEvent, BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     bool CanTrigger() const;
     
 };

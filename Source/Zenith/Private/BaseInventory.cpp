@@ -1,6 +1,9 @@
 #include "BaseInventory.h"
 
-class UDataTable;
+UBaseInventory::UBaseInventory() {
+    this->ItemLimit = 5;
+    this->bAllowDuplicates = true;
+}
 
 void UBaseInventory::RemoveItemByRowName(const FName& ItemRowName) {
 }
@@ -55,8 +58,4 @@ bool UBaseInventory::AddItem(const FDataTableRowHandle& ItemData) {
     return false;
 }
 
-UBaseInventory::UBaseInventory() {
-    this->ItemLimit = 5;
-    this->bAllowDuplicates = true;
-}
 

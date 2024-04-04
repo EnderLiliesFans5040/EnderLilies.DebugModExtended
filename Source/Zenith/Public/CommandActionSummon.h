@@ -1,46 +1,47 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
-#include "CommandActionSummonSettingsInterface.h"
 #include "CommandActionGameplay.h"
 #include "CommandActionSettingsSummon.h"
-#include "CommandActionSummonInterface.h"
-#include "ECommandSummonLimitType.h"
-#include "CommandActionSummonSettingsCastLimitInterface.h"
-#include "ConditionedCommandList.h"
 #include "CommandActionSettingsSummonCastLimit.h"
+#include "CommandActionSummonInterface.h"
+#include "CommandActionSummonSettingsCastLimitInterface.h"
+#include "CommandActionSummonSettingsInterface.h"
+#include "ConditionedCommandList.h"
+#include "ECommandSummonLimitType.h"
 #include "SummonComponentBPEventDelegate.h"
+#include "Templates/SubclassOf.h"
 #include "CommandActionSummon.generated.h"
 
 class AZenithSpirit;
 
-UCLASS(Abstract)
+UCLASS(Abstract, Blueprintable)
 class ZENITH_API UCommandActionSummon : public UCommandActionGameplay, public ICommandActionSummonInterface, public ICommandActionSummonSettingsInterface, public ICommandActionSummonSettingsCastLimitInterface {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<AZenithSpirit> SpiritClass;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FConditionedCommandList SpiritCommandList;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAttachSpiritToSummoner;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCommandActionSettingsSummon SettingsSummon;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCommandActionSettingsSummonCastLimit SettingsSummonCastLimit;
     
 public:
     UCommandActionSummon();
+
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     AZenithSpirit* GetSpirit() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 public:
     UFUNCTION(BlueprintCallable)

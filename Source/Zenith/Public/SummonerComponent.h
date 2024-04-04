@@ -1,29 +1,30 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "SpiritData.h"
 #include "ESummonSet.h"
+#include "SpiritData.h"
 #include "SummonerComponent.generated.h"
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API USummonerComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    USummonerComponent();
+    USummonerComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnUnpossessed();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnUnequipSpirit(ESummonSet SummonSet, const FSpiritData& SpiritData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSwitchSummonSet(ESummonSet PrevSummonSet, ESummonSet NewSummonSet);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPossessed();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnEquipSpirit(ESummonSet SummonSet, const FSpiritData& SpiritData);
     
 };

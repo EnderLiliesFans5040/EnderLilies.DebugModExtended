@@ -1,9 +1,8 @@
 #include "EventAction.h"
 
-class AActor;
-class APlayerController;
-class UEventBlackBoard;
-class UEventPlayer;
+UEventAction::UEventAction() {
+    this->bFireAndForget = false;
+}
 
 void UEventAction::TickAction(float DeltaTime, APlayerController* ConsideringPlayer, AActor* Subject, AActor* Target, UEventBlackBoard* EventBlackBoard) {
 }
@@ -36,7 +35,4 @@ void UEventAction::EndAction(APlayerController* ConsideringPlayer, AActor* Subje
 void UEventAction::AbortAction(APlayerController* ConsideringPlayer, AActor* Subject, AActor* Target, UEventBlackBoard* EventBlackBoard) {
 }
 
-UEventAction::UEventAction() {
-    this->bFireAndForget = false;
-}
 

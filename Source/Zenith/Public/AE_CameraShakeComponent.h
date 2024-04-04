@@ -1,20 +1,21 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
 #include "AbilityEffectComponent.h"
+#include "Templates/SubclassOf.h"
 #include "AE_CameraShakeComponent.generated.h"
 
 class UCameraShakeBase;
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UAE_CameraShakeComponent : public UAbilityEffectComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UCameraShakeBase> Shake;
     
 public:
-    UAE_CameraShakeComponent();
+    UAE_CameraShakeComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

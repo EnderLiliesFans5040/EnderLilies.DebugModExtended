@@ -4,19 +4,20 @@
 #include "SlowMotionOutputPinDelegate.h"
 #include "SlowMotionAsyncAction.generated.h"
 
-class USlowMotionAsyncAction;
 class AZenithPlayerController;
+class USlowMotionAsyncAction;
 
-UCLASS()
+UCLASS(Blueprintable)
 class ZENITH_API USlowMotionAsyncAction : public UBlueprintAsyncActionBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSlowMotionOutputPin OnFinish;
     
     USlowMotionAsyncAction();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void Tick();
     
 public:

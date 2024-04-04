@@ -4,5 +4,5 @@
 
 class AEnemySpawnPoint;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FEnemySpawnPointEvent, AEnemySpawnPoint*, EnemySpawnPoint);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FEnemySpawnPointEvent, AEnemySpawnPoint*, EnemySpawnPoint);
 

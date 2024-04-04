@@ -1,68 +1,69 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "PassiveEquipEventDelegate.h"
 #include "Components/ActorComponent.h"
-#include "ItemPassiveData.h"
-#include "PassiveEquipRuntimeData.h"
 #include "EPassiveEquipResult.h"
+#include "ItemPassiveData.h"
+#include "PassiveEquipEventDelegate.h"
+#include "PassiveEquipRuntimeData.h"
 #include "PassiveEquipComponent.generated.h"
 
-UCLASS(BlueprintType, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UPassiveEquipComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPassiveEquipEvent OnPassiveEquipped;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPassiveEquipEvent OnPassiveUnequipped;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPassiveEquipEvent OnSlotCountChanged;
     
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MaxSlotCount;
     
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MaxPassiveEquipCount;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FPassiveEquipRuntimeData> EquippedPassives;
     
 public:
-    UPassiveEquipComponent();
+    UPassiveEquipComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     bool UnequipPassive(const FName& PassiveID);
     
     UFUNCTION(BlueprintCallable)
     int32 SetSlotCount(int32 NewSlotCount);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPassiveEquipped(const FName& PassiveID) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetUsedSlotCount() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetSlotCount() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetMaxSlotCount() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetMaxEquippablePassiveCount() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FPassiveEquipRuntimeData> GetEquippedPassives() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetAvailableSlotCount() const;
     
     UFUNCTION(BlueprintCallable)
     EPassiveEquipResult EquipPassive(const FName& PassiveID);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     EPassiveEquipResult CanEquipPassive(const FItemPassiveData& ItemPassiveData) const;
     
     UFUNCTION(BlueprintCallable)

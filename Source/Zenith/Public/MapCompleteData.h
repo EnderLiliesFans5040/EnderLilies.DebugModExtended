@@ -7,10 +7,10 @@ USTRUCT(BlueprintType)
 struct FMapCompleteData {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 ActorCountForMapCompletion;
     
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<EGameEndingType> ClearedEndings;
     
     ZENITH_API FMapCompleteData();

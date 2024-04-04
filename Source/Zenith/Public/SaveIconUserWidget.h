@@ -3,15 +3,16 @@
 #include "Blueprint/UserWidget.h"
 #include "SaveIconUserWidget.generated.h"
 
-UCLASS(Abstract, EditInlineNew)
+UCLASS(Abstract, Blueprintable, EditInlineNew)
 class ZENITH_API USaveIconUserWidget : public UUserWidget {
     GENERATED_BODY()
 public:
     USaveIconUserWidget();
-    UFUNCTION(BlueprintImplementableEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void Show();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void HideAndRemoveFromViewport();
     
 };

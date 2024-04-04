@@ -1,37 +1,38 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ESpineBone.h"
 #include "BaseBoneComponent.h"
+#include "ESpineBone.h"
 #include "SpineBoneComponent.generated.h"
 
 class UNavMovementComponent;
 class USceneComponent;
 class USpineSkeletonAnimationComponent;
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class SPINEEXTENSIONPLUGIN_API USpineBoneComponent : public UBaseBoneComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(Instanced)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     TMap<ESpineBone, USceneComponent*> BoneFollowers;
     
-    UPROPERTY(Instanced)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     TMap<ESpineBone, USceneComponent*> RotatedBoneFollowers;
     
-    UPROPERTY(Instanced)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USpineSkeletonAnimationComponent* SpineAnimComponent;
     
-    UPROPERTY(Instanced)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UNavMovementComponent* NavMovementComponent;
     
-    UPROPERTY(Instanced)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USceneComponent* SceneFeetComponent;
     
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<ESpineBone, FString> BoneNames;
     
-    USpineBoneComponent();
+    USpineBoneComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

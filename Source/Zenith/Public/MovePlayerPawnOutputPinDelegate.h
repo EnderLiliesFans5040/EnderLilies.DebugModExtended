@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "MovePlayerPawnOutputPinDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FMovePlayerPawnOutputPin);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FMovePlayerPawnOutputPin);
 

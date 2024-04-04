@@ -3,13 +3,14 @@
 #include "State.h"
 #include "StateLockInput.generated.h"
 
-UCLASS(BlueprintType)
+UCLASS(Blueprintable)
 class ZENITH_API UStateLockInput : public UState {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 Inputs;
     
     UStateLockInput();
+
 };
 

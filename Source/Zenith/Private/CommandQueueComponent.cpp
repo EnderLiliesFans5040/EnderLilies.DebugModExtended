@@ -1,9 +1,11 @@
 #include "CommandQueueComponent.h"
 #include "Templates/SubclassOf.h"
 
-class UCommandAction;
-class UCommand;
-class UCommandSet;
+UCommandQueueComponent::UCommandQueueComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Pawn = NULL;
+    this->StateComponent = NULL;
+    this->MovementComponent = NULL;
+}
 
 void UCommandQueueComponent::UpdateCommands(float DeltaTime) {
 }
@@ -101,9 +103,4 @@ int32 UCommandQueueComponent::AddNewCommand(const EDirectionInputTypes Direction
 void UCommandQueueComponent::AddMaxExecutionPercentageBonus(float MaxExecutionPercentageBonusToAdd) {
 }
 
-UCommandQueueComponent::UCommandQueueComponent() {
-    this->Pawn = NULL;
-    this->StateComponent = NULL;
-    this->MovementComponent = NULL;
-}
 

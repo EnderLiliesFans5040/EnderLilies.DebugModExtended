@@ -1,54 +1,55 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "EventActionEventDelegate.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
+#include "EventActionEventDelegate.h"
 #include "EventNode.h"
 #include "ExecuteEventActionAsync.generated.h"
 
-class UEventBlackBoard;
-class UEventAction;
-class UEventPlayer;
 class AActor;
 class APlayerController;
+class UEventAction;
+class UEventBlackBoard;
+class UEventPlayer;
 class UExecuteEventActionAsync;
 class UObject;
 
-UCLASS()
+UCLASS(Blueprintable)
 class EVENTPLUGIN_API UExecuteEventActionAsync : public UBlueprintAsyncActionBase {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UEventAction* EventAction;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UEventPlayer* EventPlayer;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APlayerController* InteractingPlayer;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     AActor* Subject;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     AActor* Target;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UEventBlackBoard* EventBlackBoard;
     
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FEventActionEvent OnStart;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FEventActionEvent OnFinish;
     
     UExecuteEventActionAsync();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void Update();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void Finish();
     
 public:

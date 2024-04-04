@@ -12,6 +12,7 @@ class EVENTPLUGIN_API UEventTrigger : public UEventObject {
     GENERATED_BODY()
 public:
     UEventTrigger();
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ExecuteTrigger(APlayerController* ConsideringPlayer, AActor* Subject, AActor* Target, UEventBlackBoard* EventBlackBoard);
     

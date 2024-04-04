@@ -2,8 +2,8 @@
 #include "CoreMinimal.h"
 #include "ESpineKnockbackType.generated.h"
 
-UENUM()
-enum class ESpineKnockbackType {
+UENUM(BlueprintType)
+enum class ESpineKnockbackType : uint8 {
     NONE,
     UP,
     APEX,

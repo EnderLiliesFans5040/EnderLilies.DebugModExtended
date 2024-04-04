@@ -5,3 +5,4 @@ USpineAnimInstance::USpineAnimInstance() {
     this->SourceSequence = NULL;
 }
 
+

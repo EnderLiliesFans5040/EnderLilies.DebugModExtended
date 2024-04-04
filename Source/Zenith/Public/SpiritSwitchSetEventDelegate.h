@@ -3,5 +3,5 @@
 #include "ESummonSet.h"
 #include "SpiritSwitchSetEventDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSpiritSwitchSetEvent, ESummonSet, PrevSummonSet, ESummonSet, NewSummonSet);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSpiritSwitchSetEvent, ESummonSet, PrevSummonSet, ESummonSet, NewSummonSet);
 

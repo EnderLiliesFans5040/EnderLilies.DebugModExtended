@@ -1,38 +1,39 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
 #include "Components/ActorComponent.h"
-#include "SpiritEquipEventDelegate.h"
+#include "ECommandInputTypes.h"
 #include "ESummonSet.h"
+#include "SpiritEquipEventDelegate.h"
 #include "SpiritSwitchSetEventDelegate.h"
 #include "SummonSetData.h"
-#include "ECommandInputTypes.h"
+#include "Templates/SubclassOf.h"
 #include "SpiritEquipComponent.generated.h"
 
 class AZenithSpirit;
 
-UCLASS(BlueprintType, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API USpiritEquipComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpiritEquipEvent OnEquipSpiritDelegate;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpiritEquipEvent OnUnequipSpiritDelegate;
     
-    UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpiritSwitchSetEvent OnSwitchSummonSetDelegate;
     
 private:
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<TSubclassOf<AZenithSpirit>, AZenithSpirit*> SpiritForSpiritClasses;
     
-    UPROPERTY(Transient)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<ESummonSet, FSummonSetData> SummonSets;
     
 public:
-    USpiritEquipComponent();
+    USpiritEquipComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void UnequipSpiritFromCurrentSet(ECommandInputTypes CommandInputType);
     
@@ -55,23 +56,23 @@ public:
     void ReequipSpirits();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSpiritLevelChanged(const FName& SpiritID, int32 NewSpiritLevel);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnGameMapSwitch();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSpiritEquipped(ESummonSet SummonSet, FName SpiritID);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FSummonSetData GetSummonSetDataAsReadOnly(ESummonSet SummonSet) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESummonSet GetCurrentSummonSet() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TMap<ESummonSet, FSummonSetData> GetAllSummonSets() const;
     
     UFUNCTION(BlueprintCallable)
@@ -83,7 +84,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void EquipSpirit(ESummonSet SummonSet, FName SpiritID, ECommandInputTypes CommandInputType);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanChangeEquipment() const;
     
 };

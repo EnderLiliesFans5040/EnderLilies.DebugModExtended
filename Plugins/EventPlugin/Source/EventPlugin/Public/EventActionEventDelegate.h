@@ -4,5 +4,5 @@
 
 class UExecuteEventActionAsync;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FEventActionEvent, UExecuteEventActionAsync*, EventActionAsync);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FEventActionEvent, UExecuteEventActionAsync*, EventActionAsync);
 

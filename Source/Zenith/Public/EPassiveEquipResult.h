@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "EPassiveEquipResult.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EPassiveEquipResult : uint8 {
     Success,
     InsufficientFreeSlotCount,

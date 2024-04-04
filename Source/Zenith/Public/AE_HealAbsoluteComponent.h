@@ -3,15 +3,16 @@
 #include "AbilityEffectComponent.h"
 #include "AE_HealAbsoluteComponent.generated.h"
 
-UCLASS(ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZENITH_API UAE_HealAbsoluteComponent : public UAbilityEffectComponent {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 Heal;
     
 public:
-    UAE_HealAbsoluteComponent();
+    UAE_HealAbsoluteComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

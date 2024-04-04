@@ -1,7 +1,13 @@
 #include "ZenithAIController.h"
 #include "ParameterEnemyComponent.h"
+#include "ZenithPathFollowingComponent.h"
 
-class AZenithCharacter;
+AZenithAIController::AZenithAIController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<UZenithPathFollowingComponent>(TEXT("PathFollowingComponent"))) {
+    this->ParameterEnemyComponent = CreateDefaultSubobject<UParameterEnemyComponent>(TEXT("ParameterEnemyComponent"));
+    this->bAutoActivate = true;
+    this->Faction = EFaction::None;
+    this->BehaviourTree_NGPlus = NULL;
+}
 
 void AZenithAIController::OnPawnDeathEvent() {
 }
@@ -24,10 +30,4 @@ AZenithCharacter* AZenithAIController::GetControlledCharacter() const {
 void AZenithAIController::Activate() {
 }
 
-AZenithAIController::AZenithAIController() {
-    this->ParameterEnemyComponent = CreateDefaultSubobject<UParameterEnemyComponent>(TEXT("ParameterEnemyComponent"));
-    this->bAutoActivate = true;
-    this->Faction = EFaction::None;
-    this->BehaviourTree_NGPlus = NULL;
-}
 

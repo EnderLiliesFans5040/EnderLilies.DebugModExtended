@@ -5,15 +5,16 @@
 
 class USpotLightComponent;
 
-UCLASS(Abstract)
+UCLASS(Abstract, Blueprintable)
 class ZENITH_API AEmulatedSpotLight : public AEmulatedLight {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USpotLightComponent* SpotLightComponent;
     
 public:
-    AEmulatedSpotLight();
+    AEmulatedSpotLight(const FObjectInitializer& ObjectInitializer);
+
 };
 

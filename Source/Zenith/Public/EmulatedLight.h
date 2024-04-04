@@ -3,10 +3,11 @@
 #include "Engine/Light.h"
 #include "EmulatedLight.generated.h"
 
-UCLASS(Abstract)
+UCLASS(Abstract, Blueprintable)
 class ZENITH_API AEmulatedLight : public ALight {
     GENERATED_BODY()
 public:
-    AEmulatedLight();
+    AEmulatedLight(const FObjectInitializer& ObjectInitializer);
+
 };
 

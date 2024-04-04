@@ -8,7 +8,7 @@ USTRUCT(BlueprintType)
 struct FObjectArray {
     GENERATED_BODY()
 public:
-    UPROPERTY()
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<UObject*> Entries;
     
     ZENITH_API FObjectArray();

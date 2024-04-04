@@ -1,3 +1,3 @@
 #include "Modules/ModuleManager.h"
 
-IMPLEMENT_MODULE(FDefaultGameModuleImpl, ActorLayerToolsPlugin);
+IMPLEMENT_GAME_MODULE(FDefaultGameModuleImpl, ActorLayerToolsPlugin);

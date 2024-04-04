@@ -3,24 +3,24 @@
 #include "RecollectionItemData.h"
 #include "RecollectionMovieData.generated.h"
 
+class UDataTable;
 class UMediaSource;
 class UPaperSprite;
-class UDataTable;
 
 USTRUCT(BlueprintType)
 struct FRecollectionMovieData : public FRecollectionItemData {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText MovieName;
     
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UPaperSprite> Sprite;
     
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UMediaSource* MediaSource;
     
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* Subtitles;
     
     ZENITH_API FRecollectionMovieData();

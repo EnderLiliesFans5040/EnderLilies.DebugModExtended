@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "EBoxSide.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EBoxSide : uint8 {
     None,
     Top,

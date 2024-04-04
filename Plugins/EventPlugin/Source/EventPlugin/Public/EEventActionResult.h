@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "EEventActionResult.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class EEventActionResult : uint8 {
     NONE,
     IN_PROGRESS,

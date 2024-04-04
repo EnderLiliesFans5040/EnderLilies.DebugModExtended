@@ -5,5 +5,5 @@
 class AAbility;
 class AActor;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FZenithAbilityEvent, AAbility*, Ability, AActor*, Invoker);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FZenithAbilityEvent, AAbility*, Ability, AActor*, Invoker);
 

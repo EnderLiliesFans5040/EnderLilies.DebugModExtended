@@ -1,8 +1,13 @@
 #include "WorldLoaderSubsystem.h"
 #include "Templates/SubclassOf.h"
 
-class UFadeUserWidget;
-class UWorld;
+UWorldLoaderSubsystem::UWorldLoaderSubsystem() {
+    this->bLoadLevelAsync = false;
+    this->bProcessingLoad = false;
+    this->bWaitingFade = false;
+    this->bRequestPersistentGameMapLoad = false;
+    this->SaveFadeClass = NULL;
+}
 
 void UWorldLoaderSubsystem::UnpossessAllPlayers() const {
 }
@@ -75,11 +80,4 @@ FGameMapData UWorldLoaderSubsystem::GetCurrentGameMapData() const {
     return FGameMapData{};
 }
 
-UWorldLoaderSubsystem::UWorldLoaderSubsystem() {
-    this->bLoadLevelAsync = false;
-    this->bProcessingLoad = false;
-    this->bWaitingFade = false;
-    this->bRequestPersistentGameMapLoad = false;
-    this->SaveFadeClass = NULL;
-}
 

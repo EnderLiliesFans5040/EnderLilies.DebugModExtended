@@ -17,6 +17,6 @@ enum class ECommandInputTypes : uint8 {
     MAINMENU,
     PAUSE,
     MINIMAP,
-    ANY = 0x64,
+    ANY = 100,
 };
 

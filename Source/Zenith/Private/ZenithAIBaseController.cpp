@@ -1,5 +1,10 @@
 #include "ZenithAIBaseController.h"
 
+AZenithAIBaseController::AZenithAIBaseController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->BehaviourTree = NULL;
+    this->BlackboardAsset = NULL;
+}
+
 void AZenithAIBaseController::StopAllLogic() {
 }
 
@@ -12,8 +17,4 @@ void AZenithAIBaseController::RestartLogic() {
 void AZenithAIBaseController::PauseLogic() {
 }
 
-AZenithAIBaseController::AZenithAIBaseController() {
-    this->BehaviourTree = NULL;
-    this->BlackboardAsset = NULL;
-}
 
