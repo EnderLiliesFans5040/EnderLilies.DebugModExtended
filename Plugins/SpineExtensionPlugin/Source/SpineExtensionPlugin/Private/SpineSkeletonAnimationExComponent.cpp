@@ -1,6 +1,6 @@
 #include "SpineSkeletonAnimationExComponent.h"
 
-USpineSkeletonAnimationExComponent::USpineSkeletonAnimationExComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+USpineSkeletonAnimationExComponent::USpineSkeletonAnimationExComponent(const FObjectInitializer& ObjectInitializer) : Super(/*ObjectInitializer*/) {
     this->NotifyData = NULL;
 }
 

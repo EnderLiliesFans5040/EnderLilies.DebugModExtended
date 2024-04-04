@@ -1,90 +1,104 @@
+/******************************************************************************
+ * Spine Runtimes License Agreement
+ * Last updated January 1, 2020. Replaces all prior versions.
+ *
+ * Copyright (c) 2013-2020, Esoteric Software LLC
+ *
+ * Integration of the Spine Runtimes into software or otherwise creating
+ * derivative works of the Spine Runtimes is permitted under the terms and
+ * conditions of Section 2 of the Spine Editor License Agreement:
+ * http://esotericsoftware.com/spine-editor-license
+ *
+ * Otherwise, it is permitted to integrate the Spine Runtimes into software
+ * or otherwise create derivative works of the Spine Runtimes (collectively,
+ * "Products"), provided that each user of the Products must obtain their own
+ * Spine Editor license and redistribution of the Products in any form must
+ * include this license and copyright notice.
+ *
+ * THE SPINE RUNTIMES ARE PROVIDED BY ESOTERIC SOFTWARE LLC "AS IS" AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL ESOTERIC SOFTWARE LLC BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES,
+ * BUSINESS INTERRUPTION, OR LOSS OF USE, DATA, OR PROFITS) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ * THE SPINE RUNTIMES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *****************************************************************************/
+
 #pragma once
-#include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
-#include "ProceduralRenderMeshComponent.h"
-#include "SpineRendererDelegateDelegate.h"
+
+#include "Components/ActorComponent.h"
+#include "ProceduralMeshComponent.h"
+#include "SpineSkeletonAnimationComponent.h"
 #include "SpineSkeletonRendererComponent.generated.h"
 
-class UMaterialInstanceDynamic;
-class UMaterialInterface;
-class UTexture;
 
-UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
-class SPINEPLUGIN_API USpineSkeletonRendererComponent : public UProceduralRenderMeshComponent {
-    GENERATED_BODY()
-public:
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineRendererDelegate OnMaterialsUpdated;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UMaterialInterface* NormalBlendMaterial;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UMaterialInterface* AdditiveBlendMaterial;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UMaterialInterface* MultiplyBlendMaterial;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UMaterialInterface* ScreenBlendMaterial;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<UMaterialInstanceDynamic*> atlasNormalBlendMaterials;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<UMaterialInstanceDynamic*> atlasAdditiveBlendMaterials;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<UMaterialInstanceDynamic*> atlasMultiplyBlendMaterials;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<UMaterialInstanceDynamic*> atlasScreenBlendMaterials;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float DepthOffset;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FName TextureParameterName;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FName TextureEmissiveParameterName;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FLinearColor Color;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FLinearColor ScreenColorFactor;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bCreateCollision;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bRenderWhenOffScreen;
-    
-private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FName, float> MaterialParamScalars;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FName, FLinearColor> MaterialParamVectors;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FName, UTexture*> MaterialParamTextures;
-    
-public:
-    USpineSkeletonRendererComponent(const FObjectInitializer& ObjectInitializer);
+UCLASS(ClassGroup=(Spine), meta=(BlueprintSpawnableComponent))
+class SPINEPLUGIN_API USpineSkeletonRendererComponent: public UProceduralMeshComponent {
+	GENERATED_BODY()
 
-    UFUNCTION(BlueprintCallable)
-    void SetVectorParameterValue(FName ParameterName, FLinearColor Value);
-    
-    UFUNCTION(BlueprintCallable)
-    void SetTextureParameterValue(FName ParameterName, UTexture* Value);
-    
-    UFUNCTION(BlueprintCallable)
-    void SetScalarParameterValue(FName ParameterName, float Value);
-    
-    UFUNCTION(BlueprintCallable)
-    void ForceTick(float DeltaTime);
-    
+public: 
+	USpineSkeletonRendererComponent (const FObjectInitializer& ObjectInitializer);
+	
+	virtual void BeginPlay () override;
+		
+	virtual void TickComponent (float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+	/* Updates this skeleton renderer using the provided skeleton animation component. */
+	void UpdateRenderer(USpineSkeletonComponent* Skeleton);
+
+	// Material Instance parents
+	UPROPERTY(Category = Spine, EditAnywhere, BlueprintReadWrite)
+	UMaterialInterface* NormalBlendMaterial;
+	
+	UPROPERTY(Category = Spine, EditAnywhere, BlueprintReadWrite)
+	UMaterialInterface* AdditiveBlendMaterial;
+	
+	UPROPERTY(Category = Spine, EditAnywhere, BlueprintReadWrite)
+	UMaterialInterface* MultiplyBlendMaterial;
+	
+	UPROPERTY(Category = Spine, EditAnywhere, BlueprintReadWrite)
+	UMaterialInterface* ScreenBlendMaterial;
+
+	// Need to hold on to the dynamic instances, or the GC will kill us while updating them
+	UPROPERTY(Category = Spine, EditAnywhere, BlueprintReadWrite)
+	TArray<UMaterialInstanceDynamic*> atlasNormalBlendMaterials;
+	TMap<spine::AtlasPage*, UMaterialInstanceDynamic*> pageToNormalBlendMaterial;
+	
+	UPROPERTY(Category = Spine, EditAnywhere, BlueprintReadWrite)
+	TArray<UMaterialInstanceDynamic*> atlasAdditiveBlendMaterials;
+	TMap<spine::AtlasPage*, UMaterialInstanceDynamic*> pageToAdditiveBlendMaterial;
+	
+	UPROPERTY(Category = Spine, EditAnywhere, BlueprintReadWrite)
+	TArray<UMaterialInstanceDynamic*> atlasMultiplyBlendMaterials;
+	TMap<spine::AtlasPage*, UMaterialInstanceDynamic*> pageToMultiplyBlendMaterial;
+	
+	UPROPERTY(Category = Spine, EditAnywhere, BlueprintReadWrite)
+	TArray<UMaterialInstanceDynamic*> atlasScreenBlendMaterials;
+	TMap<spine::AtlasPage*, UMaterialInstanceDynamic*> pageToScreenBlendMaterial;
+	
+	UPROPERTY(Category = Spine, EditAnywhere, BlueprintReadWrite)
+	float DepthOffset = 0.1f;
+	
+	UPROPERTY(Category = Spine, EditAnywhere, BlueprintReadWrite)
+	FName TextureParameterName;
+
+	UPROPERTY(Category = Spine, EditAnywhere, BlueprintReadWrite)
+	FLinearColor Color = FLinearColor(1, 1, 1, 1);
+
+	/** Whether to generate collision geometry for the skeleton, or not. */
+	UPROPERTY(Category = Spine, EditAnywhere, BlueprintReadWrite)
+	bool bCreateCollision;
+
+	virtual void FinishDestroy() override;
+	
+protected:
+	void UpdateMesh (spine::Skeleton* Skeleton);
+
+	void Flush (int &Idx, TArray<FVector> &Vertices, TArray<int32> &Indices, TArray<FVector> &Normals, TArray<FVector2D> &Uvs, TArray<FColor> &Colors, TArray<FVector> &Colors2, UMaterialInstanceDynamic* Material);
+	
+	spine::Vector<float> worldVertices;
+	spine::SkeletonClipping clipper;
 };
-

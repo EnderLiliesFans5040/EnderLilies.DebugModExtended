@@ -1,31 +1,34 @@
 {
-	"FileVersion": 3,
-	"Version": 1,
-	"VersionName": "1.0",
-	"FriendlyName": "Spine Plugin",
-	"Description": "A plugin to load and render Spine animations in Unreal Engine",
-	"Category": "2D",
-	"CreatedBy": "Esoteric Software",
-	"CreatedByURL": "http://esotericsoftware.com",
-	"DocsURL": "",
-	"MarketplaceURL": "",
-	"SupportURL": "",
-	"EnabledByDefault": true,
-	"CanContainContent": true,
-	"IsBetaVersion": false,
-	"IsExperimentalVersion": false,
-	"Installed": false,
-	"Modules": [
-		{
-			"Name": "SpinePlugin",
-			"Type": "Runtime",
-			"LoadingPhase": "PreDefault"
-		}
-	],
-	"Plugins": [
-		{
-			"Name": "ProceduralRenderMeshPlugin",
-			"Enabled": true
-		}
-	]
+	"FileVersion" : 3,
+	"Version" : 1,
+	"VersionName" : "1.0",
+	"FriendlyName" : "Spine Plugin",
+	"Description" : "A plugin to load and render Spine animations in Unreal Engine",
+	"Category" : "2D",
+	"CreatedBy" : "Esoteric Software",
+	"CreatedByURL" : "http://esotericsoftware.com",
+	"DocsURL" : "",
+	"MarketplaceURL" : "",
+	"SupportURL" : "",
+	"EnabledByDefault" : true,
+	"CanContainContent" : true,
+	"IsBetaVersion" : false,
+	"Installed" : false,
+  "Modules": [
+    {
+      "Name": "SpinePlugin",
+      "Type": "Runtime",
+      "LoadingPhase": "PreDefault"
+    },
+    {
+      "Name": "SpineEditorPlugin",
+      "Type": "Editor"
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "ProceduralMeshComponent",
+      "Enabled": true
+    }
+  ]
 }
