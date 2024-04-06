@@ -1,29 +1,26 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/Object.h"
-#include "SpineAtlasAsset.generated.h"
+#include "SpineEvent.generated.h"
 
-class UTexture2D;
-
-UCLASS(Blueprintable)
-class SPINEPLUGIN_API USpineAtlasAsset : public UObject {
+USTRUCT(BlueprintType)
+struct SPINEPLUGIN_API FSpineEvent {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<UTexture2D*> atlasPages;
+    FString Name;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<UTexture2D*> atlasEmissivePages;
-    
-protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FString rawData;
+    FString StringValue;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FName atlasFileName;
+    int32 IntValue;
     
-public:
-    USpineAtlasAsset();
-
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float FloatValue;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float Time;
+    
+    FSpineEvent();
 };
 

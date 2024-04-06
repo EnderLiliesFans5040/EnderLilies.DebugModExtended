@@ -2,7 +2,6 @@
 	"BuildId": "14830424",
 	"Modules": 
 	{
-		"SpineEditorPlugin": "UE4Editor-SpineEditorPlugin.dll",
 		"SpinePlugin": "UE4Editor-SpinePlugin.dll"
 	}
 }
