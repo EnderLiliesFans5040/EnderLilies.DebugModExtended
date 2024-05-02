@@ -96,6 +96,14 @@
 			"Type": "SymbolFile"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/SpineExtensionPlugin/Binaries/Win64/UE4Editor-SpineExtensionEditorPlugin.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/SpineExtensionPlugin/Binaries/Win64/UE4Editor-SpineExtensionEditorPlugin.pdb",
+			"Type": "SymbolFile"
+		},
+		{
 			"Path": "$(ProjectDir)/Plugins/SpinePlugin/Binaries/Win64/UE4Editor-SpinePlugin.dll",
 			"Type": "DynamicLibrary"
 		},
