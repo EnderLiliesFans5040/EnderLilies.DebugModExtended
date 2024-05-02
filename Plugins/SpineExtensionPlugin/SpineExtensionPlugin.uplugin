@@ -20,6 +20,11 @@
 			"Name": "SpineExtensionPlugin",
 			"Type": "Runtime",
 			"LoadingPhase": "PreDefault"
+		},
+		{
+			"Name": "SpineExtensionEditorPlugin",
+			"Type": "Editor",
+			"LoadingPhase": "PreDefault"
 		}
 	],
 	"Plugins": [
