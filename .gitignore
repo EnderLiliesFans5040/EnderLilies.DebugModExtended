@@ -24,7 +24,8 @@
 #*.lai
 #*.la
 #*.a
-#*.lib
+*.lib
+*.exp
 
 # Executables
 *.exe
