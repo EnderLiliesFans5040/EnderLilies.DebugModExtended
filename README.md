@@ -1,9 +1,9 @@
 **English** | [简体中文](README_CN.md)
 # EnderLilies.DebugModExtended
-Debug mod extended for ENDER LILIES: Quietus of the night
+Debug mod extended for ENDER LILIES: Quietus of the Knights
 
 [Upstream](https://github.com/Trexounay/EnderLilies.DebugMod) More features and bugs.
-## Instalation
+## Installation
  - Download the latest [release](https://github.com/EnderLiliesFans5040/EnderLilies.DebugModExtended/releases/latest) DebugMod zip
  - [Optional] Download ExtraMod zip
  - Extract the zip file in the "Paks" directory of Ender Lilies' installation folder:
@@ -14,11 +14,6 @@ Debug mod extended for ENDER LILIES: Quietus of the night
  - :warning:  Make sure to remove any mods before submitting a speedrun of the game
 
 ![](https://i.imgur.com/cVu3sxn.jpg)
-
-## Recent Updates
- - **LilySpeed** Control Lily Speed with a slider, can also edit the value 0.000~100.000
- - **BossSpeed** Control Boss Speed with a slider, can also edit the value 0.000~100.000
- - **GlobalSpeed** Control Game Speed with a slider, can also edit the value 0.000~100.000
 
 ## Features
  - **[F1]** Help
@@ -62,6 +57,10 @@ Debug mod extended for ENDER LILIES: Quietus of the night
  - **[ctrl]+[F9]** Change last enemy's faction to player
  - **[ctrl]+[F10]** Switch enemies' faction(random)
  - **[ctrl]+[F12]** Swap enemies' faction
+
+ - **LilySpeed** Control Lily Speed with a slider, can also edit the value 0.000~100.000
+ - **BossSpeed** Control Boss Speed with a slider, can also edit the value 0.000~100.000
+ - **GlobalSpeed** Control Game Speed with a slider, can also edit the value 0.000~100.000
 
 Additional relic and spirit in test (in ExtraMod).
 
